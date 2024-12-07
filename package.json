@@ -4,9 +4,7 @@
   "bin": {
     "next-forge": "./scripts/init.js"
   },
-  "files": [
-    "scripts/init.js"
-  ],
+  "files": ["scripts/init.js"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -25,6 +23,11 @@
     "turbo": "^2.3.3",
     "typescript": "^5.7.2",
     "ultracite": "^4.1.8"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   },
   "engines": {
     "node": ">=18"

@@ -8,6 +8,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "dev:marketing": "turbo run dev --filter=gfe-marketing",
     "lint": "turbo lint",
     "test": "turbo test",
     "analyze": "turbo analyze",

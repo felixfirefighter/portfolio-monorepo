@@ -10,7 +10,7 @@ type RootLayoutProperties = {
 
 const RootLayout = ({ children }: RootLayoutProperties) => (
   <html lang="en" className={fonts} suppressHydrationWarning>
-    <body>
+    <body className="bg-gray-50">
       <DesignSystemProvider enableSystem={false} defaultTheme="light">
         <Navbar />
         <main>{children}</main>

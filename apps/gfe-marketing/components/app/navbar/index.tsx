@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className="w-full border-b bg-white">
+    <nav className="w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo and company name */}
@@ -50,7 +50,7 @@ const Navbar = () => {
           {/* CTA Buttons */}
           <div className="hidden items-center space-x-4 md:flex">
             <Link href="/learn-more">
-              <Button variant="ghost">Learn more</Button>
+              <Button variant="outline">Learn more</Button>
             </Link>
             <Link href="/pricing">
               <Button className="bg-indigo-600 hover:bg-indigo-700">

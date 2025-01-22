@@ -7,12 +7,11 @@ const Navbar = () => {
     <nav className="w-full">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo and company name */}
           <Link href="/" className="flex items-center">
             <Image
               width={112}
               height={32}
-              src="/shell/abstractly.png"
+              src="/app/abstractly.png"
               alt="Abstractly"
             />
           </Link>
@@ -53,9 +52,7 @@ const Navbar = () => {
               <Button variant="outline">Learn more</Button>
             </Link>
             <Link href="/pricing">
-              <Button className="bg-indigo-600 hover:bg-indigo-700">
-                See pricing
-              </Button>
+              <Button>See pricing</Button>
             </Link>
           </div>
 

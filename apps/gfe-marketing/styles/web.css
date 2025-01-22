@@ -1,36 +1,25 @@
-.shiki {
-  background-color: var(--shiki-light-bg);
-  color: var(--shiki-light);
-  @apply border-border;
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
-.shiki span {
-  color: var(--shiki-light);
+@keyframes marquee2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
-.dark .shiki {
-  background-color: var(--shiki-dark-bg);
-  color: var(--shiki-dark);
+.animate-marquee {
+  animation: marquee 25s linear infinite;
 }
 
-.dark .shiki span {
-  color: var(--shiki-dark);
-}
-
-.shiki code {
-  display: grid;
-  font-size: 13px;
-  counter-reset: line;
-}
-
-.shiki .line:before {
-  content: counter(line);
-  counter-increment: line;
-
-  @apply inline-block w-4 mr-8 text-muted-foreground text-right;
-}
-
-.shiki[title]:before {
-  content: attr(title);
-  @apply inline-block text-muted-foreground text-right mb-6 text-sm;
+.animate-marquee2 {
+  animation: marquee2 25s linear infinite;
 }

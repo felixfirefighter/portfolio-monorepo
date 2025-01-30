@@ -4,12 +4,11 @@
   "bin": {
     "next-forge": "dist/index.js"
   },
-  "files": [
-    "dist/index.js"
-  ],
+  "files": ["dist/index.js"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "dev:gfe-marketing": "turbo run dev --filter=gfe-marketing",
     "lint": "ultracite lint",
     "format": "ultracite format",
     "test": "turbo test",
@@ -33,6 +32,11 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   },
   "packageManager": "pnpm@9.15.4",
   "dependencies": {

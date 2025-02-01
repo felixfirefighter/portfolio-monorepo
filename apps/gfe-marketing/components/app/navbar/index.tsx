@@ -9,8 +9,31 @@ import { useState } from 'react';
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const links = [
+    {
+      href: '#hero-section',
+      title: 'Home',
+    },
+    {
+      href: '#feature-section',
+      title: 'Features',
+    },
+    {
+      href: '#pricing-section',
+      title: 'Pricing',
+    },
+    {
+      href: '#about-us-section',
+      title: 'About Us',
+    },
+    {
+      href: '#contact-section',
+      title: 'Contact',
+    },
+  ];
+
   return (
-    <nav className="w-full border-b bg-white">
+    <nav className="w-full">
       <div className="container">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -66,6 +89,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <Button
+              variant={'ghost'}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="rounded-md p-2 focus:outline-none"
             >
@@ -78,49 +102,35 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="absolute top-16 left-0 w-full bg-white shadow-md md:hidden">
             <div className="flex flex-col space-y-4 p-4">
-              <Link
-                href="/"
-                className="text-gray-600 hover:text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                href="/features"
-                className="text-gray-600 hover:text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Features
-              </Link>
-              <Link
-                href="/pricing"
-                className="text-gray-600 hover:text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/about"
-                className="text-gray-600 hover:text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                About us
-              </Link>
-              <Link
-                href="/contact"
-                className="text-gray-600 hover:text-gray-900"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
+              {links.map((link) => {
+                return (
+                  <Link
+                    key={link.title}
+                    href={link.href}
+                    className="text-neutral-600 hover:text-neutral-900"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.title}
+                  </Link>
+                );
+              })}
               <div className="flex flex-col space-y-2">
-                <Link href="/learn-more">
-                  <Button variant="outline" className="w-full">
+                <Link href="#feature-section">
+                  <Button
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
                     Learn more
                   </Button>
                 </Link>
-                <Link href="/pricing">
-                  <Button className="w-full">See pricing</Button>
+                <Link href="#pricing-section">
+                  <Button
+                    className="w-full"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    See pricing
+                  </Button>
                 </Link>
               </div>
             </div>

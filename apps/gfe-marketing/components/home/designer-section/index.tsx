@@ -24,7 +24,7 @@ const DesignerSection = () => {
   ];
 
   return (
-    <section className="px-6 py-12 md:px-12 lg:px-24">
+    <section className="py-12 md:px-12 lg:px-24">
       <h2 className="mb-4 text-center font-semibold text-3xl text-neutral-900 md:text-4xl">
         For designers, by designers
       </h2>
@@ -32,7 +32,7 @@ const DesignerSection = () => {
         Unleash boundless creativity with a large repository of images optimized
         for designers
       </p>
-      <div className="container mx-auto lg:flex lg:flex-row-reverse flex-col items-center">
+      <div className="container mx-auto flex-col items-center lg:flex lg:flex-row-reverse">
         <div>
           <div className="h-64 w-full rounded-lg bg-gray-200 md:h-96">
             {/* Placeholder for the image */}

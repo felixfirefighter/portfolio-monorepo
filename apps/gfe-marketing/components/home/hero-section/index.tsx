@@ -1,10 +1,11 @@
 import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import { Button } from '@repo/design-system/components/ui/button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const HeroSection = () => {
   return (
-    <div className="container">
+    <section className="container" id="hero-section">
       <div className="flex flex-col items-center justify-between gap-8 py-16 md:flex-row">
         <div className="flex-1 space-y-6">
           <h1 className="font-semibold text-4xl md:text-5xl">
@@ -17,16 +18,20 @@ const HeroSection = () => {
           </p>
 
           <div className="flex gap-4">
-            <Button variant="outline" size="lg">
-              Learn more
-            </Button>
-            <Button size="lg" variant={'default'}>
-              See pricing
-            </Button>
+            <Link href="#feature-section">
+              <Button variant="outline" size="lg">
+                Learn more
+              </Button>
+            </Link>
+            <Link href="#pricing-section">
+              <Button size="lg" variant={'default'}>
+                See pricing
+              </Button>
+            </Link>
           </div>
         </div>
 
-        <div className="relative flex-1">
+        <div className="relative w-full flex-1">
           <AspectRatio ratio={4 / 3}>
             <Image
               src="/app/prism.png"
@@ -38,7 +43,7 @@ const HeroSection = () => {
           </AspectRatio>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

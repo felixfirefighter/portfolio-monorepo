@@ -48,7 +48,7 @@ const features = [
 
 const FeatureSection = () => {
   return (
-    <section className="py-12">
+    <section className="py-12" id="feature-section">
       <div className="mx-auto max-w-6xl px-6 text-center">
         <h3 className="mb-3 font-semibold text-primary">
           Premium abstract images
@@ -56,24 +56,24 @@ const FeatureSection = () => {
         <h2 className="mb-5 font-semibold text-3xl text-gray-800 md:text-4xl">
           Easy access to top quality images
         </h2>
-        <p className="mb-12 text-lg">
+        <p className="mb-5 text-lg text-neutral-600">
           In a world where storytelling constantly evolves, we lead with
           groundbreaking images designed for your presentation excellence.
         </p>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="flex flex-col items-center rounded-lg bg-white p-6 text-center"
+              className="flex flex-col items-center rounded-lg bg-white p-1 text-center"
             >
               <div className="rounded-full p-3 text-primary shadow">
                 {feature.icon}
               </div>
-              <h3 className="mt-4 mb-2 font-semibold text-gray-800 text-xl">
+              <h3 className="mt-4 mb-2 font-semibold text-neutral-900 text-xl">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 text-sm">{feature.description}</p>
+              <p className="text-neutral-600">{feature.description}</p>
             </div>
           ))}
         </div>

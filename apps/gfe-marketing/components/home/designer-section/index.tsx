@@ -1,3 +1,4 @@
+import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import { DropletIcon, ImageIcon, RainbowIcon } from 'lucide-react';
 import Image from 'next/image';
 
@@ -24,18 +25,40 @@ const DesignerSection = () => {
   ];
 
   return (
-    <section className="py-12 md:px-12 lg:px-24">
-      <h2 className="mb-4 text-center font-semibold text-3xl text-neutral-900 md:text-4xl">
-        For designers, by designers
-      </h2>
-      <p className="mb-6 text-center text-neutral-600 text-xl">
-        Unleash boundless creativity with a large repository of images optimized
-        for designers
-      </p>
-      <div className="container mx-auto flex-col items-center lg:flex lg:flex-row-reverse">
-        <div>
-          <div className="h-64 w-full rounded-lg bg-gray-200 md:h-96">
-            {/* Placeholder for the image */}
+    <section className="container py-12 ">
+      <div className="text-center">
+        <h3 className="mb-3 font-semibold text-primary">
+          Premium abstract images
+        </h3>
+        <h2 className="mb-4 text-center font-semibold text-3xl text-neutral-900 md:text-4xl">
+          For designers, by designers
+        </h2>
+        <p className="mb-6 text-center text-lg text-neutral-600">
+          Unleash boundless creativity with a large repository of images
+          optimized for designers
+        </p>
+      </div>
+
+      <div className="flex-col items-center lg:flex lg:flex-row">
+        {features.map((feature) => {
+          return (
+            <div key={feature.title} className="mb-8">
+              <div className="flex items-start gap-5">
+                <div className="flex-shrink-0 flex-grow-0 rounded-full p-3 text-primary shadow">
+                  {feature.icon}
+                </div>
+                <div className="py-2">
+                  <h4 className="mb-2 font-semibold text-lg">
+                    {feature.title}
+                  </h4>
+                  <div className="text-neutral-600">{feature.description}</div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+        <div className="w-full rounded-lg">
+          <AspectRatio ratio={2}>
             <Image
               src="/app/glass.jpg"
               alt="Designer-focused abstract art"
@@ -43,26 +66,7 @@ const DesignerSection = () => {
               width={500}
               height={400}
             />
-          </div>
-        </div>
-        <div className="mb-8">
-          {features.map((feature) => {
-            return (
-              <div key={feature.title} className="mb-10">
-                <div className="flex items-start">
-                  <div className="w-fit rounded-full p-3 text-primary shadow">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg">{feature.title}</h4>
-                    <div className="text-md text-neutral-600">
-                      {feature.description}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          </AspectRatio>
         </div>
       </div>
     </section>

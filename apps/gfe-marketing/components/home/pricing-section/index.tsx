@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@repo/design-system/components/ui/card';
+import { cn } from '@repo/design-system/lib/utils';
 import { CheckIcon } from 'lucide-react';
 import { useState } from 'react';
 import { SectionHeader } from '../section-header';
@@ -44,11 +45,12 @@ const pricingData = [
     monthlyPrice: 29.99,
     yearlyPrice: 299.99,
     features: [
-      'Access to all stock images, including high-quality assets',
+      'Full access to the entire image library, including exclusive content',
+      'Highest quality images, including premium collections',
       'Commercial and resale rights',
-      'Dedicated customer support',
-      'Priority support with live chat',
-      'Advanced analytics and reporting',
+      'Dedicated customer support line',
+      '24/7 support response time',
+      'Advanced analytics and insights',
     ],
   },
 ];
@@ -100,9 +102,13 @@ export const PricingSection = () => {
                 {plan.description}
               </CardDescription>
             </CardHeader>
-            <CardContent className="px-4 py-2">
-              <div className="flex items-end">
-                <p className="font-medium text-4xl">
+            <CardContent className="px-4 pt-2 pb-4">
+              <div
+                className={cn('flex items-end', {
+                  'text-primary': plan.popular,
+                })}
+              >
+                <p className={'font-medium text-4xl'}>
                   ${isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
                 </p>
                 <p className="text-md">/{isAnnual ? 'year' : 'month'}</p>
@@ -111,15 +117,21 @@ export const PricingSection = () => {
                 Billed {isAnnual ? 'yearly' : 'monthly'}
               </p>
 
-              <ul className="mt-4 space-y-2 text-gray-600">
+              <ul className="mt-4 space-y-4 text-gray-600">
                 {plan.features.map((feature, i) => (
-                  <li key={i} className="flex space-x-2">
-                    <CheckIcon className="h-6 w-6 rounded-full bg-primary/10 p-1 text-primary" />{' '}
+                  <li key={i} className="flex items-center space-x-2">
+                    <CheckIcon className="h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full bg-primary/10 p-1 text-primary" />{' '}
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
-              <Button className="mt-6 w-full">Buy Now</Button>
+              <Button
+                size="lg"
+                variant={plan.popular ? 'default' : 'outline'}
+                className="mt-6 w-full"
+              >
+                Buy Now
+              </Button>
             </CardContent>
           </Card>
         ))}

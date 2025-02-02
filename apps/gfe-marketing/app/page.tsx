@@ -1,3 +1,4 @@
+import { BestInClassSection } from '@/components/home/best-in-class-section';
 import CompanySection from '@/components/home/company-section';
 import DesignerSection from '@/components/home/designer-section';
 import FeatureSection from '@/components/home/feature-section';
@@ -10,6 +11,7 @@ export default function Home() {
       <CompanySection />
       <FeatureSection />
       <DesignerSection />
+      <BestInClassSection />
     </div>
   );
 }

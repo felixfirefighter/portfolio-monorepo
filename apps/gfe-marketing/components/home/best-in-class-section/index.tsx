@@ -3,30 +3,30 @@ import {} from '@repo/design-system/components/ui/card';
 import { CopyrightIcon, RocketIcon, UsersIcon } from 'lucide-react';
 import Image from 'next/image';
 
-export const BestInClassSection = () => {
-  const features = [
-    {
-      icon: <RocketIcon className="h-6 w-6" />,
-      title: 'Faster downloads',
-      description:
-        'Our robust servers are primed to deliver the highest resolution images swiftly, ensuring a smooth download experience.',
-    },
-    {
-      icon: <UsersIcon className="h-6 w-6" />,
-      title: 'Convenience for teams',
-      description:
-        'Your single account can accommodate multiple users simultaneously downloading without any disruptions, streamlining teamwork and productivity.',
-    },
-    {
-      icon: <CopyrightIcon className="h-6 w-6" />,
-      title: 'Royalty-free licensing',
-      description:
-        'Our straightforward, royalty-free licensing means your chosen images are yours to innovate with, without the hassle of negotiating usage rights for every new project.',
-    },
-  ];
+const features = [
+  {
+    icon: <RocketIcon className="h-6 w-6" />,
+    title: 'Faster downloads',
+    description:
+      'Our robust servers are primed to deliver the highest resolution images swiftly, ensuring a smooth download experience.',
+  },
+  {
+    icon: <UsersIcon className="h-6 w-6" />,
+    title: 'Convenience for teams',
+    description:
+      'Your single account can accommodate multiple users simultaneously downloading without any disruptions, streamlining teamwork and productivity.',
+  },
+  {
+    icon: <CopyrightIcon className="h-6 w-6" />,
+    title: 'Royalty-free licensing',
+    description:
+      'Our straightforward, royalty-free licensing means your chosen images are yours to innovate with, without the hassle of negotiating usage rights for every new project.',
+  },
+];
 
+export const BestInClassSection = () => {
   return (
-    <div className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
+    <section className="container py-12">
       <div className="text-center">
         <h3 className="mb-3 font-semibold text-primary">
           Best-in-class support
@@ -69,6 +69,6 @@ export const BestInClassSection = () => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };

@@ -3,6 +3,7 @@ import CompanySection from '@/components/home/company-section';
 import DesignerSection from '@/components/home/designer-section';
 import FeatureSection from '@/components/home/feature-section';
 import HomeSection from '@/components/home/hero-section';
+import { PricingSection } from '@/components/home/pricing-section';
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <FeatureSection />
       <DesignerSection />
       <BestInClassSection />
+      <PricingSection />
     </div>
   );
 }

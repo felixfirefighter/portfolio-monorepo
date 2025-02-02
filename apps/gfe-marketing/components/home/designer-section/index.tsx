@@ -1,44 +1,38 @@
 import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import { DropletIcon, ImageIcon, RainbowIcon } from 'lucide-react';
 import Image from 'next/image';
+import { SectionHeader } from '../section-header';
+
+const features = [
+  {
+    icon: <ImageIcon className="h-6 w-6" />,
+    title: '5K resolution support',
+    description:
+      'All images boast a minimum resolution of 5K, ensuring crisp, crystal-clear quality.',
+  },
+  {
+    icon: <DropletIcon className="h-6 w-6" />,
+    title: 'From water to glass',
+    description:
+      'We offer a wide array of abstractions, ranging from water to glass, and encompassing various styles including 3D and vector.',
+  },
+  {
+    icon: <RainbowIcon className="h-6 w-6" />,
+    title: 'Portrait or landscape',
+    description:
+      "Effortlessly adapt your images for any platform - whether it's a stunning wallpaper or captivating Instagram reels and stories.",
+  },
+];
 
 const DesignerSection = () => {
-  const features = [
-    {
-      icon: <ImageIcon className="h-6 w-6" />,
-      title: '5K resolution support',
-      description:
-        'All images boast a minimum resolution of 5K, ensuring crisp, crystal-clear quality.',
-    },
-    {
-      icon: <DropletIcon className="h-6 w-6" />,
-      title: 'From water to glass',
-      description:
-        'We offer a wide array of abstractions, ranging from water to glass, and encompassing various styles including 3D and vector.',
-    },
-    {
-      icon: <RainbowIcon className="h-6 w-6" />,
-      title: 'Portrait or landscape',
-      description:
-        "Effortlessly adapt your images for any platform - whether it's a stunning wallpaper or captivating Instagram reels and stories.",
-    },
-  ];
-
   return (
-    <section className="container py-12 ">
-      <div className="text-center">
-        <h3 className="mb-3 font-semibold text-primary">
-          Premium abstract images
-        </h3>
-        <h2 className="mb-4 text-center font-semibold text-3xl text-neutral-900 md:text-4xl">
-          For designers, by designers
-        </h2>
-        <p className="mb-6 text-center text-lg text-neutral-600">
-          Unleash boundless creativity with a large repository of images
-          optimized for designers
-        </p>
-      </div>
-
+    <section className="container py-12">
+      <SectionHeader
+        header="Premium abstract images"
+        title="For designers, by designers"
+        description="Unleash boundless creativity with a large repository of images
+          optimized for designers"
+      />
       <div className="flex-col items-center lg:flex lg:flex-row">
         {features.map((feature) => {
           return (

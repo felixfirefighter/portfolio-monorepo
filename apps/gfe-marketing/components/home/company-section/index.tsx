@@ -2,16 +2,16 @@ import type { Company } from '@/types/home/company';
 import { Marquee } from '@repo/design-system/components/ui/marquee';
 import Image from 'next/image';
 
-const CompanySection = () => {
-  const companies: Company[] = [
-    { name: 'Wan Nain', logo: '/logo/logo-1.png' },
-    { name: 'Robinwood', logo: '/logo/logo-2.png' },
-    { name: 'Swapdo', logo: '/logo/logo-3.png' },
-    { name: 'Diamond', logo: '/logo/logo-4.png' },
-    { name: 'Air Car', logo: '/logo/logo-5.png' },
-    { name: 'Makro Hard', logo: '/logo/logo-6.png' },
-  ];
+const companies: Company[] = [
+  { name: 'Wan Nain', logo: '/logo/logo-1.png' },
+  { name: 'Robinwood', logo: '/logo/logo-2.png' },
+  { name: 'Swapdo', logo: '/logo/logo-3.png' },
+  { name: 'Diamond', logo: '/logo/logo-4.png' },
+  { name: 'Air Car', logo: '/logo/logo-5.png' },
+  { name: 'Makro Hard', logo: '/logo/logo-6.png' },
+];
 
+const CompanySection = () => {
   return (
     <div className="py-10 md:py-20">
       <p className="mb-6 text-center font-medium text-neutral-600">

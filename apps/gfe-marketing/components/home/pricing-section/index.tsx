@@ -89,11 +89,11 @@ export const PricingSection = () => {
         {pricingData.map((plan) => (
           <Card
             key={plan.name}
-            className={`${plan.popular ? 'border-2 border-blue-500 shadow-lg' : ''}`}
+            className={`${plan.popular ? 'border-primary' : ''}`}
           >
             {plan.popular && (
-              <div className="-translate-x-1/2 absolute top-0 left-1/2 rounded-b-lg bg-blue-500 px-4 py-1 font-bold text-white text-xs">
-                Most Popular
+              <div className="rounded-t-md bg-primary/20 px-4 py-4 text-center font-bold text-primary text-xl">
+                <p className="opacity-100">Most Popular</p>
               </div>
             )}
             <CardHeader className="p-4">
@@ -113,9 +113,7 @@ export const PricingSection = () => {
                 </p>
                 <p className="text-md">/{isAnnual ? 'year' : 'month'}</p>
               </div>
-              <p className="text-neutral-600">
-                Billed {isAnnual ? 'yearly' : 'monthly'}
-              </p>
+              <p className="text-neutral-600">Prices in USD</p>
 
               <ul className="mt-4 space-y-4 text-gray-600">
                 {plan.features.map((feature, i) => (

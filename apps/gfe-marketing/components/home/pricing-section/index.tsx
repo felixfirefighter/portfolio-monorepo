@@ -1,5 +1,6 @@
 'use client';
 
+import { RiCheckLine } from '@remixicon/react';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
   Card,
@@ -9,7 +10,6 @@ import {
   CardTitle,
 } from '@repo/design-system/components/ui/card';
 import { cn } from '@repo/design-system/lib/utils';
-import { CheckIcon } from 'lucide-react';
 import { useState } from 'react';
 import { SectionHeader } from '../section-header';
 
@@ -59,7 +59,7 @@ export const PricingSection = () => {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section className="container py-12">
+    <section className="container py-10">
       <SectionHeader
         header="Pricing Tiers"
         title="Fit for all your needs"
@@ -118,7 +118,7 @@ export const PricingSection = () => {
               <ul className="mt-4 space-y-4 text-gray-600">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-center space-x-2">
-                    <CheckIcon className="h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full bg-primary/10 p-1 text-primary" />{' '}
+                    <RiCheckLine className="h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full bg-primary/10 p-1 text-primary" />{' '}
                     <span>{feature}</span>
                   </li>
                 ))}

@@ -1,23 +1,23 @@
+import { RiHdLine, RiRainbowLine, RiWaterPercentLine } from '@remixicon/react';
 import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
-import { DropletIcon, ImageIcon, RainbowIcon } from 'lucide-react';
 import Image from 'next/image';
 import { SectionHeader } from '../section-header';
 
 const features = [
   {
-    icon: <ImageIcon className="h-6 w-6" />,
+    icon: <RiHdLine className="h-6 w-6" />,
     title: '5K resolution support',
     description:
       'All images boast a minimum resolution of 5K, ensuring crisp, crystal-clear quality.',
   },
   {
-    icon: <DropletIcon className="h-6 w-6" />,
+    icon: <RiWaterPercentLine className="h-6 w-6" />,
     title: 'From water to glass',
     description:
       'We offer a wide array of abstractions, ranging from water to glass, and encompassing various styles including 3D and vector.',
   },
   {
-    icon: <RainbowIcon className="h-6 w-6" />,
+    icon: <RiRainbowLine className="h-6 w-6" />,
     title: 'Portrait or landscape',
     description:
       "Effortlessly adapt your images for any platform - whether it's a stunning wallpaper or captivating Instagram reels and stories.",
@@ -26,7 +26,7 @@ const features = [
 
 const DesignerSection = () => {
   return (
-    <section className="container py-12">
+    <section className="container py-10">
       <SectionHeader
         header="Premium abstract images"
         title="For designers, by designers"

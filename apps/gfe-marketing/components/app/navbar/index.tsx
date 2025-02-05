@@ -1,7 +1,7 @@
 'use client';
 
+import { RiCloseLine, RiMenuLine } from '@remixicon/react';
 import { Button } from '@repo/design-system/components/ui/button';
-import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -93,7 +93,11 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="rounded-md p-2 focus:outline-none"
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? (
+                <RiCloseLine size={24} />
+              ) : (
+                <RiMenuLine size={24} />
+              )}
             </Button>
           </div>
         </div>

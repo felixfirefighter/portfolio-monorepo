@@ -41,7 +41,7 @@ const faqs = [
 
 export const FaqSection = () => {
   return (
-    <section className="container rounded-lg border p-4">
+    <section className="container py-10">
       <SectionHeader
         title="Frequently asked questions"
         description="Choose any questions you need"

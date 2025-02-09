@@ -115,9 +115,9 @@ export const PricingSection = () => {
               </div>
               <p className="text-neutral-600">Prices in USD</p>
 
-              <ul className="mt-4 space-y-4 text-gray-600">
-                {plan.features.map((feature, i) => (
-                  <li key={i} className="flex items-center space-x-2">
+              <ul className="mt-4 space-y-4 text-neutral-600">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-center space-x-2">
                     <RiCheckLine className="h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full bg-primary/10 p-1 text-primary" />{' '}
                     <span>{feature}</span>
                   </li>

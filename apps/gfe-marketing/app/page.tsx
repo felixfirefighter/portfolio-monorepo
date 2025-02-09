@@ -5,6 +5,7 @@ import { FaqSection } from '@/components/home/faq-section';
 import FeatureSection from '@/components/home/feature-section';
 import HomeSection from '@/components/home/hero-section';
 import { PricingSection } from '@/components/home/pricing-section';
+import { SubscriptionSection } from '@/components/home/subscription-section';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <BestInClassSection />
       <PricingSection />
       <FaqSection />
+      <SubscriptionSection />
     </div>
   );
 }

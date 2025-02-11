@@ -1,5 +1,6 @@
 import '@repo/design-system/styles/globals.css';
 import '@/styles/web.css';
+import { Footer } from '@/components/app/footer';
 import Navbar from '@/components/app/navbar';
 import { DesignSystemProvider } from '@repo/design-system';
 import { fonts } from '@repo/design-system/lib/fonts';
@@ -19,6 +20,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
       >
         <Navbar />
         <main className="mx-4 bg-white">{children}</main>
+        <Footer />
       </DesignSystemProvider>
     </body>
   </html>

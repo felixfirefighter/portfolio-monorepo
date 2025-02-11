@@ -1,5 +1,6 @@
 import { BestInClassSection } from '@/components/home/best-in-class-section';
 import CompanySection from '@/components/home/company-section';
+import { ContactFormSection } from '@/components/home/contact-form-section';
 import DesignerSection from '@/components/home/designer-section';
 import { FaqSection } from '@/components/home/faq-section';
 import FeatureSection from '@/components/home/feature-section';
@@ -18,6 +19,7 @@ export default function Home() {
       <PricingSection />
       <FaqSection />
       <SubscriptionSection />
+      <ContactFormSection />
     </div>
   );
 }

@@ -5,10 +5,12 @@ interface Props {
   title: string;
   titleClassname?: string;
   description?: string;
+  descriptionClassName?: string;
 }
 
 export const SectionHeader: React.FC<Props> = (props) => {
-  const { header, title, titleClassname, description } = props;
+  const { header, title, titleClassname, description, descriptionClassName } =
+    props;
   return (
     <div className="text-center">
       {header && <h3 className="mb-3 font-semibold text-primary">{header}</h3>}
@@ -21,7 +23,12 @@ export const SectionHeader: React.FC<Props> = (props) => {
         {title}
       </h2>
       {description && (
-        <p className="mb-6 text-center text-lg text-neutral-600">
+        <p
+          className={cn(
+            'mb-6 text-center text-lg text-neutral-600',
+            descriptionClassName
+          )}
+        >
           {description}
         </p>
       )}

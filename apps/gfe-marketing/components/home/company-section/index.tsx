@@ -1,4 +1,4 @@
-import type { Company } from '@/types/home/company';
+import type { Company } from '@/models/home/company';
 import { Marquee } from '@repo/design-system/components/ui/marquee';
 import Image from 'next/image';
 

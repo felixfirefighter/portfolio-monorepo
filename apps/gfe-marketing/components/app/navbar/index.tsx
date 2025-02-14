@@ -25,7 +25,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <div className="flex items-center space-x-8">
               {MAIN_NAVBAR.map((link) => {
                 return (
@@ -43,7 +43,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden items-center space-x-4 md:flex">
+          <div className="hidden items-center space-x-4 lg:flex">
             <Link href="/learn-more">
               <Button variant="outline">Learn more</Button>
             </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant={'ghost'}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -70,7 +70,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
-          <div className="absolute top-16 left-0 w-full bg-white shadow-md md:hidden">
+          <div className="absolute top-16 left-0 z-10 w-full bg-white shadow lg:hidden">
             <div className="flex flex-col space-y-4 p-4">
               {MAIN_NAVBAR.map((link) => {
                 return (

@@ -6,9 +6,9 @@ import Link from 'next/link';
 const HeroSection = () => {
   return (
     <section className="container" id="hero-section">
-      <div className="flex flex-col items-center justify-between gap-8 py-16 md:flex-row">
-        <div className="flex-1 space-y-6">
-          <h1 className="font-semibold text-4xl md:text-5xl">
+      <div className="flex flex-col items-center justify-between gap-8 py-16 lg:flex-row">
+        <div className="flex-1 space-y-4">
+          <h1 className="font-semibold text-3xl lg:text-4xl">
             Well crafted abstract images
           </h1>
 
@@ -17,7 +17,7 @@ const HeroSection = () => {
             presentations.
           </p>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 pt-4">
             <Link href="#feature-section">
               <Button variant="outline" size="lg">
                 Learn more

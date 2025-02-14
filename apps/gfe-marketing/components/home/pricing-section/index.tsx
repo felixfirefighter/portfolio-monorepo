@@ -85,7 +85,7 @@ export const PricingSection = () => {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {pricingData.map((plan) => (
           <Card
             key={plan.name}

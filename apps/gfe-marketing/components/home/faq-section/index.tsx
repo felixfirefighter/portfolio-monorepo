@@ -5,12 +5,6 @@ import {
   AccordionTrigger,
 } from '@repo/design-system/components/ui/accordion';
 import { Button } from '@repo/design-system/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardTitle,
-} from '@repo/design-system/components/ui/card';
 import Link from 'next/link';
 import { SectionHeader } from '../section-header';
 
@@ -66,25 +60,29 @@ export const FaqSection = () => {
           </AccordionItem>
         ))}
       </Accordion>
-      <Card className="p-4 shadow">
-        <CardTitle className="mb-2 text-xl">
-          Can’t find the answer you’re looking for?
-        </CardTitle>
-        <CardContent className="p-0 pb-4">
-          <p className="text-neutral-600">
-            Reach out to our{' '}
-            <Link href="/customer-support" className="text-primary">
-              customer support
-            </Link>{' '}
-            team.
-          </p>
-        </CardContent>
-        <CardFooter className="p-0">
-          <Button className="w-full" size={'lg'}>
-            Get in touch
-          </Button>
-        </CardFooter>
-      </Card>
+      <div className="rounded-lg p-4 shadow">
+        <div className="gap-4 md:flex md:items-center">
+          <div className="md:flex-grow">
+            <h3 className="mb-2 font-semibold text-xl">
+              Can’t find the answer you’re looking for?
+            </h3>
+            <div className="p-0 pb-4">
+              <p className="text-neutral-600">
+                Reach out to our{' '}
+                <Link href="/customer-support" className="text-primary">
+                  customer support
+                </Link>{' '}
+                team.
+              </p>
+            </div>
+          </div>
+          <div className="p-0">
+            <Button className="w-full" size={'lg'}>
+              Get in touch
+            </Button>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

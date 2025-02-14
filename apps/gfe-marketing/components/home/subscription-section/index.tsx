@@ -28,15 +28,21 @@ export const SubscriptionSection = () => {
         ))}
       </ul>
 
-      <Input type="email" placeholder="Enter your email" className="w-full" />
+      <div className="md:flex md:gap-4">
+        <div className="md:w-1/2">
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            className="w-full bg-neutral-50"
+          />
 
-      <p className="py-4 text-neutral-600">
-        We only send you the best! No spam.
-      </p>
+          <p className="py-4 text-neutral-600">
+            We only send you the best! No spam.
+          </p>
+        </div>
 
-      <Button className="w-full" size={'lg'}>
-        Subscribe
-      </Button>
+        <Button className="w-full md:w-fit">Subscribe</Button>
+      </div>
 
       <div className="relative w-full flex-1 py-4">
         <AspectRatio ratio={4 / 3}>

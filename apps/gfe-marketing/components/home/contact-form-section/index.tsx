@@ -41,33 +41,35 @@ export const ContactFormSection = () => {
 
       <Card className="shadow">
         <CardContent className="space-y-4 p-4">
-          <div>
-            <label
-              htmlFor="name"
-              className="block font-medium text-neutral-600 text-sm"
-            >
-              Name
-            </label>
-            <Input
-              className="bg-neutral-50"
-              id="name"
-              placeholder="Your name"
-            />
-          </div>
+          <div className="md:flex md:gap-8">
+            <div className="md:flex-grow">
+              <label
+                htmlFor="name"
+                className="block font-medium text-neutral-600 text-sm"
+              >
+                Name
+              </label>
+              <Input
+                className="bg-neutral-50"
+                id="name"
+                placeholder="Your name"
+              />
+            </div>
 
-          <div>
-            <label
-              htmlFor="email"
-              className="block font-medium text-neutral-600 text-sm"
-            >
-              Email
-            </label>
-            <Input
-              className="bg-neutral-50"
-              id="email"
-              type="email"
-              placeholder="example@example.com"
-            />
+            <div className="md:flex-grow">
+              <label
+                htmlFor="email"
+                className="block font-medium text-neutral-600 text-sm"
+              >
+                Email
+              </label>
+              <Input
+                className="bg-neutral-50"
+                id="email"
+                type="email"
+                placeholder="example@example.com"
+              />
+            </div>
           </div>
 
           <div>

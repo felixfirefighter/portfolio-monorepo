@@ -1,7 +1,7 @@
 import { RiCopyrightLine, RiP2pLine, RiRocket2Line } from '@remixicon/react';
-import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import {} from '@repo/design-system/components/ui/card';
 import Image from 'next/image';
+import { SectionHeader } from '../section-header';
 
 const features = [
   {
@@ -27,47 +27,45 @@ const features = [
 export const BestInClassSection = () => {
   return (
     <section className="container py-10">
-      <div className="text-center">
-        <h3 className="mb-3 font-semibold text-primary">
-          Best-in-class support
-        </h3>
-        <h2 className="mb-4 text-center font-semibold text-3xl text-neutral-900 md:text-4xl">
-          Convenience and licensing that empowers
-        </h2>
-        <p className="mb-6 text-center text-lg text-neutral-600">
-          In a world where storytelling constantly evolves, don't let licensing
-          and poor support hold you down.
-        </p>
-      </div>
-      <div className="w-full rounded-lg">
-        <AspectRatio ratio={2}>
-          <Image
-            src="/app/cube.jpg"
-            alt="Cube"
-            className="h-full w-full rounded-lg object-cover"
-            width={500}
-            height={250}
-          />
-        </AspectRatio>
-      </div>
-      <div className="mt-6 space-y-4">
-        {features.map((feature) => {
-          return (
-            <div key={feature.title} className="mb-8">
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 flex-grow-0 rounded-full p-3 text-primary shadow">
-                  {feature.icon}
-                </div>
-                <div className="py-2">
-                  <h4 className="mb-2 font-semibold text-lg">
-                    {feature.title}
-                  </h4>
-                  <div className="text-neutral-600">{feature.description}</div>
+      <SectionHeader
+        header="Best-in-class support"
+        title="Convenience and licensing that empowers"
+        description="In a world where storytelling constantly evolves, don't let licensing
+          and poor support hold you down."
+      />
+      <div className="lg:flex lg:gap-8">
+        <div className="w-full rounded-lg">
+          <div className="aspect-[2] lg:aspect-[1.5]">
+            <Image
+              src="/app/cube.jpg"
+              alt="Cube"
+              className="h-full w-full rounded-lg object-cover"
+              width={500}
+              height={250}
+            />
+          </div>
+        </div>
+        <div className="mt-6 space-y-4">
+          {features.map((feature) => {
+            return (
+              <div key={feature.title} className="mb-8">
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 flex-grow-0 rounded-full p-3 text-primary shadow">
+                    {feature.icon}
+                  </div>
+                  <div className="py-2">
+                    <h4 className="mb-2 font-semibold text-lg">
+                      {feature.title}
+                    </h4>
+                    <div className="text-neutral-600">
+                      {feature.description}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );

@@ -12,14 +12,14 @@ type RootLayoutProperties = {
 
 const RootLayout = ({ children }: RootLayoutProperties) => (
   <html lang="en" className={fonts} suppressHydrationWarning>
-    <body className="bg-gray-50">
+    <body>
       <DesignSystemProvider
         themes={['red']}
         enableSystem={false}
         defaultTheme="light"
       >
         <Navbar />
-        <main className="mx-4 bg-white">{children}</main>
+        <main className="mx-4">{children}</main>
         <Footer />
       </DesignSystemProvider>
     </body>

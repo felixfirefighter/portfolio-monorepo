@@ -60,13 +60,13 @@ export const FaqSection = () => {
           </AccordionItem>
         ))}
       </Accordion>
-      <div className="rounded-lg p-4 shadow">
+      <div className="rounded-lg p-8 shadow">
         <div className="gap-4 md:flex md:items-center">
           <div className="md:flex-grow">
             <h3 className="mb-2 font-semibold text-xl">
               Can’t find the answer you’re looking for?
             </h3>
-            <div className="p-0 pb-4">
+            <div className="p-0 pb-4 md:pb-0">
               <p className="text-neutral-600">
                 Reach out to our{' '}
                 <Link href="/customer-support" className="text-primary">

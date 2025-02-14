@@ -33,24 +33,29 @@ const DesignerSection = () => {
         description="Unleash boundless creativity with a large repository of images
           optimized for designers"
       />
-      <div className="flex-col items-center lg:flex lg:flex-row">
-        {features.map((feature) => {
-          return (
-            <div key={feature.title} className="mb-8">
-              <div className="flex items-start gap-5">
-                <div className="flex-shrink-0 flex-grow-0 rounded-full p-3 text-primary shadow">
-                  {feature.icon}
-                </div>
-                <div className="py-2">
-                  <h4 className="mb-2 font-semibold text-lg">
-                    {feature.title}
-                  </h4>
-                  <div className="text-neutral-600">{feature.description}</div>
+      <div className="lg:flex lg:gap-8">
+        <div>
+          {features.map((feature) => {
+            return (
+              <div key={feature.title} className="mb-8">
+                <div className="flex items-start gap-5">
+                  <div className="flex-shrink-0 flex-grow-0 rounded-full p-3 text-primary shadow">
+                    {feature.icon}
+                  </div>
+                  <div className="py-2">
+                    <h4 className="mb-2 font-semibold text-lg">
+                      {feature.title}
+                    </h4>
+                    <div className="text-neutral-600">
+                      {feature.description}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+
         <div className="w-full rounded-lg">
           <AspectRatio ratio={2}>
             <Image

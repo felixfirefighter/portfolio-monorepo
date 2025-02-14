@@ -89,7 +89,7 @@ export const PricingSection = () => {
         {pricingData.map((plan) => (
           <Card
             key={plan.name}
-            className={`${plan.popular ? 'border-primary' : ''}`}
+            className={cn('flex flex-col', { 'border-primary': plan.popular })}
           >
             {plan.popular && (
               <div className="rounded-t-md bg-primary/20 px-4 py-4 text-center font-bold text-primary text-xl">
@@ -102,34 +102,38 @@ export const PricingSection = () => {
                 {plan.description}
               </CardDescription>
             </CardHeader>
-            <CardContent className="px-4 pt-2 pb-4">
-              <div
-                className={cn('flex items-end', {
-                  'text-primary': plan.popular,
-                })}
-              >
-                <p className={'font-medium text-4xl'}>
-                  ${isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
-                </p>
-                <p className="text-md">/{isAnnual ? 'year' : 'month'}</p>
-              </div>
-              <p className="text-neutral-600">Prices in USD</p>
+            <CardContent className="flex flex-grow flex-col px-4 pt-2 pb-4">
+              <div className="flex-grow">
+                <div
+                  className={cn('flex items-end', {
+                    'text-primary': plan.popular,
+                  })}
+                >
+                  <p className={'font-medium text-4xl'}>
+                    ${isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
+                  </p>
+                  <p className="text-md">/{isAnnual ? 'year' : 'month'}</p>
+                </div>
+                <p className="text-neutral-600">Prices in USD</p>
 
-              <ul className="mt-4 space-y-4 text-neutral-600">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center space-x-2">
-                    <RiCheckLine className="h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full bg-primary/10 p-1 text-primary" />{' '}
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                size="lg"
-                variant={plan.popular ? 'default' : 'outline'}
-                className="mt-6 w-full"
-              >
-                Buy Now
-              </Button>
+                <ul className="mt-4 space-y-4 text-neutral-600">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-center space-x-2">
+                      <RiCheckLine className="h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full bg-primary/10 p-1 text-primary" />{' '}
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <Button
+                  size="lg"
+                  variant={plan.popular ? 'default' : 'outline'}
+                  className="mt-6 w-full"
+                >
+                  Buy Now
+                </Button>
+              </div>
             </CardContent>
           </Card>
         ))}

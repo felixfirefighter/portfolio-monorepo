@@ -1,4 +1,4 @@
-import { MAIN_NAVBAR } from '@/models/app/links';
+import { MAIN_NAVBAR } from '@/features/app/models/links';
 import {
   RiFacebookLine,
   RiGithubLine,

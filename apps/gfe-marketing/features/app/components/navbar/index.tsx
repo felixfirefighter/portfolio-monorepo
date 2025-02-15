@@ -1,6 +1,6 @@
 'use client';
 
-import { MAIN_NAVBAR } from '@/models/app/links';
+import { MAIN_NAVBAR } from '@/features/app/models/links';
 import { RiCloseLine, RiMenuLine } from '@remixicon/react';
 import { Button } from '@repo/design-system/components/ui/button';
 import Image from 'next/image';

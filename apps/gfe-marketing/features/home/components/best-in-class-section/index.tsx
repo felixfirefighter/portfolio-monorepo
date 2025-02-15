@@ -1,7 +1,6 @@
+import { SectionHeader } from '@/features/home/components/section-header';
 import { RiCopyrightLine, RiP2pLine, RiRocket2Line } from '@remixicon/react';
-import {} from '@repo/design-system/components/ui/card';
 import Image from 'next/image';
-import { SectionHeader } from '../section-header';
 
 const features = [
   {

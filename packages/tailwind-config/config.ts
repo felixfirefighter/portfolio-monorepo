@@ -11,6 +11,7 @@ export const config: Config = {
     './node_modules/@repo/design-system/lib/**/*.{ts,tsx}',
     './node_modules/@repo/design-system/index.tsx',
     './components/**/*.{ts,tsx}',
+    './features/**/*.{ts,tsx}',
     './lib/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './providers/**/*.{ts,tsx}',

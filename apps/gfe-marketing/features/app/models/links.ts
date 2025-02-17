@@ -1,6 +1,10 @@
 export const MAIN_NAVBAR = [
   {
-    href: '#feature-section',
+    href: '/',
+    title: 'Home',
+  },
+  {
+    href: '/features',
     title: 'Features',
   },
   {

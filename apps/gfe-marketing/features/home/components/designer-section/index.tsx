@@ -1,7 +1,7 @@
 import { RiHdLine, RiRainbowLine, RiWaterPercentLine } from '@remixicon/react';
 import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import Image from 'next/image';
-import { SectionHeader } from '../section-header';
+import { SectionHeader } from '../../../app/components/section-header';
 
 const features = [
   {
@@ -24,7 +24,7 @@ const features = [
   },
 ];
 
-const DesignerSection = () => {
+export const DesignerSection = () => {
   return (
     <section className="container py-10">
       <SectionHeader
@@ -71,5 +71,3 @@ const DesignerSection = () => {
     </section>
   );
 };
-
-export default DesignerSection;

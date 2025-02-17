@@ -11,7 +11,7 @@ const companies: Company[] = [
   { name: 'Makro Hard', logo: '/logo/logo-6.png' },
 ];
 
-const CompanySection = () => {
+export const CompanySection = () => {
   return (
     <div className="py-10 md:py-20">
       <p className="mb-6 text-center font-medium text-neutral-600">
@@ -32,5 +32,3 @@ const CompanySection = () => {
     </div>
   );
 };
-
-export default CompanySection;

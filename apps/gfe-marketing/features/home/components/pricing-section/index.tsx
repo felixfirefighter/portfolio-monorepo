@@ -1,6 +1,5 @@
 'use client';
-
-import { RiCheckLine } from '@remixicon/react';
+import { FeatureListItems } from '@/features/app/components/feature-list-items';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
   Card,
@@ -11,7 +10,7 @@ import {
 } from '@repo/design-system/components/ui/card';
 import { cn } from '@repo/design-system/lib/utils';
 import { useState } from 'react';
-import { SectionHeader } from '../section-header';
+import { SectionHeader } from '../../../app/components/section-header';
 
 const pricingData = [
   {
@@ -116,14 +115,7 @@ export const PricingSection = () => {
                 </div>
                 <p className="text-neutral-600">Prices in USD</p>
 
-                <ul className="mt-4 space-y-4 text-neutral-600">
-                  {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center space-x-2">
-                      <RiCheckLine className="h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full bg-primary/10 p-1 text-primary" />{' '}
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <FeatureListItems items={plan.features} />
               </div>
               <div>
                 <Button

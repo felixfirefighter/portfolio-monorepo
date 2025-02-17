@@ -1,9 +1,9 @@
-import { RiCheckFill } from '@remixicon/react';
+import { FeatureListItems } from '@/features/app/components/feature-list-items';
 import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import { Button } from '@repo/design-system/components/ui/button';
 import { Input } from '@repo/design-system/components/ui/input';
 import Image from 'next/image';
-import { SectionHeader } from '../section-header';
+import { SectionHeader } from '../../../app/components/section-header';
 
 const features = [
   'Exclusive access to new abstract images and collections',
@@ -20,14 +20,9 @@ export const SubscriptionSection = () => {
             title="Get the finest curated abstracts delivered weekly to your inbox"
             titleClassname="text-start"
           />
-          <ul className="space-y-4 pt-2 pb-10 text-neutral-600">
-            {features.map((feature, index) => (
-              <li key={index} className="flex items-center space-x-2">
-                <RiCheckFill className="h-6 w-6 flex-shrink-0 flex-grow-0 rounded-full bg-primary/10 p-1 text-primary" />
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="pt-2 pb-10">
+            <FeatureListItems items={features} />
+          </div>
 
           <div className="md:flex md:gap-4">
             <div className="md:w-1/2">

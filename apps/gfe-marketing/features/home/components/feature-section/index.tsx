@@ -6,7 +6,7 @@ import {
   RiRefreshLine,
   RiTeamLine,
 } from '@remixicon/react';
-import { SectionHeader } from '../section-header';
+import { SectionHeader } from '../../../app/components/section-header';
 
 const features = [
   {
@@ -47,7 +47,7 @@ const features = [
   },
 ];
 
-const FeatureSection = () => {
+export const FeatureSection = () => {
   return (
     <section className="container py-10" id="feature-section">
       <SectionHeader
@@ -76,5 +76,3 @@ const FeatureSection = () => {
     </section>
   );
 };
-
-export default FeatureSection;

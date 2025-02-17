@@ -6,7 +6,7 @@ import {
 } from '@repo/design-system/components/ui/accordion';
 import { Button } from '@repo/design-system/components/ui/button';
 import Link from 'next/link';
-import { SectionHeader } from '../section-header';
+import { SectionHeader } from '../../../app/components/section-header';
 
 const faqs = [
   {

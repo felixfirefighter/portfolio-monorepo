@@ -54,7 +54,7 @@ export const Footer = () => {
         ))}
       </div>
       <p className="text-center text-neutral-600 text-sm">
-        © 2024 Abstractly, Inc. All rights reserved.
+        © {new Date().getFullYear()} Abstractly, Inc. All rights reserved.
       </p>
     </footer>
   );

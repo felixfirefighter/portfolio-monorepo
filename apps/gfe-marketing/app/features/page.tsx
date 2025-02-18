@@ -3,6 +3,8 @@ import { DesignerSection } from '@/features/app/components/designer-section';
 import { FeatureSection } from '@/features/app/components/feature-section';
 import { HeroSection } from '@/features/features/components/hero-section';
 import { TestimonialsSection } from '@/features/features/components/testimonials-section';
+import { ContactFormSection } from '@/features/home/components/contact-form-section';
+import { FaqSection } from '@/features/home/components/faq-section';
 
 export default function Page() {
   return (
@@ -12,6 +14,8 @@ export default function Page() {
       <DesignerSection />
       <BestInClassSection />
       <TestimonialsSection />
+      <FaqSection />
+      <ContactFormSection />
     </div>
   );
 }

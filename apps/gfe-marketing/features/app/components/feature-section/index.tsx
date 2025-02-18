@@ -6,7 +6,7 @@ import {
   RiRefreshLine,
   RiTeamLine,
 } from '@remixicon/react';
-import { SectionHeader } from '../../../app/components/section-header';
+import { SectionHeader } from '../section-header';
 
 const features = [
   {
@@ -51,7 +51,7 @@ export const FeatureSection = () => {
   return (
     <section className="container py-10" id="feature-section">
       <SectionHeader
-        header="High quality images"
+        header="Premium abstract images"
         title="Easy access to top quality images"
         description="In a world where storytelling constantly evolves, we lead with
           groundbreaking images designed for your presentation excellence."

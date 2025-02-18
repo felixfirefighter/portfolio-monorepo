@@ -1,7 +1,7 @@
 import { RiHdLine, RiRainbowLine, RiWaterPercentLine } from '@remixicon/react';
 import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import Image from 'next/image';
-import { SectionHeader } from '../../../app/components/section-header';
+import { SectionHeader } from '../section-header';
 
 const features = [
   {
@@ -28,7 +28,7 @@ export const DesignerSection = () => {
   return (
     <section className="container py-10">
       <SectionHeader
-        header="Premium abstract images"
+        header="High quality images"
         title="For designers, by designers"
         description="Unleash boundless creativity with a large repository of images
           optimized for designers"

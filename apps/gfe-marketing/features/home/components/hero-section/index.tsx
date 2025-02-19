@@ -6,9 +6,9 @@ import Link from 'next/link';
 export const HeroSection = () => {
   return (
     <section className="container" id="hero-section">
-      <div className="flex flex-col items-center justify-between gap-8 py-16 lg:flex-row">
+      <div className="flex flex-col justify-between gap-8 py-16 lg:flex-row lg:items-center">
         <div className="flex-1 space-y-4">
-          <h1 className="font-semibold text-3xl lg:text-4xl">
+          <h1 className="font-semibold text-4xl lg:text-5xl">
             Well crafted abstract images
           </h1>
 

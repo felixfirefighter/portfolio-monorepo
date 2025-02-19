@@ -11,7 +11,7 @@ export const TestimonialsSection = () => {
         title="Countless users, countless smiles"
         description="Explore our community's journey and discover why satisfaction defines us."
       />
-      <div className="space-y-6 pt-6">
+      <div className="grid grid-cols-1 gap-8 pt-4 md:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((testimonial) => {
           return (
             <Card key={testimonial.name} className="rounded-lg shadow">

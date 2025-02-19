@@ -3,15 +3,30 @@
 import { MAIN_NAVBAR } from '@/features/app/models/links';
 import { RiCloseLine, RiMenuLine } from '@remixicon/react';
 import { Button } from '@repo/design-system/components/ui/button';
+import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="w-full">
+    <nav
+      className={cn('fixed z-10 w-full bg-white', { 'border-b': isScrolled })}
+    >
       <div className="container">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}

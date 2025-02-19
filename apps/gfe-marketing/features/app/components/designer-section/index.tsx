@@ -1,5 +1,4 @@
 import { RiHdLine, RiRainbowLine, RiWaterPercentLine } from '@remixicon/react';
-import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import Image from 'next/image';
 import { SectionHeader } from '../section-header';
 
@@ -33,8 +32,8 @@ export const DesignerSection = () => {
         description="Unleash boundless creativity with a large repository of images
           optimized for designers"
       />
-      <div className="lg:flex lg:gap-8">
-        <div>
+      <div className="items-center lg:flex lg:gap-8">
+        <div className="flex-1">
           {features.map((feature) => {
             return (
               <div key={feature.title} className="mb-8">
@@ -56,8 +55,8 @@ export const DesignerSection = () => {
           })}
         </div>
 
-        <div className="w-full rounded-lg">
-          <AspectRatio ratio={2}>
+        <div className="w-full flex-1 rounded-lg">
+          <div className="aspect-[2] lg:aspect-[1.5]">
             <Image
               src="/app/glass.jpg"
               alt="Designer-focused abstract art"
@@ -65,7 +64,7 @@ export const DesignerSection = () => {
               width={500}
               height={400}
             />
-          </AspectRatio>
+          </div>
         </div>
       </div>
     </section>

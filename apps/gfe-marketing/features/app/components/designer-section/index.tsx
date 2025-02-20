@@ -25,7 +25,7 @@ const features = [
 
 export const DesignerSection = () => {
   return (
-    <section className="container py-10">
+    <section className="container py-10 lg:py-20">
       <SectionHeader
         header="High quality images"
         title="For designers, by designers"

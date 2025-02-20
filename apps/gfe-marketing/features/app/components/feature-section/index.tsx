@@ -49,7 +49,7 @@ const features = [
 
 export const FeatureSection = () => {
   return (
-    <section className="container py-10" id="feature-section">
+    <section className="container py-10 lg:py-20" id="feature-section">
       <SectionHeader
         header="Premium abstract images"
         title="Easy access to top quality images"

@@ -8,15 +8,15 @@ export const MAIN_NAVBAR = [
     title: 'Features',
   },
   {
-    href: '#pricing-section',
+    href: '/pricing',
     title: 'Pricing',
   },
   {
-    href: '#about-us-section',
+    href: '/about-us',
     title: 'About Us',
   },
   {
-    href: '#contact-section',
+    href: '/contact-us',
     title: 'Contact',
   },
 ];

@@ -13,7 +13,7 @@ const features = [
 
 export const SubscriptionSection = () => {
   return (
-    <section className="container py-10">
+    <section className="container py-10 lg:py-20">
       <div className="lg:flex lg:items-center">
         <div className="flex-1">
           <SectionHeader

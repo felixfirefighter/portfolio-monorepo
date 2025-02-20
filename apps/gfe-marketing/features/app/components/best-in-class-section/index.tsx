@@ -25,7 +25,7 @@ const features = [
 
 export const BestInClassSection = () => {
   return (
-    <section className="container py-10">
+    <section className="container py-10 lg:py-20">
       <SectionHeader
         header="Best-in-class support"
         title="Convenience and licensing that empowers"

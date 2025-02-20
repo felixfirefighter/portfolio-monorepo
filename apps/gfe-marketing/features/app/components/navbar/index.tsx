@@ -59,7 +59,7 @@ const Navbar = () => {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden items-center space-x-4 lg:flex">
-            <Link href="/learn-more">
+            <Link href="/features">
               <Button variant="outline">Learn more</Button>
             </Link>
             <Link href="/pricing">
@@ -100,7 +100,7 @@ const Navbar = () => {
                 );
               })}
               <div className="flex flex-col space-y-2">
-                <Link href="#feature-section">
+                <Link href="/features">
                   <Button
                     variant="outline"
                     className="w-full"
@@ -109,7 +109,7 @@ const Navbar = () => {
                     Learn more
                   </Button>
                 </Link>
-                <Link href="#pricing-section">
+                <Link href="/pricing">
                   <Button
                     className="w-full"
                     onClick={() => setIsMobileMenuOpen(false)}

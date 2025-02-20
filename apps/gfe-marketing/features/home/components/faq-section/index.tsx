@@ -43,7 +43,7 @@ const faqs = [
 
 export const FaqSection = () => {
   return (
-    <section className="container py-10">
+    <section className="container py-10 lg:py-20">
       <SectionHeader
         title="Frequently asked questions"
         description="Choose any questions you need"

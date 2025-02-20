@@ -22,7 +22,7 @@ const contactDetails = [
 
 export const ContactFormSection = () => {
   return (
-    <section className="container py-10">
+    <section className="container py-10 lg:py-20">
       <div className="lg:flex lg:gap-12">
         <div className="lg:flex-1">
           <SectionHeader

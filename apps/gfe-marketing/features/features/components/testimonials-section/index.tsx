@@ -5,7 +5,7 @@ import { testimonials } from './data';
 
 export const TestimonialsSection = () => {
   return (
-    <section className="container py-10">
+    <section className="container py-10 lg:py-20">
       <SectionHeader
         header="Testimonials"
         title="Countless users, countless smiles"

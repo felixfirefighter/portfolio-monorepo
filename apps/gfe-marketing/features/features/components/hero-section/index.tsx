@@ -12,7 +12,7 @@ const features = [
 
 export const HeroSection = () => {
   return (
-    <section className="container">
+    <section className="container py-10 lg:py-20">
       <div className="flex flex-col justify-between gap-8 py-16 lg:flex-row lg:items-center">
         <div className="flex-1 space-y-4">
           <h1 className="font-semibold text-4xl lg:text-5xl">

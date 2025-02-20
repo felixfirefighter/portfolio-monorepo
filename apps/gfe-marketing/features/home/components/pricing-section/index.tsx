@@ -58,7 +58,7 @@ export const PricingSection = () => {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <section className="container py-10">
+    <section className="container py-10 lg:py-20">
       <SectionHeader
         header="Pricing Tiers"
         title="Fit for all your needs"

@@ -9,18 +9,18 @@ export const HeroSection = () => {
       <div className="flex flex-col justify-between gap-8 py-16 lg:flex-row lg:items-center">
         <div className="flex-1 space-y-4">
           <h1 className="font-semibold text-4xl lg:text-5xl">
-            Well crafted abstract images
+            From a tiny desk to the entire world
           </h1>
 
           <p className="text-gray-600 text-lg">
-            High quality abstract images for your projects, wallpaper and
-            presentations.
+            As a lean, passionate team, we've made something that most would
+            think is impossible - premium abstract images for free and for all.
           </p>
 
           <div className="flex gap-4 pt-4">
             <Link href="/features">
               <Button variant="outline" size="lg">
-                Learn more
+                Features
               </Button>
             </Link>
             <Link href="/pricing">

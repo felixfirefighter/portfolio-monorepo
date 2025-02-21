@@ -19,7 +19,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
         defaultTheme="light"
       >
         <Navbar />
-        <main className="mx-4 pt-16">{children}</main>
+        <main className="pt-16">{children}</main>
         <Footer />
       </DesignSystemProvider>
     </body>

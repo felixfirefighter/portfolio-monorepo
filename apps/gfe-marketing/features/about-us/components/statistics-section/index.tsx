@@ -1,5 +1,5 @@
 import { SectionHeader } from '@/features/app/components/section-header';
-import {} from '@repo/design-system/components/ui/card';
+import { Card } from '@repo/design-system/components/ui/card';
 import Image from 'next/image';
 
 const statistics = [
@@ -37,19 +37,16 @@ export const StatisticsSection = () => {
             />
           </div>
         </div>
-        <div className="mt-6 space-y-4">
+        <div className="mt-6 space-y-6">
+          <p className="text-neutral-600">Our mission, in numbers</p>
           {statistics.map((stats) => {
             return (
-              <div key={stats.title} className="mb-8">
-                <div className="flex items-start gap-5">
-                  <div className="py-2">
-                    <h4 className="mb-2 font-semibold text-lg">
-                      {stats.title}
-                    </h4>
-                    <div className="text-neutral-600">{stats.stats}</div>
-                  </div>
-                </div>
-              </div>
+              <Card key={stats.title} className="p-6 text-center">
+                <h3 className="mb-4 font-bold text-4xl text-primary">
+                  {stats.stats}
+                </h3>
+                <p className="text-lg">{stats.title}</p>
+              </Card>
             );
           })}
         </div>

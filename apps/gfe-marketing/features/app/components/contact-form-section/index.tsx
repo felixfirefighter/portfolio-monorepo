@@ -3,7 +3,7 @@ import { Button } from '@repo/design-system/components/ui/button';
 import { Card, CardContent } from '@repo/design-system/components/ui/card';
 import { Input } from '@repo/design-system/components/ui/input';
 import { Textarea } from '@repo/design-system/components/ui/textarea';
-import { SectionHeader } from '../../../app/components/section-header';
+import { SectionHeader } from '../section-header';
 
 const contactDetails = [
   {

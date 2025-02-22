@@ -10,20 +10,18 @@ type RootLayoutProperties = {
   readonly children: ReactNode;
 };
 
-const RootLayout = ({ children }: RootLayoutProperties) => (
-  <html lang="en" className={fonts} suppressHydrationWarning>
-    <body>
-      <DesignSystemProvider
-        themes={['red']}
-        enableSystem={false}
-        defaultTheme="light"
-      >
-        <Navbar />
-        <main className="pt-16">{children}</main>
-        <Footer />
-      </DesignSystemProvider>
-    </body>
-  </html>
-);
+const RootLayout = ({ children }: RootLayoutProperties) => {
+  return (
+    <html lang="en" className={fonts} suppressHydrationWarning>
+      <body>
+        <DesignSystemProvider enableSystem={false} defaultTheme="light">
+          <Navbar />
+          <main className="pt-16">{children}</main>
+          <Footer />
+        </DesignSystemProvider>
+      </body>
+    </html>
+  );
+};
 
 export default RootLayout;

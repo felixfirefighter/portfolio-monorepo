@@ -73,6 +73,7 @@ const Navbar = () => {
               variant={'ghost'}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="rounded-md p-2 focus:outline-none"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {isMobileMenuOpen ? (
                 <RiCloseLine size={24} />

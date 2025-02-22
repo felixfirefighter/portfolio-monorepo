@@ -36,7 +36,7 @@ export const CookieConsent = () => {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 flex w-full flex-col items-center justify-between border-t bg-white p-4 md:p-6">
+    <div className="fixed bottom-0 left-0 flex w-full flex-col items-center justify-between border-t bg-white py-4 md:py-6">
       <div className="container">
         <div className="mb-6">
           <h5 className="mb-1 font-semibold">We use cookies</h5>

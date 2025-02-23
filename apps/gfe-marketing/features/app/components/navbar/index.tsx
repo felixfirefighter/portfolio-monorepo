@@ -64,7 +64,7 @@ const Navbar = () => {
                 aria-label="Learn more about our features"
                 variant="outline"
               >
-                Learn more
+                View features
               </Button>
             </Link>
             <Link href="/pricing" aria-label="Go to pricing page">

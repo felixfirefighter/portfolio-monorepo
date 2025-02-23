@@ -53,9 +53,9 @@ export const BestInClassSection = () => {
                     {feature.icon}
                   </div>
                   <div className="py-2">
-                    <h4 className="mb-2 font-semibold text-lg">
+                    <h3 className="mb-2 font-semibold text-lg">
                       {feature.title}
-                    </h4>
+                    </h3>
                     <div className="text-neutral-600">
                       {feature.description}
                     </div>

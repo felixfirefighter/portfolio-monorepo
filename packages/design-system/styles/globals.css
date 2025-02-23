@@ -8,8 +8,8 @@
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
-    /* Indigo-500 color in HSL format */
-    --primary: 239 84% 67%;
+    /* Indigo-800 */
+    --primary: 245 58% 51%;
     --primary-foreground: 0 0% 100%;
 
     --card: 0 0% 100%;
@@ -32,7 +32,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 239 84% 67%;
+    --ring: 245, 58%, 51%;
 
     --radius: 0.5rem;
   }
@@ -41,8 +41,8 @@
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
-    /* Indigo-500 color for dark mode */
-    --primary: 239 84% 67%;
+    /* Indigo-800 */
+    --primary: 245 58% 51%;
     --primary-foreground: 0 0% 100%;
 
     --card: 222.2 84% 4.9%;
@@ -65,9 +65,10 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 239 84% 67%;
+    --ring: 245 58% 51%;
   }
 }
+
 /* This layer is added by shadcn/ui */
 @layer base {
   * {

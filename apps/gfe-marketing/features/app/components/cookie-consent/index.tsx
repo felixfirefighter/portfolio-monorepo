@@ -39,7 +39,7 @@ export const CookieConsent = () => {
     <div className="fixed bottom-0 left-0 flex w-full flex-col items-center justify-between border-t bg-white py-4 md:py-6">
       <div className="container">
         <div className="mb-6">
-          <h5 className="mb-1 font-semibold">We use cookies</h5>
+          <p className="mb-1 font-semibold">We use cookies</p>
           <p className="text-neutral-600 text-sm">
             We use cookies to enhance your browsing experience and improve our
             website's performance. By continuing to use this site, you consent

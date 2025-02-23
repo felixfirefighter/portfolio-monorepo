@@ -13,15 +13,15 @@ export const SectionHeader: React.FC<Props> = (props) => {
     props;
   return (
     <div className="text-center">
-      {header && <h3 className="mb-3 font-semibold text-primary">{header}</h3>}
-      <h2
+      {header && <h2 className="mb-3 font-semibold text-primary">{header}</h2>}
+      <h3
         className={cn(
           'mb-4 text-center font-semibold text-4xl text-neutral-900 md:text-5xl',
           titleClassname
         )}
       >
         {title}
-      </h2>
+      </h3>
       {description && (
         <p
           className={cn(

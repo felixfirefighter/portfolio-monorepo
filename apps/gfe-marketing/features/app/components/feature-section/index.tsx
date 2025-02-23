@@ -57,7 +57,7 @@ export const FeatureSection = () => {
           groundbreaking images designed for your presentation excellence."
       />
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:pt-8">
         {features.map((feature) => (
           <div
             key={feature.title}

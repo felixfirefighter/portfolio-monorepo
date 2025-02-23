@@ -32,7 +32,7 @@ export const DesignerSection = () => {
         description="Unleash boundless creativity with a large repository of images
           optimized for designers"
       />
-      <div className="items-center lg:flex lg:gap-8">
+      <div className="items-center lg:flex lg:gap-8 lg:pt-8">
         <div className="flex-1">
           {features.map((feature) => {
             return (
@@ -56,13 +56,14 @@ export const DesignerSection = () => {
         </div>
 
         <div className="w-full flex-1 rounded-lg">
-          <div className="aspect-[2] lg:aspect-[1.5]">
+          <div className="">
             <Image
               src="/app/glass.jpg"
               alt="Designer-focused abstract art"
-              className="h-full w-full rounded-lg object-cover"
-              width={500}
-              height={400}
+              className="aspect-[2] rounded-lg object-cover lg:aspect-[1] xl:aspect-[1.5]"
+              width={2304}
+              height={4096}
+              loading="lazy"
             />
           </div>
         </div>

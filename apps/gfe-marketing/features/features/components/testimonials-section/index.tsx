@@ -11,7 +11,7 @@ export const TestimonialsSection = () => {
         title="Countless users, countless smiles"
         description="Explore our community's journey and discover why satisfaction defines us."
       />
-      <div className="grid grid-cols-1 gap-8 pt-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 pt-4 md:grid-cols-2 lg:grid-cols-3 lg:pt-8">
         {testimonials.map((testimonial) => {
           return (
             <Card key={testimonial.name} className="rounded-lg shadow">
@@ -23,6 +23,7 @@ export const TestimonialsSection = () => {
                     width={48}
                     height={48}
                     className="h-12 w-12 rounded-full object-cover"
+                    loading="lazy"
                   />
                   <div>
                     <h3 className="font-semibold text-lg">

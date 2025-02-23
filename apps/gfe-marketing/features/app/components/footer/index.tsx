@@ -10,22 +10,27 @@ import {
 const socialLinks = [
   {
     href: '#',
+    title: 'Youtube',
     icon: <RiYoutubeLine size={24} />,
   },
   {
     href: '#',
+    title: 'Instagram',
     icon: <RiInstagramLine size={24} />,
   },
   {
     href: '#',
+    title: 'Facebook',
     icon: <RiFacebookLine size={24} />,
   },
   {
     href: '#',
+    title: 'Github',
     icon: <RiGithubLine size={24} />,
   },
   {
     href: '#',
+    title: 'Twitter',
     icon: <RiTwitterXLine size={24} />,
   },
 ];
@@ -46,8 +51,8 @@ export const Footer = () => {
             key={index}
             href={link.href}
             target="_blank"
-            className=""
             rel="noreferrer"
+            aria-label={link.title}
           >
             {link.icon}
           </a>

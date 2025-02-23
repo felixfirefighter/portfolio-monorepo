@@ -65,7 +65,7 @@ export const PricingSection = () => {
         description="Pick the plan that suits you today and step up as your demands grow - our flexible options have your journey mapped out."
       />
 
-      <div className="flex gap-8 pb-8 text-center">
+      <div className="flex gap-8 pb-8 text-center lg:pt-8">
         <Button
           size="lg"
           className="w-full hover:bg-transparent"

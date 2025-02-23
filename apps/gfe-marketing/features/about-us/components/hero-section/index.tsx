@@ -36,9 +36,10 @@ export const HeroSection = () => {
             <Image
               src="/app/prism-1.png"
               alt="Abstract geometric shapes"
-              fill
+              width={1392}
+              height={1052}
               className="rounded-lg object-cover"
-              priority
+              loading="lazy"
             />
           </AspectRatio>
         </div>

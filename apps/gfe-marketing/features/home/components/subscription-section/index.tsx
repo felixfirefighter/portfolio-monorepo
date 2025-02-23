@@ -1,5 +1,4 @@
 import { FeatureListItems } from '@/features/app/components/feature-list-items';
-import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import { Button } from '@repo/design-system/components/ui/button';
 import { Input } from '@repo/design-system/components/ui/input';
 import Image from 'next/image';
@@ -41,16 +40,15 @@ export const SubscriptionSection = () => {
           </div>
         </div>
 
-        <div className="relative w-full py-4 lg:w-2/5">
-          <AspectRatio ratio={4 / 3}>
-            <Image
-              src="/app/abstract.jpg"
-              alt="Abstract geometric shapes"
-              fill
-              className="rounded-lg object-cover"
-              priority
-            />
-          </AspectRatio>
+        <div className="relative w-full flex-1 py-4 lg:w-2/5">
+          <Image
+            src="/app/abstract.jpg"
+            alt="Abstract geometric shapes"
+            width={1176}
+            height={1216}
+            className="aspect-[1.5] rounded-lg object-cover lg:aspect-[1]"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>

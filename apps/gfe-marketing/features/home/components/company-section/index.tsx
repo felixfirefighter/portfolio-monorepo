@@ -25,6 +25,8 @@ export const CompanySection = () => {
               alt={company.name}
               width={158}
               height={38}
+              className="h-auto w-auto"
+              loading="lazy"
             />
           </div>
         ))}

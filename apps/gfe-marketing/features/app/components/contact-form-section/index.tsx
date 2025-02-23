@@ -43,7 +43,7 @@ export const ContactFormSection = () => {
         </div>
 
         <div className="lg:flex lg:flex-1 lg:justify-end">
-          <Card className="shadow lg:w-4/5">
+          <Card className="shadow xl:w-4/5">
             <CardContent className="space-y-4 p-4 md:p-8">
               <div className="space-y-4 md:flex md:gap-8 md:space-y-0">
                 <div className="md:flex-grow">

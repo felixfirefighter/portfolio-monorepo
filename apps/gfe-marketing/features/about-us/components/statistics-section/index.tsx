@@ -33,6 +33,7 @@ export const StatisticsSection = () => {
             className="h-full w-full rounded-lg object-cover"
             width={500}
             height={250}
+            loading="lazy"
           />
         </div>
         <div className="mt-6 flex-1 space-y-6 lg:mt-0">

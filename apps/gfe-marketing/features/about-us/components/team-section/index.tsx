@@ -51,6 +51,7 @@ export const TeamSection = () => {
                 width={280}
                 height={296}
                 className="h-full w-full object-cover"
+                loading="lazy"
               />
             </div>
             <h3 className="font-semibold text-xl">{member.name}</h3>

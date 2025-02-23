@@ -32,17 +32,15 @@ export const BestInClassSection = () => {
         description="In a world where storytelling constantly evolves, don't let licensing
           and poor support hold you down."
       />
-      <div className="lg:flex lg:gap-8">
+      <div className="items-center lg:flex lg:gap-8 lg:pt-8">
         <div className="w-full rounded-lg">
-          <div className="aspect-[2] lg:aspect-[1.5]">
-            <Image
-              src="/app/cube.jpg"
-              alt="Cube"
-              className="h-full w-full rounded-lg object-cover"
-              width={500}
-              height={250}
-            />
-          </div>
+          <Image
+            src="/app/cube.jpg"
+            alt="Cube"
+            className="aspect-[2] rounded-lg object-cover lg:aspect-[1] xl:aspect-[1.5]"
+            width={2304}
+            height={4096}
+          />
         </div>
         <div className="mt-6 space-y-4">
           {features.map((feature) => {

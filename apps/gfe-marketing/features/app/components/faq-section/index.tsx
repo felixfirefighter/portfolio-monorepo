@@ -48,7 +48,7 @@ export const FaqSection = () => {
         title="Frequently asked questions"
         description="Choose any questions you need"
       />
-      <Accordion type="multiple" className="mb-4">
+      <Accordion type="multiple" className="mb-4 lg:pt-8">
         {faqs.map((faq) => (
           <AccordionItem key={faq.question} value={`faq-${faq.question}`}>
             <AccordionTrigger className="font-medium text-lg hover:no-underline">
@@ -71,7 +71,7 @@ export const FaqSection = () => {
                 Reach out to our{' '}
                 <Link
                   href="/"
-                  className="text-primary"
+                  className="text-primary underline"
                   aria-label="Go to customer support"
                 >
                   customer support

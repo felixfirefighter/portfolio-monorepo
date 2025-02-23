@@ -102,12 +102,11 @@ const Navbar = () => {
                 );
               })}
               <div className="flex flex-col space-y-2">
-                <Link href="/features">
+                <Link href="/features" aria-label="Go to features">
                   <Button
                     variant="outline"
                     className="w-full"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    aria-label="Go to features"
                   >
                     Learn more
                   </Button>

@@ -43,7 +43,7 @@ export const HeroSection = () => {
               width={696}
               height={526}
               className="rounded-lg object-cover"
-              loading="lazy"
+              priority
             />
           </AspectRatio>
         </div>

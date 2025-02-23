@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
             value: cspHeader.replace(/\n/g, ''),
           },
           {
-            key: 'cross-origin-opener-policy:',
+            key: 'Cross-Origin-Opener-Policy',
             value: 'same-origin',
           },
         ],

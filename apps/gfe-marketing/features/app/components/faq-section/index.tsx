@@ -69,7 +69,11 @@ export const FaqSection = () => {
             <div className="p-0 pb-4 md:pb-0">
               <p className="text-neutral-600">
                 Reach out to our{' '}
-                <Link href="/customer-support" className="text-primary">
+                <Link
+                  href="/"
+                  className="text-primary"
+                  aria-label="Go to customer support"
+                >
                   customer support
                 </Link>{' '}
                 team.

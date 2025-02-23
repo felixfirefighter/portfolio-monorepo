@@ -29,8 +29,7 @@ const Navbar = () => {
     >
       <div className="container">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center" aria-label="Go to home">
             <Image
               width={112}
               height={32}
@@ -49,6 +48,7 @@ const Navbar = () => {
                     href={link.href}
                     className="text-neutral-600 hover:text-neutral-900"
                     onClick={() => setIsMobileMenuOpen(false)}
+                    aria-label={`Go to ${link.title}`}
                   >
                     {link.title}
                   </Link>
@@ -59,10 +59,10 @@ const Navbar = () => {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden items-center space-x-4 lg:flex">
-            <Link href="/features">
+            <Link href="/features" aria-label="Go to features">
               <Button variant="outline">Learn more</Button>
             </Link>
-            <Link href="/pricing">
+            <Link href="/pricing" aria-label="Go to pricing">
               <Button>See pricing</Button>
             </Link>
           </div>
@@ -95,6 +95,7 @@ const Navbar = () => {
                     href={link.href}
                     className="text-neutral-600 hover:text-neutral-900"
                     onClick={() => setIsMobileMenuOpen(false)}
+                    aria-label={`Go to ${link.title}`}
                   >
                     {link.title}
                   </Link>
@@ -106,11 +107,12 @@ const Navbar = () => {
                     variant="outline"
                     className="w-full"
                     onClick={() => setIsMobileMenuOpen(false)}
+                    aria-label="Go to features"
                   >
                     Learn more
                   </Button>
                 </Link>
-                <Link href="/pricing">
+                <Link href="/pricing" aria-label="Go to pricing">
                   <Button
                     className="w-full"
                     onClick={() => setIsMobileMenuOpen(false)}

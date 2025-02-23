@@ -45,7 +45,12 @@ export const CookieConsent = () => {
             website's performance. By continuing to use this site, you consent
             to the use of cookies. To learn more about how we use cookies and
             your options, please read our{' '}
-            <Link href="/" target="_blank" className="text-primary">
+            <Link
+              href="/"
+              target="_blank"
+              className="text-primary"
+              aria-label="View cookie policy"
+            >
               cookie policy
             </Link>
             .

@@ -30,7 +30,7 @@ export default function NotFound() {
         <p className="mb-12 text-neutral-600 text-xl">
           Sorry, the page you are looking for doesn’t exist or has been moved.
         </p>
-        <Link href="/">
+        <Link href="/" aria-label="Back to Home">
           <Button size={'lg'}>Back to Home</Button>
         </Link>
       </div>

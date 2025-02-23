@@ -18,12 +18,12 @@ export const HeroSection = () => {
           </p>
 
           <div className="flex gap-4 pt-4">
-            <Link href="/features">
+            <Link href="/features" aria-label="Go to features">
               <Button variant="outline" size="lg">
                 Learn more
               </Button>
             </Link>
-            <Link href="/pricing">
+            <Link href="/pricing" aria-label="Go to pricing">
               <Button size="lg" variant={'default'}>
                 See pricing
               </Button>

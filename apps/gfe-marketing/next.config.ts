@@ -1,3 +1,5 @@
+import type { NextConfig } from 'next';
+
 const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline';
@@ -11,7 +13,7 @@ const cspHeader = `
     upgrade-insecure-requests;
 `;
 
-module.exports = {
+const nextConfig: NextConfig = {
   async headers() {
     return [
       {

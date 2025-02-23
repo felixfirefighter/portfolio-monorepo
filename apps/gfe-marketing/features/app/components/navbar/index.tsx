@@ -59,10 +59,10 @@ const Navbar = () => {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden items-center space-x-4 lg:flex">
-            <Link href="/features" aria-label="Go to features">
+            <Link href="/features" aria-label="View features">
               <Button variant="outline">Learn more</Button>
             </Link>
-            <Link href="/pricing" aria-label="Go to pricing">
+            <Link href="/pricing" aria-label="View pricing">
               <Button>See pricing</Button>
             </Link>
           </div>

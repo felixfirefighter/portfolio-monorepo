@@ -44,8 +44,8 @@ export const SubscriptionSection = () => {
           <Image
             src="/app/abstract.jpg"
             alt="Abstract geometric shapes"
-            width={1176}
-            height={1216}
+            width={588}
+            height={608}
             className="aspect-[1.5] rounded-lg object-cover lg:aspect-[1]"
             loading="lazy"
           />

@@ -38,8 +38,8 @@ export const BestInClassSection = () => {
             src="/app/cube.jpg"
             alt="Cube"
             className="aspect-[2] rounded-lg object-cover lg:aspect-[1] xl:aspect-[1.5]"
-            width={2304}
-            height={4096}
+            width={576}
+            height={1024}
           />
         </div>
         <div className="mt-6 space-y-4">

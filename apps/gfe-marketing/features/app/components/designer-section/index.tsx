@@ -61,8 +61,8 @@ export const DesignerSection = () => {
               src="/app/glass.jpg"
               alt="Designer-focused abstract art"
               className="aspect-[2] rounded-lg object-cover lg:aspect-[1] xl:aspect-[1.5]"
-              width={2304}
-              height={4096}
+              width={576}
+              height={1024}
               loading="lazy"
             />
           </div>

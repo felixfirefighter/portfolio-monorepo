@@ -36,8 +36,8 @@ export const HeroSection = () => {
             <Image
               src="/app/prism-1.png"
               alt="Abstract geometric shapes"
-              width={1392}
-              height={1052}
+              width={696}
+              height={526}
               className="rounded-lg object-cover"
               loading="lazy"
             />

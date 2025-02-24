@@ -46,7 +46,7 @@ export const SubscriptionSection = () => {
             alt="Abstract geometric shapes"
             width={588}
             height={608}
-            className="aspect-[1.5] w-full rounded-lg object-cover lg:aspect-[1]"
+            className="aspect-[1.5] rounded-lg object-cover lg:aspect-[1]"
             loading="lazy"
           />
         </div>

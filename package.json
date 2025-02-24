@@ -9,6 +9,7 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "dev:gfe-marketing": "turbo run dev --filter=gfe-marketing",
+    "dev:gfe-pinsplash": "turbo run dev --filter=gfe-pinsplash",
     "lint": "ultracite lint",
     "format": "ultracite format",
     "test": "turbo test",

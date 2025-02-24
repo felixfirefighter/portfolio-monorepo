@@ -1,3 +1,4 @@
+import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import { Button } from '@repo/design-system/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,21 +9,25 @@ export const HeroSection = () => {
       <div className="flex flex-col justify-between gap-8 py-16 lg:flex-row lg:items-center">
         <div className="flex-1 space-y-4">
           <h1 className="font-semibold text-4xl md:text-5xl">
-            From a tiny desk to the entire world
+            Well crafted abstract images
           </h1>
 
           <p className="text-gray-600 text-lg">
-            As a lean, passionate team, we've made something that most would
-            think is impossible - premium abstract images for free and for all.
+            High quality abstract images for your projects, wallpaper and
+            presentations.
           </p>
 
           <div className="flex gap-4 pt-4">
-            <Link href="/features" aria-label="Go to Features">
-              <Button variant="outline" size="lg">
-                Features
+            <Link href="/features" aria-label="Go to features page">
+              <Button
+                aria-label="Learn more about our features"
+                variant="outline"
+                size="lg"
+              >
+                View features
               </Button>
             </Link>
-            <Link href="/pricing" aria-label="Go to Pricing">
+            <Link href="/pricing" aria-label="Go to pricing page">
               <Button size="lg" variant={'default'}>
                 See pricing
               </Button>
@@ -31,14 +36,16 @@ export const HeroSection = () => {
         </div>
 
         <div className="relative w-full flex-1">
-          <Image
-            src="/app/prism-1.png"
-            alt="Abstract geometric shapes"
-            width={696}
-            height={526}
-            className="w-full rounded-lg object-cover lg:aspect-[1.3]"
-            priority
-          />
+          <AspectRatio ratio={4 / 3}>
+            <Image
+              src="/app/prism-1.png"
+              alt="Abstract geometric shapes"
+              width={696}
+              height={526}
+              className="rounded-lg object-cover"
+              priority
+            />
+          </AspectRatio>
         </div>
       </div>
     </section>

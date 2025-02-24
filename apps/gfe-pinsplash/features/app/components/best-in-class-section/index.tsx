@@ -33,13 +33,15 @@ export const BestInClassSection = () => {
           and poor support hold you down."
       />
       <div className="items-center lg:flex lg:gap-8 lg:pt-8">
-        <Image
-          src="/app/cube.jpg"
-          alt="Cube"
-          className="aspect-[2] w-full rounded-lg object-cover lg:aspect-[1] xl:aspect-[1.5]"
-          width={576}
-          height={1024}
-        />
+        <div className="w-full rounded-lg">
+          <Image
+            src="/app/cube.jpg"
+            alt="Cube"
+            className="aspect-[2] rounded-lg object-cover lg:aspect-[1] xl:aspect-[1.5]"
+            width={576}
+            height={1024}
+          />
+        </div>
         <div className="mt-6 space-y-4">
           {features.map((feature) => {
             return (

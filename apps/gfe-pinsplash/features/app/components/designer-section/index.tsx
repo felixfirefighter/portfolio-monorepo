@@ -56,14 +56,16 @@ export const DesignerSection = () => {
         </div>
 
         <div className="w-full flex-1 rounded-lg">
-          <Image
-            src="/app/glass.jpg"
-            alt="Designer-focused abstract art"
-            className="aspect-[2] w-full rounded-lg object-cover lg:aspect-[1] xl:aspect-[1.5]"
-            width={576}
-            height={1024}
-            loading="lazy"
-          />
+          <div className="">
+            <Image
+              src="/app/glass.jpg"
+              alt="Designer-focused abstract art"
+              className="aspect-[2] rounded-lg object-cover lg:aspect-[1] xl:aspect-[1.5]"
+              width={576}
+              height={1024}
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>

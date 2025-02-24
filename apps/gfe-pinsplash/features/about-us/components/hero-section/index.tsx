@@ -1,3 +1,4 @@
+import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import { Button } from '@repo/design-system/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -31,14 +32,16 @@ export const HeroSection = () => {
         </div>
 
         <div className="relative w-full flex-1">
-          <Image
-            src="/app/prism-1.png"
-            alt="Abstract geometric shapes"
-            width={696}
-            height={526}
-            className="w-full rounded-lg object-cover lg:aspect-[1.3]"
-            priority
-          />
+          <AspectRatio ratio={4 / 3}>
+            <Image
+              src="/app/prism-1.png"
+              alt="Abstract geometric shapes"
+              width={696}
+              height={526}
+              className="rounded-lg object-cover"
+              priority
+            />
+          </AspectRatio>
         </div>
       </div>
     </section>

@@ -1,5 +1,4 @@
 import { Button } from '@repo/design-system/components/ui/button';
-import Image from 'next/image';
 import Link from 'next/link';
 
 import type { Metadata } from 'next';
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div className="relative flex h-screen items-center justify-center">
-      <div className="-z-10 absolute inset-0">
+      {/* <div className="-z-10 absolute inset-0">
         <Image
           src="/app/abstract-background.jpg"
           alt="Abstract"
@@ -20,7 +19,7 @@ export default function NotFound() {
           objectFit="cover"
           className="opacity-30"
         />
-      </div>
+      </div> */}
 
       <div className="container">
         <p className="mb-2 font-semibold text-primary">Not found</p>

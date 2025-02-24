@@ -1,6 +1,5 @@
 import '@repo/design-system/styles/globals.css';
 import '@/styles/web.css';
-import { CookieConsent } from '@/features/app/components/cookie-consent';
 import { Footer } from '@/features/app/components/footer';
 import Navbar from '@/features/app/components/navbar';
 import { DesignSystemProvider } from '@repo/design-system';
@@ -19,7 +18,6 @@ const RootLayout = ({ children }: RootLayoutProperties) => {
           <Navbar />
           <main className="pt-16">{children}</main>
           <Footer />
-          <CookieConsent />
         </DesignSystemProvider>
       </body>
     </html>

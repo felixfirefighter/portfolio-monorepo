@@ -23,7 +23,7 @@ export const HeroSection = () => {
                 variant="outline"
                 size="lg"
               >
-                View features
+                Learn more
               </Button>
             </Link>
             <Link href="/pricing" aria-label="Go to pricing page">

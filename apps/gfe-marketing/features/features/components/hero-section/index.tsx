@@ -35,7 +35,7 @@ export const HeroSection = () => {
                 variant="outline"
                 size="lg"
               >
-                View features
+                Learn more
               </Button>
             </Link>
           </div>

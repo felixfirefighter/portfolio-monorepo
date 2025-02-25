@@ -26,7 +26,7 @@ export const StatisticsSection = () => {
         description="Our platform is more than just as a service to us - it is a catalyst for enriching lives through premium abstract imagery."
       />
       <div className="lg:flex lg:gap-8">
-        <div className="aspect-[1] lg:aspect-[1.5]">
+        <div className="aspect-[1] flex-1 lg:aspect-[1.5]">
           <Image
             src="/about-us/about-us.png"
             alt="Statistics"

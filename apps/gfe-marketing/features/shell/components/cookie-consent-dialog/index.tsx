@@ -1,4 +1,4 @@
-import type { CookieConsentProps } from '@/features/app/models/cookie-consent';
+import type { CookieConsentProps } from '@/features/shell/types/cookie-consent';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
   Dialog,

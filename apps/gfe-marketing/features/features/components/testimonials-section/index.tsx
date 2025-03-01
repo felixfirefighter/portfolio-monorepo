@@ -1,4 +1,4 @@
-import { SectionHeader } from '@/features/app/components/section-header';
+import { SectionHeader } from '@/components/section-header';
 import { Card, CardContent } from '@repo/design-system/components/ui/card';
 import Image from 'next/image';
 import { testimonials } from './data';

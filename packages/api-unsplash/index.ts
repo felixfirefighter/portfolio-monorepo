@@ -31,5 +31,4 @@ export {
   type PhotosState,
 } from '@repo/api-unsplash//slices/photos-slice';
 
-// Export types
 export * from '@repo/api-unsplash/types';

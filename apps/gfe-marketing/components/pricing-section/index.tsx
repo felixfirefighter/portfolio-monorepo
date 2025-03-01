@@ -1,5 +1,5 @@
 'use client';
-import { FeatureListItems } from '@/features/app/components/feature-list-items';
+import { FeatureListItems } from '@/components/feature-list-items';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
   Card,
@@ -10,7 +10,7 @@ import {
 } from '@repo/design-system/components/ui/card';
 import { cn } from '@repo/design-system/lib/utils';
 import { useState } from 'react';
-import { SectionHeader } from '../../../app/components/section-header';
+import { SectionHeader } from '../section-header';
 
 const pricingData = [
   {

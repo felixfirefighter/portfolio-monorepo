@@ -1,7 +1,7 @@
 import '@repo/design-system/styles/globals.css';
 import '@/styles/web.css';
-import { Footer } from '@/features/app/components/footer';
-import Navbar from '@/features/app/components/navbar';
+import { Footer } from '@/features/shell/components/footer';
+import Navbar from '@/features/shell/components/navbar';
 import { DesignSystemProvider } from '@repo/design-system';
 import { fonts } from '@repo/design-system/lib/fonts';
 import type { ReactNode } from 'react';

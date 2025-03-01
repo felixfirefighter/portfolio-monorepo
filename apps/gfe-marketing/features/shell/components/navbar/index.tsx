@@ -1,6 +1,6 @@
 'use client';
 
-import { MAIN_NAVBAR } from '@/features/app/models/links';
+import { MAIN_NAVBAR } from '@/features/shell/config/links';
 import { RiCloseLine, RiMenuLine } from '@remixicon/react';
 import { Button } from '@repo/design-system/components/ui/button';
 import { cn } from '@repo/design-system/lib/utils';
@@ -64,7 +64,7 @@ const Navbar = () => {
                 aria-label="Learn more about our features"
                 variant="outline"
               >
-                View features
+                Learn more
               </Button>
             </Link>
             <Link href="/pricing" aria-label="Go to pricing page">

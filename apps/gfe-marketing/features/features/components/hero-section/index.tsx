@@ -1,4 +1,4 @@
-import { FeatureListItems } from '@/features/app/components/feature-list-items';
+import { FeatureListItems } from '@/components/feature-list-items';
 import { AspectRatio } from '@repo/design-system/components/ui/aspect-ratio';
 import { Button } from '@repo/design-system/components/ui/button';
 import Image from 'next/image';

@@ -1,8 +1,8 @@
 import '@repo/design-system/styles/globals.css';
 import '@/styles/web.css';
-import { CookieConsent } from '@/features/app/components/cookie-consent';
-import { Footer } from '@/features/app/components/footer';
-import Navbar from '@/features/app/components/navbar';
+import { CookieConsent } from '@/features/shell/components/cookie-consent';
+import { Footer } from '@/features/shell/components/footer';
+import Navbar from '@/features/shell/components/navbar';
 import { DesignSystemProvider } from '@repo/design-system';
 import { fonts } from '@repo/design-system/lib/fonts';
 import type { ReactNode } from 'react';

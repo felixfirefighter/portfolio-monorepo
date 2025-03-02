@@ -31,15 +31,15 @@ export const uiSlice = createSlice({
   name: 'unsplashUi',
   initialState,
   reducers: {
-    setColumnCount: (state, action: PayloadAction<number>) => {
+    setColumnCount: (state: UiState, action: PayloadAction<number>) => {
       state.columnCount = action.payload;
     },
 
-    setLayout: (state, action: PayloadAction<'masonry' | 'grid'>) => {
+    setLayout: (state: UiState, action: PayloadAction<'masonry' | 'grid'>) => {
       state.currentLayout = action.payload;
     },
 
-    setSearchActive: (state, action: PayloadAction<boolean>) => {
+    setSearchActive: (state: UiState, action: PayloadAction<boolean>) => {
       state.isSearchActive = action.payload;
       // Reset search term when deactivating search
       if (!action.payload) {
@@ -47,12 +47,12 @@ export const uiSlice = createSlice({
       }
     },
 
-    setSearchTerm: (state, action: PayloadAction<string>) => {
+    setSearchTerm: (state: UiState, action: PayloadAction<string>) => {
       state.searchTerm = action.payload;
       state.isSearchActive = action.payload.length > 0;
     },
 
-    addToast: (state, action: PayloadAction<Omit<Toast, 'id'>>) => {
+    addToast: (state: UiState, action: PayloadAction<Omit<Toast, 'id'>>) => {
       const id = Date.now().toString();
       state.toasts.push({
         ...action.payload,
@@ -61,7 +61,7 @@ export const uiSlice = createSlice({
       });
     },
 
-    removeToast: (state, action: PayloadAction<string>) => {
+    removeToast: (state: UiState, action: PayloadAction<string>) => {
       state.toasts = state.toasts.filter(
         (toast) => toast.id !== action.payload
       );

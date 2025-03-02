@@ -5,7 +5,7 @@ export const unsplashBaseQuery = fetchBaseQuery({
   prepareHeaders: (headers) => {
     headers.set(
       'Authorization',
-      `Client-ID ${process.env.UNSPLASH_ACCESS_KEY || ''}`
+      `Client-ID ${process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY || ''}`
     );
     return headers;
   },

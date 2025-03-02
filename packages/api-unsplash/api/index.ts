@@ -13,31 +13,17 @@ export const unsplashApi = createApi({
   baseQuery: unsplashBaseQuery,
   tagTypes: ['Photos', 'Topics', 'Collections'],
   endpoints: (builder) => ({
-    // Photos endpoints
-    getPhotos: builder.query<UnsplashPhoto[], number>({
-      query: (page = 1) => `photos?page=${page}&per_page=20`,
-      providesTags: (result) =>
-        result
-          ? [
-              ...result.map(({ id }) => ({ type: 'Photos' as const, id })),
-              { type: 'Photos', id: 'LIST' },
-            ]
-          : [{ type: 'Photos', id: 'LIST' }],
-      // Merge new photos with existing ones for infinite scroll
-      serializeQueryArgs: ({ endpointName }) => {
-        return endpointName;
+    getPhotos: builder.infiniteQuery<UnsplashPhoto[], void, number>({
+      infiniteQueryOptions: {
+        initialPageParam: 1,
+        getNextPageParam: (_lastPage, _allPages, lastPageParam) =>
+          lastPageParam + 1,
       },
-      merge: (currentCache, newItems, { arg }) => {
-        // If it's the first page, replace the cache
-        if (arg === 1 || arg === undefined) {
-          return newItems;
-        }
-        // Otherwise merge with existing cache
-        return [...currentCache, ...newItems];
-      },
-      // Only have one cache entry because if arg changes, we want to keep the old data
-      forceRefetch({ currentArg, previousArg }) {
-        return currentArg !== previousArg;
+      query({ pageParam }) {
+        // Unsplash returns duplicate images, this acts as a buffer to
+        // avoid rendering the same images
+        const perPage = 10 + 3 * pageParam;
+        return `/photos?page=${pageParam}&per_page=${perPage}`;
       },
     }),
 
@@ -112,8 +98,9 @@ export const unsplashApi = createApi({
 });
 
 // Export hooks for usage in components
+export const useGetPhotosInfiniteQuery: typeof unsplashApi.useGetPhotosInfiniteQuery =
+  unsplashApi.useGetPhotosInfiniteQuery;
 export const {
-  useGetPhotosQuery,
   useGetPhotoByIdQuery,
   useSearchPhotosQuery,
   useGetRelatedPhotosQuery,

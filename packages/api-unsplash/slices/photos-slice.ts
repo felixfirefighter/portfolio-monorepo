@@ -27,7 +27,7 @@ export const photosSlice = createSlice({
   initialState,
   reducers: {
     trackDownload: (
-      state,
+      state: PhotosState,
       action: PayloadAction<Omit<DownloadHistory, 'downloadedAt'>>
     ) => {
       const { photoId, downloadUrl, size } = action.payload;
@@ -44,7 +44,10 @@ export const photosSlice = createSlice({
       });
     },
 
-    addToRecentlyViewed: (state, action: PayloadAction<string>) => {
+    addToRecentlyViewed: (
+      state: PhotosState,
+      action: PayloadAction<string>
+    ) => {
       // Remove if exists to avoid duplicates
       state.recentlyViewed = state.recentlyViewed.filter(
         (id) => id !== action.payload
@@ -57,7 +60,7 @@ export const photosSlice = createSlice({
       state.recentlyViewed = state.recentlyViewed.slice(0, 20);
     },
 
-    toggleFavorite: (state, action: PayloadAction<string>) => {
+    toggleFavorite: (state: PhotosState, action: PayloadAction<string>) => {
       const photoId = action.payload;
       const index = state.favorites.indexOf(photoId);
 
@@ -68,11 +71,11 @@ export const photosSlice = createSlice({
       }
     },
 
-    clearHistory: (state) => {
+    clearHistory: (state: PhotosState) => {
       state.recentlyViewed = [];
     },
 
-    clearDownloads: (state) => {
+    clearDownloads: (state: PhotosState) => {
       state.downloadHistory = {};
     },
   },

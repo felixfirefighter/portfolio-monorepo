@@ -30,12 +30,7 @@ const Navbar = () => {
       <div className="container">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center" aria-label="Go to home">
-            <Image
-              width={112}
-              height={32}
-              src="/app/abstractly.png"
-              alt="Abstractly"
-            />
+            <Image width={32} height={32} src="/app/logo.png" alt="Pinsplash" />
           </Link>
 
           {/* Desktop Navigation Links */}

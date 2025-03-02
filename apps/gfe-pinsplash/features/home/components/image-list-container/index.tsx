@@ -20,7 +20,6 @@ export const ImageListContainer = () => {
   useEffect(() => {
     if (entry?.isIntersecting && !isFetching) {
       console.log('call me!');
-
       fetchNextPage();
     }
   }, [entry, isFetching, fetchNextPage]);

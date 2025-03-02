@@ -20,10 +20,7 @@ export const unsplashApi = createApi({
           lastPageParam + 1,
       },
       query({ pageParam }) {
-        // Unsplash returns duplicate images, this acts as a buffer to
-        // avoid rendering the same images
-        const perPage = 10 + 3 * pageParam;
-        return `/photos?page=${pageParam}&per_page=${perPage}`;
+        return `/photos?page=${pageParam}&per_page=20`;
       },
     }),
 

@@ -1,7 +1,7 @@
-import photosReducer from '@/slices/photos-slice';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { unsplashApi } from '@repo/api-unsplash/api';
+import photosReducer from '@repo/api-unsplash/slices/photos-slice';
 import uiReducer from '@repo/api-unsplash/slices/ui-slice';
 
 // Root reducer combining all slices

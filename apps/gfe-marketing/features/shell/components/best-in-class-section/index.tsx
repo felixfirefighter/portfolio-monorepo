@@ -1,4 +1,4 @@
-import { SectionHeader } from '@/components/section-header';
+import { SectionHeader } from '@/features/shell/components/section-header';
 import { RiCopyrightLine, RiP2pLine, RiRocket2Line } from '@remixicon/react';
 import Image from 'next/image';
 

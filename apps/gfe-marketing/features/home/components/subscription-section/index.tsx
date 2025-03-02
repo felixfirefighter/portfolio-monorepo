@@ -1,8 +1,8 @@
-import { FeatureListItems } from '@/components/feature-list-items';
+import { FeatureListItems } from '@/features/shell/components/feature-list-items';
 import { Button } from '@repo/design-system/components/ui/button';
 import { Input } from '@repo/design-system/components/ui/input';
 import Image from 'next/image';
-import { SectionHeader } from '../../../../components/section-header';
+import { SectionHeader } from '../../../shell/components/section-header';
 
 const features = [
   'Exclusive access to new abstract images and collections',

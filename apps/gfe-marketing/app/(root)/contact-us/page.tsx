@@ -1,5 +1,5 @@
-import { ContactFormSection } from '@/components/contact-form-section';
-import { FaqSection } from '@/components/faq-section';
+import { ContactFormSection } from '@/features/shell/components/contact-form-section';
+import { FaqSection } from '@/features/shell/components/faq-section';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

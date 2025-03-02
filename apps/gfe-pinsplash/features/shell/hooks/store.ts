@@ -1,4 +1,4 @@
-import type { AppDispatch, RootState } from '@repo/api-unsplash/store';
+import type { AppDispatch, RootState } from '@/features/shell/store';
 import {
   type TypedUseSelectorHook,
   useDispatch,

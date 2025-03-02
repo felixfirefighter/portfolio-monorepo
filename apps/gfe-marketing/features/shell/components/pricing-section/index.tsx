@@ -1,5 +1,5 @@
 'use client';
-import { FeatureListItems } from '@/components/feature-list-items';
+import { FeatureListItems } from '@/features/shell/components/feature-list-items';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
   Card,

@@ -304,6 +304,9 @@ importers:
 
   apps/gfe-pinsplash:
     dependencies:
+      '@reduxjs/toolkit':
+        specifier: ^2.6.0
+        version: 2.6.0(react-redux@9.2.0(@types/react@19.0.7)(react@19.0.0)(redux@5.0.1))(react@19.0.0)
       '@remixicon/react':
         specifier: ^4.6.0
         version: 4.6.0(react@19.0.0)
@@ -325,6 +328,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.0.0(react@19.0.0)
+      react-redux:
+        specifier: ^9.2.0
+        version: 9.2.0(@types/react@19.0.7)(react@19.0.0)(redux@5.0.1)
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*

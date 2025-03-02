@@ -1,16 +1,6 @@
 export * from '@repo/api-unsplash/api';
 
 export {
-  createStore,
-  store,
-  type RootState,
-  type AppDispatch,
-  type AppStore,
-} from '@repo/api-unsplash/store';
-
-export * from '@repo/api-unsplash/hooks';
-
-export {
   setColumnCount,
   setLayout,
   setSearchActive,
@@ -29,6 +19,6 @@ export {
   clearDownloads,
   type DownloadHistory,
   type PhotosState,
-} from '@repo/api-unsplash//slices/photos-slice';
+} from '@repo/api-unsplash/slices/photos-slice';
 
 export * from '@repo/api-unsplash/types';

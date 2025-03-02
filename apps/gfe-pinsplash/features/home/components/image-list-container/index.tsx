@@ -1,10 +1,10 @@
 'use client';
+import { SkeletonGrid } from '@/features/home/components/skeleton-grid';
 import { UnsplashImage } from '@/features/shell/components/unsplash-image';
 import { RiLoader4Line } from '@remixicon/react';
 import { useGetPhotosInfiniteQuery } from '@repo/api-unsplash';
 import { useIntersectionObserver } from '@uidotdev/usehooks';
 import { useEffect } from 'react';
-import { SkeletonGrid } from '../skeleton-grid';
 
 export const ImageListContainer = () => {
   const { data, isFetching, fetchNextPage, error, isLoading } =
@@ -18,21 +18,31 @@ export const ImageListContainer = () => {
   });
 
   useEffect(() => {
-    if (entry?.isIntersecting && !isFetching) {
-      console.log('call me!');
+    if (entry?.isIntersecting && !isFetching && !error) {
       fetchNextPage();
     }
-  }, [entry, isFetching, fetchNextPage]);
+  }, [entry, error, isFetching, fetchNextPage]);
 
   if (isLoading) {
     return <SkeletonGrid />;
   }
 
   if (error) {
-    return <p>Error fetching images</p>;
+    return (
+      <div className="flex h-screen items-center justify-center gap-2 text-neutral-600">
+        <p>An error has occured! 😭</p>
+      </div>
+    );
   }
 
-  const photos = data?.pages.flat() ?? [];
+  // Unsplash API may return duplicates
+  const photos =
+    data?.pages.flat().filter(
+      (() => {
+        const seen = new Set();
+        return (photo) => !seen.has(photo.id) && seen.add(photo.id);
+      })()
+    ) ?? [];
 
   return (
     <section className="container">

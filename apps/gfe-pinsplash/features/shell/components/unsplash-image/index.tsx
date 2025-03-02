@@ -39,7 +39,7 @@ export const UnsplashImage: React.FC<Props> = (props) => {
   return (
     <Image
       src={getOptimalImageUrl()}
-      alt={alt_description || 'Unsplash Image'}
+      alt={alt_description || ''}
       width={width}
       height={height}
       loading="lazy"

@@ -1,20 +1,34 @@
 import type { UnsplashPhoto } from '@repo/api-unsplash';
 import { useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 import { BREAKPOINTS } from '../../config/breakpoints';
 
 interface Props {
   photo: UnsplashPhoto;
 }
 
-export const UnsplashImage: React.FC<Props> = (props) => {
+export const PinsplashImage: React.FC<Props> = (props) => {
   const {
     photo: { urls, alt_description, width, height, color },
   } = props;
   const size = useWindowSize();
+  const [isAboveFold, setIsAboveFold] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (!imgRef.current) {
+      return;
+    }
+
+    const rect = imgRef.current?.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      setIsAboveFold(true);
+    }
+  }, []);
 
   const getOptimalImageUrl = () => {
-    if (size === null || size.width === null) {
+    if (!size?.width) {
       return urls.full;
     }
 
@@ -32,11 +46,13 @@ export const UnsplashImage: React.FC<Props> = (props) => {
 
   return (
     <Image
+      ref={imgRef}
       src={getOptimalImageUrl()}
       alt={alt_description || ''}
       width={width}
       height={height}
-      loading="lazy"
+      loading={isAboveFold ? 'eager' : 'lazy'}
+      priority={isAboveFold}
       className="rounded-xl"
       style={{ background: color }}
     />

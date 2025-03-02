@@ -2,18 +2,9 @@ import { BREAKPOINTS } from '@/features/shell/config/breakpoints';
 import type { UnsplashPhoto } from '@repo/api-unsplash';
 
 export const mapPhotosToColumns = (
-  data: UnsplashPhoto[],
+  photoPages: UnsplashPhoto[][],
   windowWidth: number
 ): UnsplashPhoto[][] => {
-  // Unsplash API may return duplicates
-  const photos =
-    data.filter(
-      (() => {
-        const seen = new Set();
-        return (photo) => !seen.has(photo.id) && seen.add(photo.id);
-      })()
-    ) ?? [];
-
   // Determine column count based on screen width
   const columnCount = windowWidth >= BREAKPOINTS.lg ? 3 : 2;
   const columns: UnsplashPhoto[][] = Array.from(
@@ -21,11 +12,20 @@ export const mapPhotosToColumns = (
     () => []
   );
 
-  // Distribute photos across columns by index to keep order
-  photos.forEach((photo, index) => {
-    const columnIndex = index % columnCount;
-    columns[columnIndex].push(photo);
-  });
+  // Unsplash API may return duplicates
+  const seen = new Set();
+  let position = 0;
+  for (const page of photoPages) {
+    for (const photo of page) {
+      if (!seen.has(photo.id)) {
+        // Distribute photos across columns by index to keep order
+        const columnIndex = position % columnCount;
+        columns[columnIndex].push(photo);
+        seen.add(photo.id);
+        position++;
+      }
+    }
+  }
 
   return columns;
 };

@@ -1,6 +1,6 @@
 'use client';
 import { SkeletonGrid } from '@/features/home/components/skeleton-grid';
-import { UnsplashImage } from '@/features/shell/components/unsplash-image';
+import { PinsplashImage } from '@/features/shell/components/pinsplash-image';
 import { RiLoader4Line } from '@remixicon/react';
 import { useGetPhotosInfiniteQuery } from '@repo/api-unsplash';
 import { useIntersectionObserver, useWindowSize } from '@uidotdev/usehooks';
@@ -29,7 +29,7 @@ export const ImageListContainer = () => {
       return [];
     }
 
-    return mapPhotosToColumns(data.pages.flat(), windowSize.width);
+    return mapPhotosToColumns(data.pages, windowSize.width);
   }, [data, windowSize]);
 
   if (isLoading) {
@@ -50,7 +50,7 @@ export const ImageListContainer = () => {
         {photoColumns.map((column, columnIndex) => (
           <div key={columnIndex} className="flex flex-1 flex-col gap-2">
             {column.map((photo) => (
-              <UnsplashImage photo={photo} key={photo.id} />
+              <PinsplashImage photo={photo} key={photo.id} />
             ))}
           </div>
         ))}

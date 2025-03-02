@@ -1,13 +1,7 @@
 import type { UnsplashPhoto } from '@repo/api-unsplash';
 import { useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
-
-const breakpoints = {
-  sm: 640, // Tailwind's `sm`
-  md: 768, // Tailwind's `md`
-  lg: 1024, // Tailwind's `lg`
-  xl: 1280, // Tailwind's `xl`
-};
+import { BREAKPOINTS } from '../../config/breakpoints';
 
 interface Props {
   photo: UnsplashPhoto;
@@ -24,13 +18,13 @@ export const UnsplashImage: React.FC<Props> = (props) => {
       return urls.full;
     }
 
-    if (size.width <= breakpoints.sm) {
+    if (size.width <= BREAKPOINTS.sm) {
       return urls.thumb;
     }
-    if (size.width <= breakpoints.md) {
+    if (size.width <= BREAKPOINTS.md) {
       return urls.small;
     }
-    if (size.width <= breakpoints.lg) {
+    if (size.width <= BREAKPOINTS.lg) {
       return urls.regular;
     }
     return urls.full;

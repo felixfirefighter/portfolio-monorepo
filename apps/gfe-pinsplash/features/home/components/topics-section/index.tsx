@@ -19,13 +19,13 @@ export default function TopicsSection() {
   const setSelectedTopic = useSetSelectedTopic();
 
   return (
-    <section className="relative w-full overflow-hidden py-2">
+    <section className="flex w-full flex-row items-center py-2">
       <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-10 bg-gradient-to-l from-transparent to-white" />
 
       <ScrollArea className="w-full whitespace-nowrap">
         <div className="flex w-max space-x-4 px-8 py-2">
           {isLoading
-            ? Array.from({ length: 5 }).map((_, i) => (
+            ? Array.from({ length: 20 }).map((_, i) => (
                 <Skeleton key={i} className="h-10 w-24 rounded-full" />
               ))
             : topics?.map((topic) => (
@@ -35,7 +35,7 @@ export default function TopicsSection() {
                   className={cn(
                     'flex cursor-pointer items-center gap-0 rounded-full bg-muted p-1 text-neutral-900',
                     {
-                      'bg-primary/20 focus:bg-primary/20 active:bg-primary/20':
+                      'bg-primary/20 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/20':
                         selectedTopic?.id === topic.id,
                     }
                   )}
@@ -56,7 +56,7 @@ export default function TopicsSection() {
                 </Button>
               ))}
         </div>
-        <ScrollBar orientation="horizontal" hidden />
+        <ScrollBar orientation="horizontal" className="hidden" />
       </ScrollArea>
 
       <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-20 bg-gradient-to-l from-white to-transparent" />

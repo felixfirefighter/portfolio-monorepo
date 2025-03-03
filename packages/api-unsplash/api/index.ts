@@ -47,7 +47,7 @@ export const unsplashApi = createApi({
     }),
 
     getTopics: builder.query<UnsplashTopic[], void>({
-      query: () => '/topics?order_by=featured',
+      query: () => '/topics?order_by=featured&per_page=20',
     }),
 
     getTopicPhotos: builder.query<

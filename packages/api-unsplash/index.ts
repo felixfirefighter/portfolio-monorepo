@@ -1,17 +1,6 @@
 export * from '@repo/api-unsplash/api';
 
 export {
-  setColumnCount,
-  setLayout,
-  setSearchActive,
-  setSearchTerm,
-  addToast,
-  removeToast,
-  type Toast,
-  type UiState,
-} from '@repo/api-unsplash/slices/ui-slice';
-
-export {
   trackDownload,
   addToRecentlyViewed,
   toggleFavorite,

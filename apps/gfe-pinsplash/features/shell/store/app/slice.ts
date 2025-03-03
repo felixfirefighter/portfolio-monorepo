@@ -1,4 +1,5 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
+import type { UnsplashTopic } from '@repo/api-unsplash';
 
 // Define types for our UI state
 export interface Toast {
@@ -8,38 +9,25 @@ export interface Toast {
   duration?: number;
 }
 
-export interface UiState {
-  // For masonry layout
-  columnCount: number;
-  // For toast notifications
+export interface AppState {
   toasts: Toast[];
-  // UI flags
   isSearchActive: boolean;
   searchTerm: string;
-  currentLayout: 'masonry' | 'grid';
+  selectedTopic: UnsplashTopic | null;
 }
 
-const initialState: UiState = {
-  columnCount: 3,
+const initialState: AppState = {
   toasts: [],
   isSearchActive: false,
   searchTerm: '',
-  currentLayout: 'masonry',
+  selectedTopic: null,
 };
 
-export const uiSlice = createSlice({
-  name: 'unsplashUi',
+export const appSlice = createSlice({
+  name: 'app',
   initialState,
   reducers: {
-    setColumnCount: (state: UiState, action: PayloadAction<number>) => {
-      state.columnCount = action.payload;
-    },
-
-    setLayout: (state: UiState, action: PayloadAction<'masonry' | 'grid'>) => {
-      state.currentLayout = action.payload;
-    },
-
-    setSearchActive: (state: UiState, action: PayloadAction<boolean>) => {
+    setSearchActive: (state: AppState, action: PayloadAction<boolean>) => {
       state.isSearchActive = action.payload;
       // Reset search term when deactivating search
       if (!action.payload) {
@@ -47,12 +35,24 @@ export const uiSlice = createSlice({
       }
     },
 
-    setSearchTerm: (state: UiState, action: PayloadAction<string>) => {
+    setSearchTerm: (state: AppState, action: PayloadAction<string>) => {
       state.searchTerm = action.payload;
       state.isSearchActive = action.payload.length > 0;
     },
 
-    addToast: (state: UiState, action: PayloadAction<Omit<Toast, 'id'>>) => {
+    setSelectedTopic: (
+      state: AppState,
+      action: PayloadAction<UnsplashTopic>
+    ) => {
+      if (state.selectedTopic?.id === action.payload.id) {
+        state.selectedTopic = null;
+        return;
+      }
+
+      state.selectedTopic = action.payload;
+    },
+
+    addToast: (state: AppState, action: PayloadAction<Omit<Toast, 'id'>>) => {
       const id = Date.now().toString();
       state.toasts.push({
         ...action.payload,
@@ -61,7 +61,7 @@ export const uiSlice = createSlice({
       });
     },
 
-    removeToast: (state: UiState, action: PayloadAction<string>) => {
+    removeToast: (state: AppState, action: PayloadAction<string>) => {
       state.toasts = state.toasts.filter(
         (toast) => toast.id !== action.payload
       );
@@ -70,12 +70,11 @@ export const uiSlice = createSlice({
 });
 
 export const {
-  setColumnCount,
-  setLayout,
   setSearchActive,
   setSearchTerm,
+  setSelectedTopic,
   addToast,
   removeToast,
-} = uiSlice.actions;
+} = appSlice.actions;
 
-export default uiSlice.reducer;
+export default appSlice.reducer;

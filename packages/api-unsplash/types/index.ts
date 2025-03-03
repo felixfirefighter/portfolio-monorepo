@@ -99,10 +99,6 @@ export interface UnsplashTopic {
   slug: string;
   title: string;
   description: string;
-  published_at: string;
-  updated_at: string;
-  starts_at: string;
-  ends_at: string | null;
   featured: boolean;
   total_photos: number;
   cover_photo: UnsplashPhoto;

@@ -11,7 +11,6 @@ import { unsplashBaseQuery } from './baseQuery';
 export const unsplashApi = createApi({
   reducerPath: 'unsplashApi',
   baseQuery: unsplashBaseQuery,
-  tagTypes: ['Photos', 'Topics', 'Collections'],
   endpoints: (builder) => ({
     getPhotos: builder.infiniteQuery<UnsplashPhoto[], void, number>({
       infiniteQueryOptions: {
@@ -26,7 +25,6 @@ export const unsplashApi = createApi({
 
     getPhotoById: builder.query<UnsplashPhoto, string>({
       query: (id) => `photos/${id}`,
-      providesTags: (result, error, id) => [{ type: 'Photos', id }],
     }),
 
     searchPhotos: builder.query<
@@ -35,14 +33,10 @@ export const unsplashApi = createApi({
     >({
       query: ({ query, page = 1 }) =>
         `search/photos?query=${encodeURIComponent(query)}&page=${page}&per_page=20`,
-      providesTags: [{ type: 'Photos', id: 'SEARCH' }],
     }),
 
     getRelatedPhotos: builder.query<UnsplashPhoto[], string>({
       query: (photoId) => `photos/${photoId}/related`,
-      providesTags: (result, error, photoId) => [
-        { type: 'Photos', id: `related-${photoId}` },
-      ],
     }),
 
     trackDownload: builder.mutation<DownloadResponse, string>({
@@ -52,10 +46,8 @@ export const unsplashApi = createApi({
       }),
     }),
 
-    // Topics/Categories endpoints
     getTopics: builder.query<UnsplashTopic[], void>({
-      query: () => 'topics?per_page=30',
-      providesTags: [{ type: 'Topics', id: 'LIST' }],
+      query: () => '/topics?order_by=featured',
     }),
 
     getTopicPhotos: builder.query<
@@ -64,9 +56,6 @@ export const unsplashApi = createApi({
     >({
       query: ({ topicId, page = 1 }) =>
         `topics/${topicId}/photos?page=${page}&per_page=20`,
-      providesTags: (result, error, { topicId }) => [
-        { type: 'Topics', id: topicId },
-      ],
       // Similar merge logic as getPhotos for infinite scroll
       serializeQueryArgs: ({ endpointName, queryArgs }) => {
         return `${endpointName}-${queryArgs.topicId}`;

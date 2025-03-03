@@ -7,7 +7,7 @@ import { useIntersectionObserver, useWindowSize } from '@uidotdev/usehooks';
 import { useEffect, useMemo } from 'react';
 import { mapPhotosToColumns } from '../../utils/map-photos-to-columns';
 
-export const ImageListContainer = () => {
+export const MasonryImageSection = () => {
   const { data, isFetching, fetchNextPage, error, isLoading } =
     useGetPhotosInfiniteQuery();
   const windowSize = useWindowSize();
@@ -45,7 +45,7 @@ export const ImageListContainer = () => {
   }
 
   return (
-    <section className="container">
+    <section className="container py-4">
       <div className="flex gap-2">
         {photoColumns.map((column, columnIndex) => (
           <div key={columnIndex} className="flex flex-1 flex-col gap-2">

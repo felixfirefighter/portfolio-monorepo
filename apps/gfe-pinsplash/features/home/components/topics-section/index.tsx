@@ -19,7 +19,7 @@ export default function TopicsSection() {
   const setSelectedTopic = useSetSelectedTopic();
 
   return (
-    <section className="flex w-full flex-row items-center py-2">
+    <section className="relative flex w-full flex-row items-center py-2">
       <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-10 bg-gradient-to-l from-transparent to-white" />
 
       <ScrollArea className="w-full whitespace-nowrap">

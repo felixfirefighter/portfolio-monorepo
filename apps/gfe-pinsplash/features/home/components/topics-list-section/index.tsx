@@ -1,9 +1,7 @@
 'use client';
 
-import {
-  useSelectedTopic,
-  useSetSelectedTopic,
-} from '@/features/shell/store/app/hooks';
+import { routes } from '@/features/shell/config/routes';
+import type { TopicRouteParams } from '@/features/shell/types/routes';
 import { useGetTopicsQuery } from '@repo/api-unsplash';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
@@ -13,11 +11,12 @@ import {
 import { Skeleton } from '@repo/design-system/components/ui/skeleton';
 import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
-export default function TopicsSection() {
-  const { data: topics, isLoading } = useGetTopicsQuery();
-  const selectedTopic = useSelectedTopic();
-  const setSelectedTopic = useSetSelectedTopic();
+import { useParams, useRouter } from 'next/navigation';
 
+export const TopicsListSection = () => {
+  const router = useRouter();
+  const params = useParams<TopicRouteParams>();
+  const { data: topics, isLoading } = useGetTopicsQuery();
   return (
     <section className="relative flex w-full flex-row items-center py-2">
       <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-10 bg-gradient-to-l from-transparent to-white" />
@@ -36,11 +35,16 @@ export default function TopicsSection() {
                     'flex cursor-pointer items-center gap-0 rounded-full bg-muted p-1 text-neutral-900',
                     {
                       'bg-primary/20 hover:bg-primary/20 focus:bg-primary/20 active:bg-primary/20':
-                        selectedTopic?.id === topic.id,
+                        params.slug === topic.slug,
                     }
                   )}
                   onClick={() => {
-                    setSelectedTopic(topic);
+                    if (params.slug === topic.slug) {
+                      router.push(routes.home());
+                      return;
+                    }
+
+                    router.push(routes.topic(topic.slug));
                   }}
                 >
                   <Image
@@ -62,4 +66,4 @@ export default function TopicsSection() {
       <div className="pointer-events-none absolute top-0 right-0 z-10 h-full w-20 bg-gradient-to-l from-white to-transparent" />
     </section>
   );
-}
+};

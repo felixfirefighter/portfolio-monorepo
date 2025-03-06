@@ -2,7 +2,7 @@
 
 import '@repo/design-system/styles/globals.css';
 import '@/styles/web.css';
-import TopicsSection from '@/features/home/components/topics-section';
+import { TopicsListSection } from '@/features/home/components/topics-list-section';
 import type { ReactNode } from 'react';
 
 type RootLayoutProperties = {
@@ -12,7 +12,7 @@ type RootLayoutProperties = {
 const RootLayout = ({ children }: RootLayoutProperties) => {
   return (
     <>
-      <TopicsSection />
+      <TopicsListSection />
       {children}
     </>
   );

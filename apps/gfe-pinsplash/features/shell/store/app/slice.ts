@@ -1,5 +1,4 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
-import type { UnsplashTopic } from '@repo/api-unsplash';
 
 // Define types for our UI state
 export interface Toast {
@@ -13,14 +12,12 @@ export interface AppState {
   toasts: Toast[];
   isSearchActive: boolean;
   searchTerm: string;
-  selectedTopic: UnsplashTopic | null;
 }
 
 const initialState: AppState = {
   toasts: [],
   isSearchActive: false,
   searchTerm: '',
-  selectedTopic: null,
 };
 
 export const appSlice = createSlice({
@@ -40,18 +37,6 @@ export const appSlice = createSlice({
       state.isSearchActive = action.payload.length > 0;
     },
 
-    setSelectedTopic: (
-      state: AppState,
-      action: PayloadAction<UnsplashTopic>
-    ) => {
-      if (state.selectedTopic?.id === action.payload.id) {
-        state.selectedTopic = null;
-        return;
-      }
-
-      state.selectedTopic = action.payload;
-    },
-
     addToast: (state: AppState, action: PayloadAction<Omit<Toast, 'id'>>) => {
       const id = Date.now().toString();
       state.toasts.push({
@@ -69,12 +54,7 @@ export const appSlice = createSlice({
   },
 });
 
-export const {
-  setSearchActive,
-  setSearchTerm,
-  setSelectedTopic,
-  addToast,
-  removeToast,
-} = appSlice.actions;
+export const { setSearchActive, setSearchTerm, addToast, removeToast } =
+  appSlice.actions;
 
 export default appSlice.reducer;

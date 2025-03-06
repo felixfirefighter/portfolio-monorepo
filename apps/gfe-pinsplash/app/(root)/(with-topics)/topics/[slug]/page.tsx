@@ -1,4 +1,4 @@
-import { MasonryImageSection } from '@/features/home/components/masonry-image-section';
+import { TopicHeader } from '@/features/topics/components/topic-header';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,10 +6,10 @@ export const metadata: Metadata = {
   description: 'Topic page',
 };
 
-export default function Home() {
+export default function Page() {
   return (
     <>
-      <MasonryImageSection />
+      <TopicHeader />
     </>
   );
 }

@@ -12,6 +12,7 @@ export const unsplashApi = createApi({
   reducerPath: 'unsplashApi',
   baseQuery: unsplashBaseQuery,
   endpoints: (builder) => ({
+    // Photos
     getPhotos: builder.infiniteQuery<UnsplashPhoto[], void, number>({
       infiniteQueryOptions: {
         initialPageParam: 1,
@@ -46,8 +47,13 @@ export const unsplashApi = createApi({
       }),
     }),
 
+    // Topics
     getTopics: builder.query<UnsplashTopic[], void>({
-      query: () => '/topics?order_by=featured&per_page=20',
+      query: () => '/topics?per_page=20',
+    }),
+
+    getTopicBySlug: builder.query<UnsplashTopic, string>({
+      query: (slug: string) => `/topics/${slug}`,
     }),
 
     getTopicPhotos: builder.query<
@@ -70,16 +76,6 @@ export const unsplashApi = createApi({
         return currentArg?.page !== previousArg?.page;
       },
     }),
-
-    // Collections endpoints
-    getRandomPhotos: builder.query<
-      UnsplashPhoto[],
-      { count?: number; topics?: string }
-    >({
-      query: ({ count = 10, topics = '' }) =>
-        `photos/random?count=${count}${topics ? `&topics=${topics}` : ''}`,
-      // Don't provide tags as this endpoint should always fetch fresh data
-    }),
   }),
 });
 
@@ -93,5 +89,5 @@ export const {
   useTrackDownloadMutation,
   useGetTopicsQuery,
   useGetTopicPhotosQuery,
-  useGetRandomPhotosQuery,
+  useGetTopicBySlugQuery,
 } = unsplashApi;

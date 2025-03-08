@@ -61,7 +61,7 @@ export interface UnsplashPhoto {
   color: string;
   blur_hash: string;
   description: string | null;
-  alt_description: string;
+  alt_description: string | null;
   urls: UnsplashPhotoUrls;
   links: {
     self: string;

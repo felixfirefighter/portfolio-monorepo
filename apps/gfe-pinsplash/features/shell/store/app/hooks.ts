@@ -13,5 +13,3 @@ export const useSearchActive = () =>
   useAppSelector((state) => state.app.isSearchActive);
 export const useSearchTerm = () =>
   useAppSelector((state) => state.app.searchTerm);
-export const useSelectedTopic = () =>
-  useAppSelector((state) => state.app.selectedTopic);

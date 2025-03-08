@@ -18,7 +18,11 @@ export const TopicHeader = () => {
     <section className="container my-4">
       <Image
         src={topic.cover_photo.urls.regular}
-        alt={topic.cover_photo.alt_description || topic.cover_photo.description}
+        alt={
+          topic.cover_photo.alt_description ||
+          topic.cover_photo.description ||
+          ''
+        }
         width={topic.cover_photo.width}
         height={topic.cover_photo.height}
         className="h-60 rounded-xl object-cover md:h-96"

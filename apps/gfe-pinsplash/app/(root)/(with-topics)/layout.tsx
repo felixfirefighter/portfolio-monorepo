@@ -13,7 +13,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => {
   return (
     <>
       <TopicsListSection />
-      {children}
+      <div className="pt-16">{children}</div>
     </>
   );
 };

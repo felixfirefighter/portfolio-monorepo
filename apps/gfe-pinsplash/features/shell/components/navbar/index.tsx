@@ -1,29 +1,13 @@
 'use client';
 import { RiSearch2Line } from '@remixicon/react';
 import { Input } from '@repo/design-system/components/ui/input';
-import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import {} from 'react';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 0);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <nav
-      className={cn('fixed z-50 w-full bg-white', { 'border-b': isScrolled })}
-    >
+    <nav className={'fixed z-50 w-full bg-white'}>
       <div className="container">
         <div className="flex h-16 items-center justify-between gap-4">
           <Link

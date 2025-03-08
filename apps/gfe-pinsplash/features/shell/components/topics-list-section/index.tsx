@@ -12,17 +12,36 @@ import { Skeleton } from '@repo/design-system/components/ui/skeleton';
 import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export const TopicsListSection = () => {
   const router = useRouter();
   const params = useParams<TopicRouteParams>();
   const { data: topics, isLoading } = useGetTopicsQuery();
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className="relative flex w-full flex-row items-center py-2">
+    <section
+      className={cn('fixed z-10 flex w-full flex-row items-center bg-white', {
+        'border-b': isScrolled,
+      })}
+    >
       <div className="pointer-events-none absolute top-0 left-0 z-10 h-full w-10 bg-gradient-to-l from-transparent to-white" />
 
       <ScrollArea className="w-full whitespace-nowrap">
-        <div className="flex w-max space-x-4 px-8 py-2">
+        <div className="flex w-max space-x-4 px-8 pt-2 pb-4">
           {isLoading
             ? Array.from({ length: 20 }).map((_, i) => (
                 <Skeleton key={i} className="h-10 w-24 rounded-full" />

@@ -56,24 +56,14 @@ export const unsplashApi = createApi({
       query: (slug: string) => `/topics/${slug}`,
     }),
 
-    getTopicPhotos: builder.query<
-      UnsplashPhoto[],
-      { topicId: string; page?: number }
-    >({
-      query: ({ topicId, page = 1 }) =>
-        `topics/${topicId}/photos?page=${page}&per_page=20`,
-      // Similar merge logic as getPhotos for infinite scroll
-      serializeQueryArgs: ({ endpointName, queryArgs }) => {
-        return `${endpointName}-${queryArgs.topicId}`;
+    getTopicPhotos: builder.infiniteQuery<UnsplashPhoto[], string, number>({
+      infiniteQueryOptions: {
+        initialPageParam: 1,
+        getNextPageParam: (_lastPage, _allPages, lastPageParam) =>
+          lastPageParam + 1,
       },
-      merge: (currentCache, newItems, { arg }) => {
-        if (arg.page === 1 || arg.page === undefined) {
-          return newItems;
-        }
-        return [...currentCache, ...newItems];
-      },
-      forceRefetch({ currentArg, previousArg }) {
-        return currentArg?.page !== previousArg?.page;
+      query({ queryArg, pageParam }) {
+        return `/topics/${queryArg}/photos?page=${pageParam}&per_page=20`;
       },
     }),
   }),
@@ -82,12 +72,13 @@ export const unsplashApi = createApi({
 // Export hooks for usage in components
 export const useGetPhotosInfiniteQuery: typeof unsplashApi.useGetPhotosInfiniteQuery =
   unsplashApi.useGetPhotosInfiniteQuery;
+export const useGetTopicPhotosInfiniteQuery: typeof unsplashApi.useGetTopicPhotosInfiniteQuery =
+  unsplashApi.useGetTopicPhotosInfiniteQuery;
 export const {
   useGetPhotoByIdQuery,
   useSearchPhotosQuery,
   useGetRelatedPhotosQuery,
   useTrackDownloadMutation,
   useGetTopicsQuery,
-  useGetTopicPhotosQuery,
   useGetTopicBySlugQuery,
 } = unsplashApi;

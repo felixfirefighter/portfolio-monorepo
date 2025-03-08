@@ -1,3 +1,4 @@
+import { MasonryImageSection } from '@/features/topics/components/masonry-image-section';
 import { TopicHeader } from '@/features/topics/components/topic-header';
 import type { Metadata } from 'next';
 
@@ -10,6 +11,7 @@ export default function Page() {
   return (
     <>
       <TopicHeader />
+      <MasonryImageSection />
     </>
   );
 }

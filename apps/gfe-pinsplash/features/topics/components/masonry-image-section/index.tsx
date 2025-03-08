@@ -1,15 +1,19 @@
 'use client';
 import { PinsplashImage } from '@/features/shell/components/pinsplash-image';
 import { SkeletonGrid } from '@/features/shell/components/skeleton-grid';
+import type { TopicRouteParams } from '@/features/shell/types/routes';
 import { mapPhotosToColumns } from '@/features/shell/utils/map-photos-to-columns';
 import { RiLoader4Line } from '@remixicon/react';
-import { useGetPhotosInfiniteQuery } from '@repo/api-unsplash';
+import { useGetTopicPhotosInfiniteQuery } from '@repo/api-unsplash';
 import { useIntersectionObserver, useWindowSize } from '@uidotdev/usehooks';
+import { useParams } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 
 export const MasonryImageSection = () => {
+  const params = useParams<TopicRouteParams>();
+
   const { data, isFetching, fetchNextPage, error, isLoading } =
-    useGetPhotosInfiniteQuery();
+    useGetTopicPhotosInfiniteQuery(params.slug);
   const windowSize = useWindowSize();
   // Observer hook
   const [ref, entry] = useIntersectionObserver({

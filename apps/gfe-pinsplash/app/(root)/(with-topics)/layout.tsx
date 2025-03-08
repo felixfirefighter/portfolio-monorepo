@@ -2,7 +2,7 @@
 
 import '@repo/design-system/styles/globals.css';
 import '@/styles/web.css';
-import { TopicsListSection } from '@/features/home/components/topics-list-section';
+import { TopicsListSection } from '@/features/shell/components/topics-list-section';
 import type { ReactNode } from 'react';
 
 type RootLayoutProperties = {

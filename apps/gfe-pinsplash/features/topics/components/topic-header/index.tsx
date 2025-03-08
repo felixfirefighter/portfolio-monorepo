@@ -29,9 +29,11 @@ export const TopicHeader = () => {
         style={{ background: topic.cover_photo.color }}
         priority
       />
-      <div className="flex h-full w-full flex-col justify-center rounded-lg p-4">
-        <h1 className="mb-2 font-semibold text-xl">{topic.title}</h1>
-        <p className="w-96 max-w-full font-medium text-neutral-900 text-sm">
+      <div className="flex h-full w-full flex-col justify-center rounded-lg p-4 pb-0">
+        <h1 className="mb-2 font-semibold text-neutral-900 text-xl">
+          {topic.title}
+        </h1>
+        <p className="w-96 max-w-full break-words font-medium text-neutral-600 text-sm">
           {topic.description}
         </p>
       </div>

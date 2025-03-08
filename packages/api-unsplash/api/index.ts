@@ -25,7 +25,10 @@ export const unsplashApi = createApi({
     }),
 
     getPhotoById: builder.query<UnsplashPhoto, string>({
-      query: (id) => `photos/${id}`,
+      query: (id) => `/photos/${id}`,
+    }),
+    getPhotoStatistics: builder.query<UnsplashPhoto, string>({
+      query: (id) => `/photos/${id}/statistics`,
     }),
 
     searchPhotos: builder.query<
@@ -76,6 +79,7 @@ export const useGetTopicPhotosInfiniteQuery: typeof unsplashApi.useGetTopicPhoto
   unsplashApi.useGetTopicPhotosInfiniteQuery;
 export const {
   useGetPhotoByIdQuery,
+  useGetPhotoStatisticsQuery,
   useSearchPhotosQuery,
   useGetRelatedPhotosQuery,
   useTrackDownloadMutation,

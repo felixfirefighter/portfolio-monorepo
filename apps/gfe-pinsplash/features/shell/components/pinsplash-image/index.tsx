@@ -1,8 +1,11 @@
 import type { UnsplashPhoto } from '@repo/api-unsplash';
+import { Button } from '@repo/design-system/components/ui/button';
 import { useHover, useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { BREAKPOINTS } from '../../config/breakpoints';
+import { routes } from '../../config/routes';
 
 interface Props {
   photo: UnsplashPhoto;
@@ -10,10 +13,20 @@ interface Props {
 
 export const PinsplashImage: React.FC<Props> = (props) => {
   const {
-    photo: { urls, alt_description, width, height, color, user, description },
+    photo: {
+      urls,
+      alt_description,
+      width,
+      height,
+      color,
+      user,
+      description,
+      id,
+    },
   } = props;
   const size = useWindowSize();
   const [ref, hovering] = useHover();
+  const router = useRouter();
 
   const [isAboveFold, setIsAboveFold] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -47,7 +60,12 @@ export const PinsplashImage: React.FC<Props> = (props) => {
   };
 
   return (
-    <div className="relative" ref={ref}>
+    <Button
+      variant={'ghost'}
+      className="relative h-auto w-auto p-0"
+      ref={ref}
+      onClick={() => router.push(routes.photo(id))}
+    >
       <Image
         ref={imgRef}
         src={getOptimalImageUrl()}
@@ -76,6 +94,6 @@ export const PinsplashImage: React.FC<Props> = (props) => {
           </div>
         </>
       )}
-    </div>
+    </Button>
   );
 };

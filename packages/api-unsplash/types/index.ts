@@ -49,6 +49,10 @@ export interface UnsplashPhotoUrls {
   small_s3: string;
 }
 
+export interface UnsplashPhotoTag {
+  title: string;
+}
+
 export interface UnsplashPhoto {
   id: string;
   slug: string;
@@ -73,6 +77,7 @@ export interface UnsplashPhoto {
   liked_by_user: boolean;
   asset_type: string;
   user: UnsplashUser;
+  tags: UnsplashPhotoTag[];
 }
 
 export interface UnsplashSearchResponse {

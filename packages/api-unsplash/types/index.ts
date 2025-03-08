@@ -113,3 +113,31 @@ export interface UnsplashTopic {
 export interface DownloadResponse {
   url: string;
 }
+
+// Base historical data value interface
+export interface UnsplashHistoricalValue {
+  date: string;
+  value: number;
+}
+
+// Historical data structure
+export interface UnsplashHistoricalData {
+  change: number;
+  resolution: string;
+  quantity: number;
+  values: UnsplashHistoricalValue[];
+}
+
+// Specific metric structure (downloads, views, likes)
+export interface UnsplashMetric {
+  total: number;
+  historical: UnsplashHistoricalData;
+}
+
+// Root interface for the entire data structure
+export interface UnsplashPhotoStatistics {
+  id: string;
+  downloads: UnsplashMetric;
+  views: UnsplashMetric;
+  likes: UnsplashMetric;
+}

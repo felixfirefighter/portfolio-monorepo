@@ -1,6 +1,7 @@
 'use client';
 
 import { SkeletonSection } from '@/features/photos/skeleton-section';
+import { StatsSection } from '@/features/photos/stats-section';
 import type { PhotoRouteParams } from '@/features/shell/types/routes';
 import { useGetPhotoByIdQuery } from '@repo/api-unsplash';
 import { Badge } from '@repo/design-system/components/ui/badge';
@@ -18,7 +19,7 @@ export const PhotoDetailsSection = () => {
 
   return (
     <div className="container py-8">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between pb-4">
         <div className="flex items-center space-x-4">
           <Image
             className="rounded-full"
@@ -31,20 +32,22 @@ export const PhotoDetailsSection = () => {
         </div>
         <Button>Download</Button>
       </div>
+      <Image
+        src={photo.urls.regular}
+        width={photo.width}
+        height={photo.height}
+        alt={photo.alt_description || photo.description || ''}
+        className="rounded"
+      />
       <div className="py-4">
-        <Image
-          src={photo.urls.regular}
-          width={photo.width}
-          height={photo.height}
-          alt={photo.alt_description || photo.description || ''}
-          className="rounded"
-        />
-      </div>
-      <div className="py-4">
-        <h1 className="font-semibold text-2xl">{photo.description}</h1>
+        <h1 className="font-semibold text-2xl">
+          {photo.alt_description || photo.description}
+        </h1>
       </div>
 
-      <div className="flex flex-wrap gap-3">
+      <StatsSection date={photo.created_at} />
+
+      <div className="flex flex-wrap gap-3 pt-4">
         {photo.tags.map((tag) => {
           return (
             <Badge

@@ -2,6 +2,7 @@ import { createApi } from '@reduxjs/toolkit/query/react';
 import type {
   DownloadResponse,
   UnsplashPhoto,
+  UnsplashPhotoStatistics,
   UnsplashSearchResponse,
   UnsplashTopic,
 } from '@repo/api-unsplash/types';
@@ -27,7 +28,7 @@ export const unsplashApi = createApi({
     getPhotoById: builder.query<UnsplashPhoto, string>({
       query: (id) => `/photos/${id}`,
     }),
-    getPhotoStatistics: builder.query<UnsplashPhoto, string>({
+    getPhotoStatistics: builder.query<UnsplashPhotoStatistics, string>({
       query: (id) => `/photos/${id}/statistics`,
     }),
 

@@ -30,6 +30,7 @@ const Navbar = () => {
             href={routes.home()}
             className="flex items-center"
             aria-label="Go to home page"
+            onClick={() => dispatch(setSearchTerm(''))}
           >
             <Image
               width={32}

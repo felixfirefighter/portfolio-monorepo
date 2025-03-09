@@ -42,7 +42,7 @@ export const MasonryImages: React.FC<Props> = (props) => {
     return mapPhotosToColumns(data.pages, windowSize.width);
   }, [data, windowSize]);
 
-  if (isLoading) {
+  if (isLoading || !data?.pages) {
     return <SkeletonGrid />;
   }
 
@@ -66,7 +66,7 @@ export const MasonryImages: React.FC<Props> = (props) => {
         ))}
       </div>
       <div ref={ref} className="h-4" />
-      {isFetching && (
+      {isFetching && data.pages.length > 0 && (
         <div className="flex justify-center gap-2 text-neutral-600">
           <RiLoader4Line className="animate-spin" /> <p>Loading more...</p>
         </div>

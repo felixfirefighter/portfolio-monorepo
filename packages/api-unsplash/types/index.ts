@@ -141,3 +141,8 @@ export interface UnsplashPhotoStatistics {
   views: UnsplashMetric;
   likes: UnsplashMetric;
 }
+
+export interface UnsplashRelatedPhotosResponse {
+  total: number;
+  results: UnsplashPhoto[];
+}

@@ -3,7 +3,7 @@ import { PinsplashImage } from '@/features/shell/components/pinsplash-image';
 import { SkeletonGrid } from '@/features/shell/components/skeleton-grid';
 import { mapPhotosToColumns } from '@/features/shell/utils/map-photos-to-columns';
 import type { SerializedError } from '@reduxjs/toolkit';
-import type { InfiniteData } from '@reduxjs/toolkit/query';
+import type { FetchBaseQueryError, InfiniteData } from '@reduxjs/toolkit/query';
 import { RiLoader4Line } from '@remixicon/react';
 import type { UnsplashPhoto } from '@repo/api-unsplash';
 import { useIntersectionObserver, useWindowSize } from '@uidotdev/usehooks';
@@ -14,7 +14,7 @@ type Props = {
   data: InfiniteData<UnsplashPhoto[], number> | undefined;
   isFetching: boolean;
   isLoading: boolean;
-  error: SerializedError | undefined;
+  error: SerializedError | FetchBaseQueryError | undefined;
   fetchNextPage: () => void;
 };
 
@@ -30,7 +30,7 @@ export const MasonryImages: React.FC<Props> = (props) => {
 
   useEffect(() => {
     if (entry?.isIntersecting && !isFetching && !error) {
-      fetchNextPage();
+      fetchNextPage?.();
     }
   }, [entry, error, isFetching, fetchNextPage]);
 
@@ -65,7 +65,7 @@ export const MasonryImages: React.FC<Props> = (props) => {
           </div>
         ))}
       </div>
-      <div ref={ref} className="h-1" />
+      <div ref={ref} className="h-4" />
       {isFetching && (
         <div className="flex justify-center gap-2 text-neutral-600">
           <RiLoader4Line className="animate-spin" /> <p>Loading more...</p>

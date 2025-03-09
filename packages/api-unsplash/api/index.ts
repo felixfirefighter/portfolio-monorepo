@@ -3,6 +3,7 @@ import type {
   DownloadResponse,
   UnsplashPhoto,
   UnsplashPhotoStatistics,
+  UnsplashRelatedPhotosResponse,
   UnsplashSearchResponse,
   UnsplashTopic,
 } from '@repo/api-unsplash/types';
@@ -24,12 +25,24 @@ export const unsplashApi = createApi({
         return `/photos?page=${pageParam}&per_page=20`;
       },
     }),
-
     getPhotoById: builder.query<UnsplashPhoto, string>({
       query: (id) => `/photos/${id}`,
     }),
     getPhotoStatistics: builder.query<UnsplashPhotoStatistics, string>({
       query: (id) => `/photos/${id}/statistics`,
+    }),
+    getRelatedPhotos: builder.infiniteQuery<UnsplashPhoto[], string, number>({
+      transformResponse: (response: UnsplashRelatedPhotosResponse) => {
+        return response.results;
+      },
+      infiniteQueryOptions: {
+        initialPageParam: 1,
+        getNextPageParam: (_lastPage, _allPages, lastPageParam) =>
+          lastPageParam + 1,
+      },
+      query({ queryArg, pageParam }) {
+        return `/photos/${queryArg}/related?page=${pageParam}&per_page=20`;
+      },
     }),
 
     searchPhotos: builder.query<
@@ -38,10 +51,6 @@ export const unsplashApi = createApi({
     >({
       query: ({ query, page = 1 }) =>
         `search/photos?query=${encodeURIComponent(query)}&page=${page}&per_page=20`,
-    }),
-
-    getRelatedPhotos: builder.query<UnsplashPhoto[], string>({
-      query: (photoId) => `photos/${photoId}/related`,
     }),
 
     trackDownload: builder.mutation<DownloadResponse, string>({
@@ -78,11 +87,12 @@ export const useGetPhotosInfiniteQuery: typeof unsplashApi.useGetPhotosInfiniteQ
   unsplashApi.useGetPhotosInfiniteQuery;
 export const useGetTopicPhotosInfiniteQuery: typeof unsplashApi.useGetTopicPhotosInfiniteQuery =
   unsplashApi.useGetTopicPhotosInfiniteQuery;
+export const useGetRelatedPhotosInfiniteQuery: typeof unsplashApi.useGetRelatedPhotosInfiniteQuery =
+  unsplashApi.useGetRelatedPhotosInfiniteQuery;
 export const {
   useGetPhotoByIdQuery,
   useGetPhotoStatisticsQuery,
   useSearchPhotosQuery,
-  useGetRelatedPhotosQuery,
   useTrackDownloadMutation,
   useGetTopicsQuery,
   useGetTopicBySlugQuery,

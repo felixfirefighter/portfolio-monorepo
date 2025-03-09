@@ -5,3 +5,7 @@ export type TopicRouteParams = {
 export type PhotoRouteParams = {
   id: string;
 };
+
+export type SearchRouteParams = {
+  slug: string;
+};

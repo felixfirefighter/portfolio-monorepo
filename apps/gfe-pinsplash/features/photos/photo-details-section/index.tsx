@@ -37,7 +37,7 @@ export const PhotoDetailsSection = () => {
         width={photo.width}
         height={photo.height}
         alt={photo.alt_description || photo.description || ''}
-        className="rounded"
+        className="mx-auto rounded-xl"
       />
       <div className="py-4">
         <h1 className="font-semibold text-2xl">

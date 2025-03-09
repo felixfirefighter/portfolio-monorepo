@@ -44,13 +44,18 @@ export const unsplashApi = createApi({
         return `/photos/${queryArg}/related?page=${pageParam}&per_page=20`;
       },
     }),
-
-    searchPhotos: builder.query<
-      UnsplashSearchResponse,
-      { query: string; page?: number }
-    >({
-      query: ({ query, page = 1 }) =>
-        `search/photos?query=${encodeURIComponent(query)}&page=${page}&per_page=20`,
+    searchPhotos: builder.infiniteQuery<UnsplashPhoto[], string, number>({
+      transformResponse: (response: UnsplashSearchResponse) => {
+        return response.results;
+      },
+      infiniteQueryOptions: {
+        initialPageParam: 1,
+        getNextPageParam: (_lastPage, _allPages, lastPageParam) =>
+          lastPageParam + 1,
+      },
+      query({ queryArg, pageParam }) {
+        return `search/photos?query=${queryArg}&page=${pageParam}&per_page=20`;
+      },
     }),
 
     trackDownload: builder.mutation<DownloadResponse, string>({
@@ -89,10 +94,11 @@ export const useGetTopicPhotosInfiniteQuery: typeof unsplashApi.useGetTopicPhoto
   unsplashApi.useGetTopicPhotosInfiniteQuery;
 export const useGetRelatedPhotosInfiniteQuery: typeof unsplashApi.useGetRelatedPhotosInfiniteQuery =
   unsplashApi.useGetRelatedPhotosInfiniteQuery;
+export const useSearchPhotosInfiniteQuery: typeof unsplashApi.useSearchPhotosInfiniteQuery =
+  unsplashApi.useSearchPhotosInfiniteQuery;
 export const {
   useGetPhotoByIdQuery,
   useGetPhotoStatisticsQuery,
-  useSearchPhotosQuery,
   useTrackDownloadMutation,
   useGetTopicsQuery,
   useGetTopicBySlugQuery,

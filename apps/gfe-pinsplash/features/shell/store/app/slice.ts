@@ -1,18 +1,17 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-// Define types for our UI state
-export interface Toast {
+export type Toast = {
   id: string;
   message: string;
   type: 'success' | 'error' | 'info';
   duration?: number;
-}
+};
 
-export interface AppState {
+export type AppState = {
   toasts: Toast[];
   isSearchActive: boolean;
   searchTerm: string;
-}
+};
 
 const initialState: AppState = {
   toasts: [],

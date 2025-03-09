@@ -1,4 +1,4 @@
-export interface UnsplashUser {
+export type UnsplashUser = {
   id: string;
   updated_at: string;
   username: string;
@@ -38,22 +38,22 @@ export interface UnsplashUser {
     twitter_username: string | null;
     paypal_email: string | null;
   };
-}
+};
 
-export interface UnsplashPhotoUrls {
+export type UnsplashPhotoUrls = {
   raw: string;
   full: string;
   regular: string;
   small: string;
   thumb: string;
   small_s3: string;
-}
+};
 
-export interface UnsplashPhotoTag {
+export type UnsplashPhotoTag = {
   title: string;
-}
+};
 
-export interface UnsplashPhoto {
+export type UnsplashPhoto = {
   id: string;
   slug: string;
   alternative_slugs: Record<string, string>;
@@ -78,28 +78,9 @@ export interface UnsplashPhoto {
   asset_type: string;
   user: UnsplashUser;
   tags: UnsplashPhotoTag[];
-}
+};
 
-export interface UnsplashSearchResponse {
-  total: number;
-  total_pages: number;
-  results: UnsplashPhoto[];
-}
-
-export interface UnsplashCollection {
-  id: string;
-  title: string;
-  description: string | null;
-  published_at: string;
-  last_collected_at: string;
-  updated_at: string;
-  cover_photo: UnsplashPhoto | null;
-  user: UnsplashUser;
-  total_photos: number;
-  preview_photos: UnsplashPhoto[];
-}
-
-export interface UnsplashTopic {
+export type UnsplashTopic = {
   id: string;
   slug: string;
   title: string;
@@ -108,41 +89,31 @@ export interface UnsplashTopic {
   total_photos: number;
   cover_photo: UnsplashPhoto;
   owners: UnsplashUser[];
-}
+};
 
-export interface DownloadResponse {
+export type DownloadResponse = {
   url: string;
-}
-
-// Base historical data value interface
-export interface UnsplashHistoricalValue {
-  date: string;
-  value: number;
-}
-
-// Historical data structure
-export interface UnsplashHistoricalData {
-  change: number;
-  resolution: string;
-  quantity: number;
-  values: UnsplashHistoricalValue[];
-}
+};
 
 // Specific metric structure (downloads, views, likes)
-export interface UnsplashMetric {
+export type UnsplashMetric = {
   total: number;
-  historical: UnsplashHistoricalData;
-}
+};
 
-// Root interface for the entire data structure
-export interface UnsplashPhotoStatistics {
+// Root type for the entire data structure
+export type UnsplashPhotoStatistics = {
   id: string;
   downloads: UnsplashMetric;
   views: UnsplashMetric;
   likes: UnsplashMetric;
-}
+};
 
-export interface UnsplashRelatedPhotosResponse {
+export type UnsplashRelatedPhotosResponse = {
   total: number;
   results: UnsplashPhoto[];
-}
+};
+export type UnsplashSearchResponse = {
+  total: number;
+  total_pages: number;
+  results: UnsplashPhoto[];
+};

@@ -11,7 +11,7 @@ export const EmptySearchSection: React.FC<Props> = (props) => {
 
   return (
     <div className="container py-8">
-      <h1 className="font-bold text-3xl text-neutral-900 md:text-4xl">
+      <h1 className="break-words font-bold text-3xl text-neutral-900 md:text-4xl">
         {title}
       </h1>
 

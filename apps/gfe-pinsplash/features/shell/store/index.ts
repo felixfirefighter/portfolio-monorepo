@@ -2,13 +2,11 @@ import appReducer from '@/features/shell/store/app/slice';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { unsplashApi } from '@repo/api-unsplash/api';
-import photosReducer from '@repo/api-unsplash/slices/photos-slice';
 
 // Root reducer combining all slices
 const rootReducer = combineReducers({
   [unsplashApi.reducerPath]: unsplashApi.reducer,
   app: appReducer,
-  photos: photosReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

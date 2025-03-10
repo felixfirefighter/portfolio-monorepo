@@ -44,6 +44,7 @@ export const PhotoDetailsSection = () => {
         height={photo.height}
         alt={photo.alt_description || photo.description || ''}
         className="mx-auto h-auto w-auto rounded-xl lg:my-6"
+        priority
         style={{
           background: photo.color,
         }}

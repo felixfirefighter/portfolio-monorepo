@@ -6,7 +6,6 @@ import {
 import type { UnsplashPhoto } from '@repo/api-unsplash';
 import { Button } from '@repo/design-system/components/ui/button';
 import { useHover, useWindowSize } from '@uidotdev/usehooks';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
@@ -42,15 +41,6 @@ export const PinsplashImage: React.FC<Props> = (props) => {
 
   return (
     <>
-      {isAboveFold && (
-        <Head>
-          <link
-            rel="preload"
-            as="image"
-            href={getOptimalImageUrl(size, urls)}
-          />
-        </Head>
-      )}
       <Button
         variant={'ghost'}
         className="relative h-auto w-auto p-0"

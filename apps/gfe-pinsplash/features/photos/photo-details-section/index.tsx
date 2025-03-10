@@ -91,7 +91,7 @@ export const PhotoDetailsSection = () => {
         {photo.tags.map((tag) => {
           return (
             <Badge
-              className="rounded bg-neutral-100 font-medium text-sm md:rounded-xl md:text-base lg:rounded-3xl"
+              className="rounded bg-neutral-100 font-medium text-sm md:text-base"
               variant={'secondary'}
               key={tag.title}
             >

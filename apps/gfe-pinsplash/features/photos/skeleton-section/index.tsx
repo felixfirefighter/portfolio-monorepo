@@ -6,16 +6,16 @@ export const SkeletonSection = () => {
     <div className="container py-8">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <Skeleton className="h-8 w-8 rounded-full" />
-          <Skeleton className="h-6 w-36" />
+          <Skeleton className="h-8 w-8 max-w-full rounded-full" />
+          <Skeleton className="h-6 w-36 max-w-full" />
         </div>
         <Skeleton className="h-10 w-32" />
       </div>
       <div className="py-4">
-        <Skeleton className="mx-auto h-64 w-96 md:h-96" />
+        <Skeleton className="mx-auto h-64 w-96 max-w-full md:h-96" />
       </div>
       <div className="py-4">
-        <Skeleton className="h-16 w-96" />
+        <Skeleton className="h-16 w-96 max-w-full" />
       </div>
 
       <StatsSkeletonSection />

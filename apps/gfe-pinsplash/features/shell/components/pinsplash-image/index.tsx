@@ -55,7 +55,7 @@ export const PinsplashImage: React.FC<Props> = (props) => {
           height={height}
           loading={isAboveFold ? 'eager' : 'lazy'}
           priority={isAboveFold}
-          className="h-auto w-auto rounded-xl"
+          className="h-auto w-full rounded-xl"
           quality={75}
           style={{
             background: color,

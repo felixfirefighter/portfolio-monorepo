@@ -1,10 +1,13 @@
+import {
+  getOptimalImageUrl,
+  getOptimalImageUrlForProfilePic,
+} from '@/features/shell/utils/image';
 import type { UnsplashPhoto } from '@repo/api-unsplash';
 import { Button } from '@repo/design-system/components/ui/button';
 import { useHover, useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { BREAKPOINTS } from '../../config/breakpoints';
 import { routes } from '../../config/routes';
 
 interface Props {
@@ -42,23 +45,6 @@ export const PinsplashImage: React.FC<Props> = (props) => {
     }
   }, []);
 
-  const getOptimalImageUrl = () => {
-    if (!size?.width) {
-      return urls.full;
-    }
-
-    if (size.width <= BREAKPOINTS.sm) {
-      return urls.thumb;
-    }
-    if (size.width <= BREAKPOINTS.md) {
-      return urls.small;
-    }
-    if (size.width <= BREAKPOINTS.lg) {
-      return urls.regular;
-    }
-    return urls.full;
-  };
-
   return (
     <Button
       variant={'ghost'}
@@ -68,7 +54,7 @@ export const PinsplashImage: React.FC<Props> = (props) => {
     >
       <Image
         ref={imgRef}
-        src={getOptimalImageUrl()}
+        src={getOptimalImageUrl(size, urls)}
         alt={alt_description || ''}
         width={width}
         height={height}
@@ -80,11 +66,11 @@ export const PinsplashImage: React.FC<Props> = (props) => {
       {hovering && (
         <>
           <div className="absolute bottom-0 left-0 z-10 h-full w-full rounded-xl bg-black opacity-20" />
-          <div className="absolute right-2 bottom-2 left-2 z-20 flex items-center gap-2 text-xs">
+          <div className="absolute right-2 bottom-2 left-2 z-20 flex items-center gap-2 text-xs lg:text-sm">
             <Image
-              width={32}
-              height={32}
-              src={user.profile_image.small}
+              width={getOptimalImageUrlForProfilePic(size)}
+              height={getOptimalImageUrlForProfilePic(size)}
+              src={user.profile_image.medium}
               alt={user.name}
               className="flex-shrink-0 rounded-full"
             />

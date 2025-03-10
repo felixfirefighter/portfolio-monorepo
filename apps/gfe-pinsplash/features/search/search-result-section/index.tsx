@@ -28,7 +28,9 @@ export const SearchResultSection = () => {
     <>
       <div className="container py-8">
         {decodedSlug !== '' ? (
-          <h1 className="font-bold text-3xl text-neutral-900">{decodedSlug}</h1>
+          <h1 className="font-bold text-3xl text-neutral-900 md:text-4xl">
+            {decodedSlug}
+          </h1>
         ) : (
           <Skeleton className="h-9 w-80" />
         )}

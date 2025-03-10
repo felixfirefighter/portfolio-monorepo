@@ -21,19 +21,29 @@ export const StatsSection: React.FC<Props> = (props) => {
   return (
     <>
       <div className="py-2">
-        <p className="font-semibold text-neutral-600 text-xs">Views</p>
+        <p className="font-semibold text-neutral-600 text-xs md:text-sm">
+          Views
+        </p>
       </div>
-      <p className="pb-2 font-semibold">{formatNumber(stats.views.total)}</p>
+      <p className="pb-2 font-semibold md:text-lg">
+        {formatNumber(stats.views.total)}
+      </p>
 
       <div className="py-2">
-        <p className="font-semibold text-neutral-600 text-xs">Date</p>
+        <p className="font-semibold text-neutral-600 text-xs md:text-sm">
+          Date
+        </p>
       </div>
-      <p className="pb-2 font-semibold">{format(date, 'dd MMM, yyyy')}</p>
+      <p className="pb-2 font-semibold md:text-lg">
+        {format(date, 'dd MMM, yyyy')}
+      </p>
 
       <div className="py-2">
-        <p className="font-semibold text-neutral-600 text-xs">Downloads</p>
+        <p className="font-semibold text-neutral-600 text-xs md:text-sm">
+          Downloads
+        </p>
       </div>
-      <p className="pb-2 font-semibold">
+      <p className="pb-2 font-semibold md:text-lg">
         {formatNumber(stats.downloads.total)}
       </p>
     </>

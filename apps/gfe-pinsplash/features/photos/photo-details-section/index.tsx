@@ -3,14 +3,20 @@
 import { SkeletonSection } from '@/features/photos/skeleton-section';
 import { StatsSection } from '@/features/photos/stats-section';
 import type { PhotoRouteParams } from '@/features/shell/types/routes';
+import {
+  getOptimalImageUrlForDetails,
+  getOptimalImageUrlForProfilePic,
+} from '@/features/shell/utils/image';
 import { useGetPhotoByIdQuery } from '@repo/api-unsplash';
 import { Badge } from '@repo/design-system/components/ui/badge';
 import { Button } from '@repo/design-system/components/ui/button';
+import { useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 
 export const PhotoDetailsSection = () => {
   const params = useParams<PhotoRouteParams>();
+  const size = useWindowSize();
   const { data: photo, isFetching } = useGetPhotoByIdQuery(params.id);
 
   if (isFetching || !photo) {
@@ -25,19 +31,22 @@ export const PhotoDetailsSection = () => {
             className="rounded-full"
             src={photo.user.profile_image.small}
             alt={photo.user.username}
-            width={32}
-            height={32}
+            width={getOptimalImageUrlForProfilePic(size)}
+            height={getOptimalImageUrlForProfilePic(size)}
           />
-          <h2 className="font-semibold">{photo.user.name}</h2>
+          <h2 className="font-semibold md:text-lg">{photo.user.name}</h2>
         </div>
         <Button>Download</Button>
       </div>
       <Image
-        src={photo.urls.regular}
+        src={getOptimalImageUrlForDetails(size, photo.urls)}
         width={photo.width}
         height={photo.height}
         alt={photo.alt_description || photo.description || ''}
-        className="mx-auto rounded-xl"
+        className="mx-auto h-auto w-auto rounded-xl lg:my-6"
+        style={{
+          background: photo.color,
+        }}
       />
       <div className="py-4">
         <h1 className="font-semibold text-2xl">
@@ -51,7 +60,7 @@ export const PhotoDetailsSection = () => {
         {photo.tags.map((tag) => {
           return (
             <Badge
-              className="rounded bg-neutral-100 font-medium text-sm"
+              className="rounded bg-neutral-100 font-medium text-sm md:rounded-xl md:text-base lg:rounded-3xl"
               variant={'secondary'}
               key={tag.title}
             >

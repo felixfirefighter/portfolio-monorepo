@@ -12,18 +12,18 @@ export const SkeletonSection = () => {
         <Skeleton className="h-10 w-32" />
       </div>
       <div className="py-4">
-        <Skeleton className="h-64 w-full" />
+        <Skeleton className="mx-auto h-64 w-96 md:h-96" />
       </div>
       <div className="py-4">
-        <Skeleton className="h-16 w-full" />
+        <Skeleton className="h-16 w-96" />
       </div>
 
       <StatsSkeletonSection />
 
-      <div className="grid grid-cols-3 gap-3 py-4">
+      <div className="flex flex-wrap gap-3">
         {Array.from({ length: 15 }).map((_, index) => {
           return (
-            <Skeleton key={`tag-skeleton-${index}`} className="h-7 w-full" />
+            <Skeleton key={`tag-skeleton-${index}`} className="h-7 w-20" />
           );
         })}
       </div>

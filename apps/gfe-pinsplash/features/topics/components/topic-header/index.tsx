@@ -30,10 +30,10 @@ export const TopicHeader = () => {
         priority
       />
       <div className="flex h-full w-full flex-col justify-center rounded-lg p-4 pb-0">
-        <h1 className="mb-2 font-semibold text-neutral-900 text-xl">
+        <h1 className="mb-2 font-semibold text-neutral-900 text-xl md:text-2xl">
           {topic.title}
         </h1>
-        <p className="w-96 max-w-full break-words font-medium text-neutral-600 text-sm">
+        <p className="w-96 max-w-full break-words font-medium text-neutral-600 text-sm md:text-base">
           {topic.description}
         </p>
       </div>

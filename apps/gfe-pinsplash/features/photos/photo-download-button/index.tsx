@@ -1,6 +1,9 @@
 'use client';
 import { getResizedDimensions } from '@/features/shell/utils/image';
-import type { UnsplashPhoto } from '@repo/api-unsplash';
+import {
+  type UnsplashPhoto,
+  useTrackDownloadMutation,
+} from '@repo/api-unsplash';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,7 +21,7 @@ type Props = {
 
 export const PhotoDownloadButton: React.FC<Props> = (props) => {
   const { photo } = props;
-
+  const [trackDownload] = useTrackDownloadMutation();
   const handleDownload = (size: number) => {
     const downloadUrl = `${photo.urls.full}&w=${size}`; // Resize if size is provided
     const link = document.createElement('a');
@@ -27,6 +30,7 @@ export const PhotoDownloadButton: React.FC<Props> = (props) => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    trackDownload();
   };
 
   return (

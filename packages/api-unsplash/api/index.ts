@@ -1,6 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import type {
-  DownloadResponse,
   UnsplashPhoto,
   UnsplashPhotoStatistics,
   UnsplashRelatedPhotosResponse,
@@ -58,7 +57,7 @@ export const unsplashApi = createApi({
       },
     }),
 
-    trackDownload: builder.mutation<DownloadResponse, string>({
+    trackDownload: builder.mutation<void, void>({
       query: (photoId) => ({
         url: `photos/${photoId}/download`,
         method: 'GET',

@@ -13,7 +13,7 @@ const cspHeader = `
     form-action 'self';
     frame-ancestors 'none';
     upgrade-insecure-requests;
-    connect-src 'self' https://api.unsplash.com;
+    connect-src 'self' https://api.unsplash.com https://images.unsplash.com;
 `;
 
 const nextConfig: NextConfig = {

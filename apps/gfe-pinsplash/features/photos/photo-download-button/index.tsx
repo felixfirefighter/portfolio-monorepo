@@ -22,14 +22,20 @@ export const PhotoDownloadButton: React.FC<Props> = (props) => {
   const { photo } = props;
   const [trackDownload] = useTrackDownloadMutation();
 
-  const handleDownload = (size: number) => {
+  const handleDownload = async (size: number) => {
     const downloadUrl = `${photo.urls.full}&w=${size}`;
+    const response = await fetch(downloadUrl);
+    const blob = await response.blob();
+    const url = URL.createObjectURL(blob);
+
     const link = document.createElement('a');
-    link.href = downloadUrl;
+    link.href = url;
     link.download = `${photo.slug}.png`; // Suggested filename
     document.body.appendChild(link);
     link.click();
+    URL.revokeObjectURL(url);
     document.body.removeChild(link);
+
     trackDownload();
   };
 

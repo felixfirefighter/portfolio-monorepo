@@ -10,14 +10,12 @@ import {
 } from '@repo/design-system/components/ui/scroll-area';
 import { Skeleton } from '@repo/design-system/components/ui/skeleton';
 import { cn } from '@repo/design-system/lib/utils';
-import { useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export const TopicsListSection = () => {
   const router = useRouter();
-  const size = useWindowSize();
   const params = useParams<TopicRouteParams>();
   const { data: topics, isLoading } = useGetTopicsQuery();
 
@@ -46,7 +44,7 @@ export const TopicsListSection = () => {
         <div className="flex w-max space-x-4 px-8 pt-2 pb-4">
           {isLoading
             ? Array.from({ length: 20 }).map((_, i) => (
-                <Skeleton key={i} className="h-8 w-24 rounded-full" />
+                <Skeleton key={i} className="h-10 w-24 rounded-full" />
               ))
             : topics?.map((topic) => (
                 <Button

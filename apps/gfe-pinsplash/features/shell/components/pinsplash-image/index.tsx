@@ -17,7 +17,7 @@ interface Props {
 
 export const PinsplashImage: React.FC<Props> = (props) => {
   const {
-    photo: { urls, alt_description, user, description, id },
+    photo: { urls, alt_description, user, description, id, color },
   } = props;
   const size = useWindowSize();
   const [ref, hovering] = useHover();
@@ -55,10 +55,11 @@ export const PinsplashImage: React.FC<Props> = (props) => {
           height={height}
           loading={isAboveFold ? 'eager' : 'lazy'}
           priority={isAboveFold}
-          className="rounded-xl"
-          placeholder="blur"
-          blurDataURL={`${getOptimalImageUrl(size, urls)}&blur=20`}
+          className="h-auto w-auto rounded-xl"
           quality={75}
+          style={{
+            background: color,
+          }}
         />
         {hovering && (
           <>

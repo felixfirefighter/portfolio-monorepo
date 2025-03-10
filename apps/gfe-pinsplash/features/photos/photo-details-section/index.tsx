@@ -6,9 +6,18 @@ import type { PhotoRouteParams } from '@/features/shell/types/routes';
 import {
   getOptimalImageUrlForDetails,
   getOptimalImageUrlForProfilePic,
+  getResizedDimensions,
 } from '@/features/shell/utils/image';
 import { useGetPhotoByIdQuery } from '@repo/api-unsplash';
 import { Badge } from '@repo/design-system/components/ui/badge';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@repo/design-system/components/ui/dropdown-menu';
+
+import { RiArrowDownSLine } from '@remixicon/react';
 import { Button } from '@repo/design-system/components/ui/button';
 import { useWindowSize } from '@uidotdev/usehooks';
 import Image from 'next/image';
@@ -36,7 +45,28 @@ export const PhotoDetailsSection = () => {
           />
           <h2 className="font-semibold md:text-lg">{photo.user.name}</h2>
         </div>
-        <Button>Download</Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button>
+              Download <RiArrowDownSLine className="ml-2 h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="rounded-xl" align="end">
+            {getResizedDimensions(photo.width, photo.height).map((size) => {
+              return (
+                <DropdownMenuItem
+                  className="rounded py-2 text-sm"
+                  key={size.label}
+                >
+                  <span className="font-medium">{size.label}</span>{' '}
+                  <span className="font-normal">
+                    ({size.width} × {size.height})
+                  </span>
+                </DropdownMenuItem>
+              );
+            })}
+          </DropdownMenuContent>
+        </DropdownMenu>{' '}
       </div>
       <Image
         src={getOptimalImageUrlForDetails(size, photo.urls)}

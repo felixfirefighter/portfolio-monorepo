@@ -8,7 +8,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@repo/design-system/components/ui/dropdown-menu';
 
@@ -22,8 +21,9 @@ type Props = {
 export const PhotoDownloadButton: React.FC<Props> = (props) => {
   const { photo } = props;
   const [trackDownload] = useTrackDownloadMutation();
+
   const handleDownload = (size: number) => {
-    const downloadUrl = `${photo.urls.full}&w=${size}`; // Resize if size is provided
+    const downloadUrl = `${photo.urls.full}&w=${size}`;
     const link = document.createElement('a');
     link.href = downloadUrl;
     link.download = `${photo.slug}.png`; // Suggested filename
@@ -41,25 +41,22 @@ export const PhotoDownloadButton: React.FC<Props> = (props) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="rounded-xl" align="end">
-        {getResizedDimensions(photo.width, photo.height).map(
-          (size, index, arr) => {
-            return (
-              <>
-                {index === arr.length - 1 && <DropdownMenuSeparator />}
-                <DropdownMenuItem
-                  className="rounded py-2 text-sm"
-                  key={size.label}
-                  onClick={() => handleDownload(size.width)}
-                >
-                  <span className="font-medium">{size.label}</span>{' '}
-                  <span className="font-normal">
-                    ({size.width} × {size.height})
-                  </span>
-                </DropdownMenuItem>
-              </>
-            );
-          }
-        )}
+        {getResizedDimensions(photo.width, photo.height).map((size) => {
+          const item = (
+            <DropdownMenuItem
+              className="rounded py-2 text-sm"
+              key={size.label}
+              onClick={() => handleDownload(size.width)}
+            >
+              <span className="font-medium">{size.label}</span>{' '}
+              <span className="font-normal">
+                ({size.width} × {size.height})
+              </span>
+            </DropdownMenuItem>
+          );
+
+          return item;
+        })}
       </DropdownMenuContent>
     </DropdownMenu>
   );

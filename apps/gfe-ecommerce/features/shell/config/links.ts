@@ -1,22 +1,10 @@
 export const MAIN_NAVBAR = [
   {
     href: '/',
-    title: 'Home',
+    title: 'Shop all',
   },
   {
-    href: '/features',
-    title: 'Features',
-  },
-  {
-    href: '/pricing',
-    title: 'Pricing',
-  },
-  {
-    href: '/about-us',
-    title: 'About Us',
-  },
-  {
-    href: '/contact-us',
-    title: 'Contact',
+    href: '/latest',
+    title: 'Latest arrivals',
   },
 ];

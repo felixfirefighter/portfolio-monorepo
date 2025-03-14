@@ -35,26 +35,27 @@ const collectionLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="container border-t py-10 shadow">
-      <div className="grid gap-10 md:grid-cols-3">
+    <footer className="border-t py-10 lg:py-24">
+      <div className="container grid gap-8 lg:grid-cols-2 lg:gap-16">
         <div>
           <h3 className="mb-2 font-semibold text-xl">Join our newsletter</h3>
-          <p className="pb-6 text-neutral-600">
+          <p className=" text-neutral-600">
             We’ll send you a nice letter once per week. No spam.
           </p>
-          <div className="md:flex md:space-x-2">
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              className="mb-4 flex-1 md:mb-0"
-            />
-            <Button className="w-full bg-primary text-white hover:bg-primary">
-              Subscribe
-            </Button>
-          </div>
         </div>
 
-        <div>
+        <div className="md:flex md:space-x-4">
+          <Input
+            type="email"
+            placeholder="Enter your email"
+            className="mb-4 flex-1 md:mb-0"
+          />
+          <Button className="w-full bg-primary text-white hover:bg-primary md:w-auto">
+            Subscribe
+          </Button>
+        </div>
+
+        <div className="md:py-8 lg:py-0">
           <Image
             width={105}
             height={32}
@@ -63,7 +64,7 @@ export const Footer = () => {
             className="mb-6"
           />
 
-          <p className=" text-neutral-600">
+          <p className=" text-neutral-600 md:w-1/2">
             Craft stunning style journeys that weave more joy into every thread.
           </p>
         </div>
@@ -101,8 +102,8 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-between border-t py-8 text-neutral-500 text-sm md:flex-row">
-          <p className="pb-8">
+        <div className="col-span-full flex flex-col items-center justify-between border-t py-8 text-neutral-500 text-sm md:flex-row">
+          <p className="pb-8 md:pb-0">
             © {new Date().getFullYear()} StyleNest, Inc. All rights reserved.
           </p>
           <div className="flex space-x-4 md:mt-0">

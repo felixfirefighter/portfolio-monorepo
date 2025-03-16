@@ -352,7 +352,7 @@ importers:
         version: 4.6.0(react@19.0.0)
       '@repo/api-unsplash':
         specifier: workspace:*
-        version: link:../../packages/api-unsplash
+        version: link:../../packages/api-hacker-news
       '@repo/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
@@ -656,14 +656,21 @@ importers:
         specifier: ^19.0.3
         version: 19.0.3(@types/react@19.0.7)
 
+  packages/api-hacker-news:
+    dependencies:
+      '@reduxjs/toolkit':
+        specifier: ^2.6.0
+        version: 2.6.0(react-redux@9.2.0(@types/react@19.0.7)(react@19.0.0)(redux@5.0.1))(react@19.0.0)
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+
   packages/api-unsplash:
     dependencies:
       '@reduxjs/toolkit':
         specifier: ^2.6.0
         version: 2.6.0(react-redux@9.2.0(@types/react@19.0.7)(react@19.0.0)(redux@5.0.1))(react@19.0.0)
-      react-redux:
-        specifier: ^9.2.0
-        version: 9.2.0(@types/react@19.0.7)(react@19.0.0)(redux@5.0.1)
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*

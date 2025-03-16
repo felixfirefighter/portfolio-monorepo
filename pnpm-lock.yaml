@@ -829,6 +829,52 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
 
+  packages/db-commerce:
+    dependencies:
+      '@neondatabase/serverless':
+        specifier: ^0.10.4
+        version: 0.10.4
+      '@prisma/adapter-neon':
+        specifier: ^6.2.1
+        version: 6.2.1(@neondatabase/serverless@0.10.4)
+      '@prisma/client':
+        specifier: 6.2.1
+        version: 6.2.1(prisma@6.2.1)
+      '@t3-oss/env-nextjs':
+        specifier: ^0.11.1
+        version: 0.11.1(typescript@5.7.3)(zod@3.24.1)
+      prisma:
+        specifier: 6.2.1
+        version: 6.2.1
+      server-only:
+        specifier: ^0.0.1
+        version: 0.0.1
+      undici:
+        specifier: ^7.3.0
+        version: 7.3.0
+      ws:
+        specifier: ^8.18.0
+        version: 8.18.0(bufferutil@4.0.9)
+      zod:
+        specifier: ^3.24.1
+        version: 3.24.1
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: 22.10.7
+        version: 22.10.7
+      '@types/ws':
+        specifier: ^8.5.13
+        version: 8.5.13
+      bufferutil:
+        specifier: ^4.0.9
+        version: 4.0.9
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+
   packages/design-system:
     dependencies:
       '@hookform/resolvers':

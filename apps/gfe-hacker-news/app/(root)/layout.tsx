@@ -12,9 +12,18 @@ type RootLayoutProperties = {
 
 const RootLayout = ({ children }: RootLayoutProperties) => {
   return (
-    <html lang="en" className={fonts} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={fonts}
+      suppressHydrationWarning
+      data-theme="orange"
+    >
       <body>
-        <DesignSystemProvider enableSystem={false} defaultTheme="light">
+        <DesignSystemProvider
+          enableSystem={false}
+          themes={['light', 'orange']}
+          defaultTheme="orange"
+        >
           <Navbar />
           <main className="pt-16">{children}</main>
           <Footer />

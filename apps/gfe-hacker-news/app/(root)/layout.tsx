@@ -18,15 +18,17 @@ const RootLayout = ({ children }: RootLayoutProperties) => {
       suppressHydrationWarning
       data-theme="orange"
     >
-      <body className="pt-16 md:pt-0 lg:pl-60">
+      <body>
         <DesignSystemProvider
           enableSystem={false}
-          themes={['light', 'orange']}
+          themes={['orange']}
           defaultTheme="orange"
         >
           <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <main className="pt-16 md:pt-0 lg:pl-60">{children}</main>
+          <div className="lg:pl-60">
+            <Footer />
+          </div>
         </DesignSystemProvider>
       </body>
     </html>

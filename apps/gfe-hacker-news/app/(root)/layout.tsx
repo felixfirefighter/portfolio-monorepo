@@ -25,7 +25,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => {
           defaultTheme="orange"
         >
           <Navbar />
-          <main className="pt-16">{children}</main>
+          <main className="pt-16 lg:pl-60">{children}</main>
           <Footer />
         </DesignSystemProvider>
       </body>

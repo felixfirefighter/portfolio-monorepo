@@ -32,4 +32,4 @@ export type HackerNewsCategory =
   | 'show'
   | 'job';
 
-export type HackerNewsItemIds = number[];
+export type HackerNewsItemId = number;

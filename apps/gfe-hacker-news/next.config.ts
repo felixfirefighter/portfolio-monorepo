@@ -13,6 +13,7 @@ const cspHeader = `
     form-action 'self';
     frame-ancestors 'none';
     upgrade-insecure-requests;
+    connect-src 'self' https://hacker-news.firebaseio.com
 `;
 
 const nextConfig: NextConfig = {

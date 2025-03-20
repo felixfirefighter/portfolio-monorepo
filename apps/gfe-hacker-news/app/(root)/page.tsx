@@ -1,3 +1,4 @@
+import { NewsSection } from '@/features/home/components/news-section';
 import { SectionHeader } from '@/features/shell/components/section-header';
 import type { Metadata } from 'next';
 
@@ -13,6 +14,7 @@ export default function Home() {
         title="New"
         description="Discover the latest submissions in the Hacker News community."
       />
+      <NewsSection />
     </div>
   );
 }

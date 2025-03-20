@@ -1,11 +1,11 @@
+// src/api.ts
+import { createApi } from '@reduxjs/toolkit/query/react';
 import type {
   HackerNewsCategory,
   HackerNewsItem,
-  HackerNewsItemIds,
+  HackerNewsItemId,
   HackerNewsUser,
-} from '@/types';
-// src/api.ts
-import { createApi } from '@reduxjs/toolkit/query/react';
+} from '@repo/api-hacker-news/types';
 import { hackerNewsBaseQuery } from './baseQuery';
 
 export const hackerNewsApi = createApi({
@@ -20,7 +20,7 @@ export const hackerNewsApi = createApi({
         result ? [{ type: 'Item', id }] : [],
     }),
 
-    getCategoryStories: builder.query<HackerNewsItemIds, HackerNewsCategory>({
+    getCategoryStories: builder.query<HackerNewsItemId[], HackerNewsCategory>({
       query: (category) => {
         switch (category) {
           case 'top':

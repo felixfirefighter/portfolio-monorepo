@@ -21,11 +21,9 @@ export const NewsSection = () => {
 
   return (
     <div className="container">
-      <div className="flex flex-col gap-4">
-        {storyIds.map((id) => {
-          return <NewsItem key={id} id={id} />;
-        })}
-      </div>
+      {storyIds.map((id) => {
+        return <NewsItem key={id} id={id} />;
+      })}
     </div>
   );
 };

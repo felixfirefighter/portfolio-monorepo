@@ -1,10 +1,14 @@
+import { formatHostname } from '@/features/shell/utils/format';
 import {
-  RiArrowUpLine,
+  RiArrowUpDoubleLine,
   RiArticleLine,
-  RiClockwiseLine,
   RiMessage2Line,
+  RiPenNibLine,
+  RiTimeLine,
 } from '@remixicon/react';
 import { type HackerNewsItemId, useGetItemQuery } from '@repo/api-hacker-news';
+import { Skeleton } from '@repo/design-system/components/ui/skeleton';
+import { formatDistanceToNow } from 'date-fns';
 import Link from 'next/link';
 
 type Props = {
@@ -13,28 +17,56 @@ type Props = {
 
 export const NewsItem: React.FC<Props> = (props) => {
   const { id } = props;
-  const { data, isFetching } = useGetItemQuery(id);
+  const { data: news, isFetching } = useGetItemQuery(id);
+
+  if (isFetching || !news) {
+    return (
+      <div className="flex">
+        <Skeleton className="h-4 w-4" />
+
+        <div>
+          <Skeleton className="h-4 w-28" />
+          <Skeleton className="h-3 w-20" />
+          <Skeleton className="h-3 w-16" />
+        </div>
+      </div>
+    );
+  }
+
+  console.log('news', news);
 
   return (
-    <Link href={''} className="flex space-x-4 py-6">
-      <div className="rounded-full bg-stone-50 p-2.5">
-        <RiArticleLine className="h-5 w-5" />
+    <Link href={''} className="flex items-center space-x-4 py-6">
+      <div className="flex-shrink-0 rounded-full bg-stone-50 p-2.5">
+        <RiArticleLine size={20} />
       </div>
       <div>
-        <p>{''}</p>
-        <div className="flex items-center gap-4 text-gray-600 text-sm">
-          <div className="flex items-center gap-1">
-            <RiArrowUpLine size={14} /> 90 points
+        <p className="mb-1 font-medium text-sm">{news.title}</p>
+        {news.url && (
+          <p className="mb-2 text-neutral-600 text-xs">
+            ({formatHostname(news.url)})
+          </p>
+        )}
+        <div className="mb-3 flex items-center gap-3 text-xs">
+          <div className="flex items-center gap-1 text-neutral-600">
+            <RiArrowUpDoubleLine size={16} /> {news.score ?? 0} points
           </div>
-          <div className="flex items-center gap-1">
-            <span className="text-red-500">by {'Felix'}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <RiClockwiseLine size={14} /> {'time'}
+          <div className="flex items-center gap-2">
+            <RiMessage2Line size={14} /> {'10'} comments
           </div>
         </div>
-        <div className="flex items-center gap-2 text-gray-600 text-sm">
-          <RiMessage2Line size={14} /> {'10'} comments
+        <div className="flex items-center gap-3 text-gray-600 text-xs">
+          <div className="flex items-center gap-1">
+            <RiPenNibLine size={16} />
+            by <span className="font-medium text-primary">{news.by}</span>
+          </div>
+
+          <div className="flex items-center gap-1">
+            <RiTimeLine size={14} />{' '}
+            {formatDistanceToNow(new Date(news.time * 1000), {
+              addSuffix: true,
+            })}
+          </div>
         </div>
       </div>
     </Link>

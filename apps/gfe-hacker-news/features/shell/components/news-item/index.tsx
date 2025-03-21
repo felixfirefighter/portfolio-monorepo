@@ -1,8 +1,8 @@
+import { NewsItemIcon } from '@/features/shell/components/news-item-icon';
 import { NewsItemSkeleton } from '@/features/shell/components/news-item-skeleton';
 import { formatHostname } from '@/features/shell/utils/format';
 import {
   RiArrowUpDoubleLine,
-  RiArticleLine,
   RiMessage2Line,
   RiPenNibLine,
   RiTimeLine,
@@ -23,29 +23,32 @@ export const NewsItem: React.FC<Props> = (props) => {
     return <NewsItemSkeleton />;
   }
 
-  console.log('news', news);
-
   return (
-    <Link href={''} className="flex items-center space-x-4 py-4">
+    <Link
+      href={news.url ? news.url : ''}
+      target={news.url && '_blank'}
+      className="flex items-center space-x-4 py-4"
+    >
       <div className="flex-shrink-0 rounded-full bg-stone-50 p-2.5">
-        <RiArticleLine size={20} />
+        <NewsItemIcon news={news} />
       </div>
-      <div>
-        <p className="mb-1 font-medium text-sm">{news.title}</p>
-        {news.url && (
-          <p className="mb-2 text-neutral-600 text-xs">
-            ({formatHostname(news.url)})
-          </p>
-        )}
-        <div className="mb-2 flex items-center gap-3 text-xs">
-          <div className="flex items-center gap-1 text-neutral-600">
+      <div className="flex-grow">
+        <div className="md:mb-2 md:flex md:items-center md:gap-1">
+          <p className="mb-1 font-medium text-sm md:mb-0">{news.title}</p>
+          {news.url && (
+            <p className="mb-2 text-neutral-600 text-xs md:mb-0">
+              ({formatHostname(news.url)})
+            </p>
+          )}
+        </div>
+        <div className="grid grid-cols-2 gap-2 text-neutral-600 text-xs md:flex md:gap-4">
+          <div className="flex items-center gap-1 ">
             <RiArrowUpDoubleLine size={16} /> {news.score ?? 0} points
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <RiMessage2Line size={14} /> {'10'} comments
           </div>
-        </div>
-        <div className="flex items-center gap-3 text-gray-600 text-xs">
+
           <div className="flex items-center gap-1">
             <RiPenNibLine size={16} />
             by <span className="font-medium text-primary">{news.by}</span>

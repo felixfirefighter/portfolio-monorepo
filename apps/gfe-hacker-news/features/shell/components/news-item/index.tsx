@@ -1,3 +1,4 @@
+import { NewsItemSkeleton } from '@/features/shell/components/news-item-skeleton';
 import { formatHostname } from '@/features/shell/utils/format';
 import {
   RiArrowUpDoubleLine,
@@ -7,7 +8,6 @@ import {
   RiTimeLine,
 } from '@remixicon/react';
 import { type HackerNewsItemId, useGetItemQuery } from '@repo/api-hacker-news';
-import { Skeleton } from '@repo/design-system/components/ui/skeleton';
 import { formatDistanceToNow } from 'date-fns';
 import Link from 'next/link';
 
@@ -20,23 +20,13 @@ export const NewsItem: React.FC<Props> = (props) => {
   const { data: news, isFetching } = useGetItemQuery(id);
 
   if (isFetching || !news) {
-    return (
-      <div className="flex">
-        <Skeleton className="h-4 w-4" />
-
-        <div>
-          <Skeleton className="h-4 w-28" />
-          <Skeleton className="h-3 w-20" />
-          <Skeleton className="h-3 w-16" />
-        </div>
-      </div>
-    );
+    return <NewsItemSkeleton />;
   }
 
   console.log('news', news);
 
   return (
-    <Link href={''} className="flex items-center space-x-4 py-6">
+    <Link href={''} className="flex items-center space-x-4 py-4">
       <div className="flex-shrink-0 rounded-full bg-stone-50 p-2.5">
         <RiArticleLine size={20} />
       </div>
@@ -47,7 +37,7 @@ export const NewsItem: React.FC<Props> = (props) => {
             ({formatHostname(news.url)})
           </p>
         )}
-        <div className="mb-3 flex items-center gap-3 text-xs">
+        <div className="mb-2 flex items-center gap-3 text-xs">
           <div className="flex items-center gap-1 text-neutral-600">
             <RiArrowUpDoubleLine size={16} /> {news.score ?? 0} points
           </div>

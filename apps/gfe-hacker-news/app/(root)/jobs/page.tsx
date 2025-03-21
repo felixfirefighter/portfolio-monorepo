@@ -1,3 +1,4 @@
+import { NewsSection } from '@/features/jobs/components/news-section';
 import { SectionHeader } from '@/features/shell/components/section-header';
 import type { Metadata } from 'next';
 
@@ -14,6 +15,7 @@ export default function Page() {
         title="Jobs"
         description="Connect with top tech job opportunities and company hiring posts."
       />
+      <NewsSection />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { useGetCategoryStoriesQuery } from '@repo/api-hacker-news';
 import { useCallback, useState } from 'react';
 
 export const NewsSection = () => {
-  const { data: storyIds, isFetching } = useGetCategoryStoriesQuery('new');
+  const { data: storyIds, isFetching } = useGetCategoryStoriesQuery('job');
 
   const [displayCount, setDisplayCount] = useState(
     APPLICATION_CONFIG.itemsPerPage

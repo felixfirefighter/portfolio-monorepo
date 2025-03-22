@@ -1,5 +1,8 @@
 // src/utils.ts
-import type { HackerNewsCategory, HackerNewsItem } from '@/types';
+import type {
+  HackerNewsCategory,
+  HackerNewsItem,
+} from '@repo/api-hacker-news/types';
 
 // Helper function to calculate optimal cache time based on category
 export const getCacheLifetime = (category: HackerNewsCategory): number => {

@@ -22,9 +22,6 @@ export const NewsItemDetailsSkeleton: React.FC = () => {
         </div>
 
         <Separator className="mb-8" />
-
-        <Skeleton className="mb-4 h-6 w-1/2" />
-        <Skeleton className="h-56 w-full" />
       </div>
     </div>
   );

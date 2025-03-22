@@ -1,7 +1,10 @@
 'use client';
+import { CommentItem } from '@/features/shell/components/comment-item';
 import { NewsItemDetailsSkeleton } from '@/features/shell/components/news-item-details-skeleton';
+import { APPLICATION_CONFIG } from '@/features/shell/config/application';
 import type { DetailsRouteParams } from '@/features/shell/types/routes';
 import {
+  RiArrowDownLine,
   RiArrowLeftLine,
   RiArrowUpDoubleLine,
   RiMessage2Line,
@@ -11,21 +14,29 @@ import {
 import { useGetItemQuery } from '@repo/api-hacker-news';
 import { Button } from '@repo/design-system/components/ui/button';
 import { Separator } from '@repo/design-system/components/ui/separator';
-import { Skeleton } from '@repo/design-system/components/ui/skeleton';
 import { formatDistanceToNow } from 'date-fns';
 import DOMPurify from 'dompurify';
 import { useParams } from 'next/navigation';
+import { useCallback, useState } from 'react';
 
 export const NewsItemDetails = () => {
   const { id } = useParams<DetailsRouteParams>();
 
   const { data: news, isFetching } = useGetItemQuery(Number(id));
 
+  const [displayCount, setDisplayCount] = useState(
+    APPLICATION_CONFIG.commentsPerPage
+  );
+
+  const handleLoadMore = useCallback(() => {
+    setDisplayCount(
+      (prevCount) => prevCount + APPLICATION_CONFIG.commentsPerPage
+    );
+  }, []);
+
   if (isFetching || !news) {
     return <NewsItemDetailsSkeleton />;
   }
-
-  console.log(news);
 
   const cleanText = DOMPurify.sanitize(news.text ?? '');
 
@@ -66,12 +77,24 @@ export const NewsItemDetails = () => {
 
         <Separator className="mb-8" />
 
-        {/* {news..map((comment, index) => (
-          <Comment key={index} {...comment} />
-        ))} */}
-
-        <Skeleton className="mb-4 h-6 w-1/2" />
-        <Skeleton className="h-56 w-full" />
+        <div>
+          <h2 className="mb-2 font-medium text-lg">
+            {news.descendants} comments
+          </h2>
+          {news.kids?.slice(0, displayCount).map((id) => (
+            <CommentItem key={id} id={id} level={1} />
+          ))}
+          <div className="py-6">
+            <Button
+              variant={'outline'}
+              className="w-full md:w-auto"
+              onClick={handleLoadMore}
+            >
+              More
+              <RiArrowDownLine />
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

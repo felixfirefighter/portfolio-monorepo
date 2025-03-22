@@ -30,7 +30,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => {
         >
           <Provider store={store}>
             <Navbar />
-            <main className="pt-16 md:pt-0 lg:pl-60">{children}</main>
+            <main className="pt-14 md:pt-0 lg:pl-60">{children}</main>
             <div className="lg:pl-60">
               <Footer />
             </div>

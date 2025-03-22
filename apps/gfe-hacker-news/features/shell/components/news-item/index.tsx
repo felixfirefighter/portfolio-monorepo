@@ -1,5 +1,6 @@
 import { NewsItemIcon } from '@/features/shell/components/news-item-icon';
 import { NewsItemSkeleton } from '@/features/shell/components/news-item-skeleton';
+import { routes } from '@/features/shell/config/routes';
 import { formatHostname } from '@/features/shell/utils/format';
 import {
   RiArrowUpDoubleLine,
@@ -25,16 +26,16 @@ export const NewsItem: React.FC<Props> = (props) => {
 
   return (
     <Link
-      href={news.url ? news.url : ''}
+      href={news.url ? news.url : routes.details(news.id.toString())}
       target={news.url && '_blank'}
-      className="flex items-center space-x-4 py-4"
+      className="flex cursor-pointer items-center space-x-4 py-4"
     >
       <div className="flex-shrink-0 rounded-full bg-stone-50 p-2.5">
         <NewsItemIcon news={news} />
       </div>
       <div className="flex-grow">
         <div className="md:mb-2 md:flex md:items-center md:gap-1">
-          <p className="mb-1 font-medium text-sm md:mb-0">{news.title}</p>
+          <p className="mb-2 font-medium text-sm md:mb-0">{news.title}</p>
           {news.url && (
             <p className="mb-2 text-neutral-600 text-xs md:mb-0">
               ({formatHostname(news.url)})
@@ -42,11 +43,11 @@ export const NewsItem: React.FC<Props> = (props) => {
           )}
         </div>
         <div className="grid grid-cols-2 gap-2 text-neutral-600 text-xs md:flex md:gap-4">
-          <div className="flex items-center gap-1 ">
+          <div className="flex items-center gap-1">
             <RiArrowUpDoubleLine size={16} /> {news.score ?? 0} points
           </div>
           <div className="flex items-center gap-1">
-            <RiMessage2Line size={14} /> {'10'} comments
+            <RiMessage2Line size={14} /> {news.descendants} comments
           </div>
 
           <div className="flex items-center gap-1">

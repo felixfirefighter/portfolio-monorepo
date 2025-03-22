@@ -1,4 +1,4 @@
-import { NewsSection } from '@/features/ask/components/news-section';
+import { NewsSection } from '@/features/shell/components/news-section';
 import { SectionHeader } from '@/features/shell/components/section-header';
 import type { Metadata } from 'next';
 
@@ -15,7 +15,7 @@ export default function Page() {
         title="Ask"
         description="Explore community-driven Q&A where users seek insights and advice."
       />
-      <NewsSection />
+      <NewsSection category="ask" />
     </div>
   );
 }

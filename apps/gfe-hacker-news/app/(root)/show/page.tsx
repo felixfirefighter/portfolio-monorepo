@@ -1,5 +1,5 @@
+import { NewsSection } from '@/features/shell/components/news-section';
 import { SectionHeader } from '@/features/shell/components/section-header';
-import { NewsSection } from '@/features/show/components/news-section';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function Page() {
         title="Show"
         description="Showcase your projects, products, and discoveries to the Hacker News audience."
       />
-      <NewsSection />
+      <NewsSection category="show" />
     </div>
   );
 }

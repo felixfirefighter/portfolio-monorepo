@@ -30,7 +30,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => {
         >
           <Provider store={store}>
             <Navbar />
-            <main className="flex-grow pt-14 md:pt-0 lg:pl-60">{children}</main>
+            <main className="flex-grow pt-14 lg:pt-0 lg:pl-60">{children}</main>
             <Footer />
           </Provider>
         </DesignSystemProvider>

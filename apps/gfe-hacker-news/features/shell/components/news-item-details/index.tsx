@@ -16,11 +16,12 @@ import { Button } from '@repo/design-system/components/ui/button';
 import { Separator } from '@repo/design-system/components/ui/separator';
 import { formatDistanceToNow } from 'date-fns';
 import DOMPurify from 'dompurify';
-import { useParams } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 
 export const NewsItemDetails = () => {
   const { id } = useParams<DetailsRouteParams>();
+  const router = useRouter();
 
   const { data: news, isFetching } = useGetItemQuery(Number(id));
 
@@ -38,11 +39,13 @@ export const NewsItemDetails = () => {
     return <NewsItemDetailsSkeleton />;
   }
 
+  console.log(news);
+
   const cleanText = DOMPurify.sanitize(news.text ?? '');
 
   return (
     <div className="container py-4">
-      <Button variant={'link'} className="px-0">
+      <Button variant={'link'} onClick={() => router.back()} className="px-0">
         <RiArrowLeftLine /> Back
       </Button>
       <div className="py-4">
@@ -69,32 +72,36 @@ export const NewsItemDetails = () => {
           </div>
         </div>
 
-        <p
-          className="py-8 text-neutral-600"
+        <div
+          className="prose prose-neutral py-8 text-neutral-600"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
           dangerouslySetInnerHTML={{ __html: cleanText }}
         />
 
         <Separator className="mb-8" />
 
-        <div>
-          <h2 className="mb-2 font-medium text-lg">
-            {news.descendants} comments
-          </h2>
-          {news.kids?.slice(0, displayCount).map((id) => (
-            <CommentItem key={id} id={id} level={1} />
-          ))}
-          <div className="py-6">
-            <Button
-              variant={'outline'}
-              className="w-full md:w-auto"
-              onClick={handleLoadMore}
-            >
-              More
-              <RiArrowDownLine />
-            </Button>
+        {news.descendants && (
+          <div>
+            <h2 className="mb-2 font-medium text-lg">
+              {news.descendants} comments
+            </h2>
+            {news.kids?.slice(0, displayCount).map((id) => (
+              <CommentItem key={id} id={id} level={1} />
+            ))}
+            {news.kids && displayCount < news.kids.length && (
+              <div className="py-6">
+                <Button
+                  variant={'outline'}
+                  className="w-full md:w-auto"
+                  onClick={handleLoadMore}
+                >
+                  More
+                  <RiArrowDownLine />
+                </Button>
+              </div>
+            )}
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

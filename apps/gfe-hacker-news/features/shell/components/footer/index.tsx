@@ -36,7 +36,7 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="container space-y-4 py-8 md:flex md:items-center md:justify-between md:space-y-0">
+    <footer className="container space-y-4 bg-white py-8 md:flex md:items-center md:justify-between md:space-y-0 lg:pl-60">
       <p className="text-center text-neutral-600 text-sm">
         © {new Date().getFullYear()} Hacker News, Inc. All rights reserved.
       </p>

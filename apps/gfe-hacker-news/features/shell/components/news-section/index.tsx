@@ -36,16 +36,18 @@ export const NewsSection: React.FC<Props> = (props) => {
       {storyIds.slice(0, displayCount).map((id) => {
         return <NewsItem key={id} id={id} />;
       })}
-      <div className="py-6">
-        <Button
-          variant={'outline'}
-          className="w-full md:w-auto"
-          onClick={handleLoadMore}
-        >
-          More
-          <RiArrowDownLine />
-        </Button>
-      </div>
+      {displayCount < storyIds.length && (
+        <div className="py-6">
+          <Button
+            variant={'outline'}
+            className="w-full md:w-auto"
+            onClick={handleLoadMore}
+          >
+            More
+            <RiArrowDownLine />
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

@@ -22,7 +22,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => {
       suppressHydrationWarning
       data-theme="orange"
     >
-      <body>
+      <body className="flex min-h-screen flex-col">
         <DesignSystemProvider
           enableSystem={false}
           themes={['orange']}
@@ -30,10 +30,8 @@ const RootLayout = ({ children }: RootLayoutProperties) => {
         >
           <Provider store={store}>
             <Navbar />
-            <main className="pt-14 md:pt-0 lg:pl-60">{children}</main>
-            <div className="lg:pl-60">
-              <Footer />
-            </div>
+            <main className="flex-grow pt-14 md:pt-0 lg:pl-60">{children}</main>
+            <Footer />
           </Provider>
         </DesignSystemProvider>
       </body>

@@ -8,17 +8,42 @@ import {
   RiPenNibLine,
   RiTimeLine,
 } from '@remixicon/react';
-import { type HackerNewsItemId, useGetItemQuery } from '@repo/api-hacker-news';
+import {
+  type HackerNewsCategory,
+  type HackerNewsItemId,
+  useGetItemQuery,
+} from '@repo/api-hacker-news';
 import { formatDistanceToNow } from 'date-fns';
 import Link from 'next/link';
+import { useMemo } from 'react';
 
 type Props = {
   id: HackerNewsItemId;
+  type: HackerNewsCategory;
 };
 
 export const NewsItem: React.FC<Props> = (props) => {
-  const { id } = props;
+  const { id, type } = props;
   const { data: news, isFetching } = useGetItemQuery(id);
+
+  const detailsLink = useMemo(() => {
+    if (!news) {
+      return '';
+    }
+
+    switch (type) {
+      case 'new':
+        return routes.latest(news.id.toString());
+      case 'ask':
+        return routes.ask(news.id.toString());
+      case 'show':
+        return routes.show(news.id.toString());
+      case 'job':
+        return routes.jobs(news.id.toString());
+      default:
+        return '';
+    }
+  }, [type, news]);
 
   if (isFetching || !news) {
     return <NewsItemSkeleton />;
@@ -26,9 +51,9 @@ export const NewsItem: React.FC<Props> = (props) => {
 
   return (
     <Link
-      href={news.url ? news.url : routes.details(news.id.toString())}
+      href={news.url ? news.url : detailsLink}
       target={news.url && '_blank'}
-      className="flex cursor-pointer items-center space-x-4 py-4 hover:bg-primary/10"
+      className="flex cursor-pointer items-center space-x-4 px-1 py-4 hover:bg-primary/10"
     >
       <div className="flex-shrink-0 rounded-full bg-stone-50 p-2.5">
         <NewsItemIcon news={news} />
@@ -43,12 +68,16 @@ export const NewsItem: React.FC<Props> = (props) => {
           )}
         </div>
         <div className="grid grid-cols-2 gap-2 text-neutral-600 text-xs md:flex md:gap-4">
-          <div className="flex items-center gap-1">
-            <RiArrowUpDoubleLine size={16} /> {news.score ?? 0} points
-          </div>
-          <div className="flex items-center gap-1">
-            <RiMessage2Line size={14} /> {news.descendants} comments
-          </div>
+          {news.type !== 'job' && (
+            <>
+              <div className="flex items-center gap-1">
+                <RiArrowUpDoubleLine size={16} /> {news.score ?? 0} points
+              </div>
+              <div className="flex items-center gap-1">
+                <RiMessage2Line size={14} /> {news.descendants} comments
+              </div>
+            </>
+          )}
 
           <div className="flex items-center gap-1">
             <RiPenNibLine size={16} />

@@ -34,7 +34,7 @@ export const NewsSection: React.FC<Props> = (props) => {
   return (
     <div className="container">
       {storyIds.slice(0, displayCount).map((id) => {
-        return <NewsItem key={id} id={id} />;
+        return <NewsItem type={category} key={id} id={id} />;
       })}
       {displayCount < storyIds.length && (
         <div className="py-6">

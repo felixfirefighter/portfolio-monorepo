@@ -51,18 +51,22 @@ export const NewsItemDetails = () => {
         <h1 className="mb-4 font-semibold text-3xl">{news.title}</h1>
 
         <div className="grid grid-cols-2 gap-2 text-neutral-600 text-sm md:flex md:gap-4">
-          <div className="flex items-center gap-1 ">
-            <RiArrowUpDoubleLine size={16} /> {news.score ?? 0} points
-          </div>
+          {news.type !== 'job' && (
+            <div className="flex items-center gap-1 ">
+              <RiArrowUpDoubleLine size={16} /> {news.score ?? 0} points
+            </div>
+          )}
 
           <div className="flex items-center gap-1">
             <RiPenNibLine size={16} />
             by <span className="font-medium text-primary">{news.by}</span>
           </div>
 
-          <div className="flex items-center gap-1">
-            <RiMessage2Line size={14} /> {news.descendants} comments
-          </div>
+          {news.type !== 'job' && (
+            <div className="flex items-center gap-1">
+              <RiMessage2Line size={14} /> {news.descendants} comments
+            </div>
+          )}
           <div className="flex items-center gap-1">
             <RiTimeLine size={14} />{' '}
             {formatDistanceToNow(new Date(news.time * 1000), {

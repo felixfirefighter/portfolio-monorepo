@@ -1,4 +1,7 @@
 export const routes = {
   home: () => '/',
-  details: (id: string) => `/details/${id}`,
+  latest: (id: string) => `/latest/${id}`,
+  ask: (id: string) => `/ask/${id}`,
+  show: (id: string) => `/show/${id}`,
+  jobs: (id: string) => `/jobs/${id}`,
 };

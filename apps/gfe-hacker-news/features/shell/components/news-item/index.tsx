@@ -28,7 +28,7 @@ export const NewsItem: React.FC<Props> = (props) => {
     <Link
       href={news.url ? news.url : routes.details(news.id.toString())}
       target={news.url && '_blank'}
-      className="flex cursor-pointer items-center space-x-4 py-4"
+      className="flex cursor-pointer items-center space-x-4 py-4 hover:bg-primary/10"
     >
       <div className="flex-shrink-0 rounded-full bg-stone-50 p-2.5">
         <NewsItemIcon news={news} />

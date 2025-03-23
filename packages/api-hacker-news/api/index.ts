@@ -19,6 +19,14 @@ export const hackerNewsApi = createApi({
       providesTags: (result, _error, id) =>
         result ? [{ type: 'Item', id }] : [],
     }),
+    getMultipleItems: builder.query<HackerNewsItem[], number[]>({
+      queryFn: async (ids: number[], _api, _extraOptions, fetchWithBQ) => {
+        const results = await Promise.all(
+          ids.map((id) => fetchWithBQ(`/item/${id}.json`))
+        );
+        return { data: results.map((r) => r.data as HackerNewsItem) };
+      },
+    }),
 
     getCategoryStories: builder.query<HackerNewsItemId[], HackerNewsCategory>({
       query: (category) => {
@@ -63,6 +71,7 @@ export const hackerNewsApi = createApi({
 // Export hooks for usage in components
 export const {
   useGetItemQuery,
+  useGetMultipleItemsQuery,
   useGetCategoryStoriesQuery,
   useGetUserQuery,
   useGetUpdatesQuery,

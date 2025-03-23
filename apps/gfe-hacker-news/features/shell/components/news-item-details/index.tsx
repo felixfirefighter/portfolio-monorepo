@@ -1,6 +1,7 @@
 'use client';
 import { CommentItem } from '@/features/shell/components/comment-item';
 import { NewsItemDetailsSkeleton } from '@/features/shell/components/news-item-details-skeleton';
+import { PollSection } from '@/features/shell/components/poll-section';
 import { APPLICATION_CONFIG } from '@/features/shell/config/application';
 import type { DetailsRouteParams } from '@/features/shell/types/routes';
 import {
@@ -39,8 +40,6 @@ export const NewsItemDetails = () => {
     return <NewsItemDetailsSkeleton />;
   }
 
-  console.log(news);
-
   const cleanText = DOMPurify.sanitize(news.text ?? '');
 
   return (
@@ -72,15 +71,20 @@ export const NewsItemDetails = () => {
           </div>
         </div>
 
-        <div
-          className="prose prose-neutral py-8 text-neutral-600"
-          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-          dangerouslySetInnerHTML={{ __html: cleanText }}
-        />
+        <div className="py-4">
+          {cleanText && (
+            <div
+              className="prose prose-neutral py-4 text-neutral-600"
+              // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+              dangerouslySetInnerHTML={{ __html: cleanText }}
+            />
+          )}
 
+          {news.parts && <PollSection parts={news.parts} />}
+        </div>
         <Separator className="mb-8" />
 
-        {news.descendants && (
+        {(news.descendants ?? 0) > 0 && (
           <div>
             <h2 className="mb-2 font-medium text-lg">
               {news.descendants} comments

@@ -21,11 +21,9 @@ export const CommentItem: React.FC<Props> = ({ id, level }) => {
   const cleanText = DOMPurify.sanitize(text ?? '');
 
   return (
-    <div className={cn('relative space-y-2 py-4', { 'border-b': level === 1 })}>
-      {level > 1 && (
-        <div className="-ml-6 absolute top-0 h-full w-4 rounded-bl-lg border-b border-l" />
-      )}
-      <div className="mb-3 space-x-2">
+    <div className={cn('space-y-2 pt-6', { 'border-b pb-6': level === 1 })}>
+      <div className="mb-3 flex items-center space-x-2">
+        {level > 1 && <div className="-ml-4 h-px w-2 bg-neutral-300 " />}
         <p className="flex items-center space-x-2 text-sm">
           <span className="font-semibold text-neutral-900">{by}</span>
           <span>•</span>
@@ -41,7 +39,7 @@ export const CommentItem: React.FC<Props> = ({ id, level }) => {
         dangerouslySetInnerHTML={{ __html: cleanText }}
       />
       {kids.length > 0 && (
-        <div className="ml-2 space-y-2 pb-8 pl-6">
+        <div className="space-y-2 border-l pl-4">
           {kids.map((kid) => (
             <CommentItem key={kid} id={kid} level={level + 1} />
           ))}

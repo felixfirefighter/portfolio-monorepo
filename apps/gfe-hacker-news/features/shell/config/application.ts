@@ -1,4 +1,4 @@
 export const APPLICATION_CONFIG = {
   itemsPerPage: 20,
-  commentsPerPage: 5,
+  commentsPerPage: 1,
 };

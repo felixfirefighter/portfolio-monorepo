@@ -34,7 +34,7 @@ export const CommentItem: React.FC<Props> = ({ id, level }) => {
       </div>
 
       <p
-        className="break-words text-gray-800 text-sm"
+        className="porse porse-neutral break-words text-neutral-600 text-sm"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
         dangerouslySetInnerHTML={{ __html: cleanText }}
       />

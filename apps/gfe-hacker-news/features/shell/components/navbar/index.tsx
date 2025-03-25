@@ -42,7 +42,10 @@ const Navbar = () => {
             className={cn(
               'flex gap-3 rounded-md p-2 text-neutral-600 hover:bg-primary/10',
               {
-                'bg-primary/10 text-primary': pathname === link.href,
+                'bg-primary/10 text-primary':
+                  link.href === '/'
+                    ? pathname === '/'
+                    : pathname.startsWith(link.href),
               }
             )}
             aria-label={`Go to ${link.title}`}

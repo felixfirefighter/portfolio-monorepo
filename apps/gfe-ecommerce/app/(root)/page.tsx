@@ -1,3 +1,4 @@
+import { FeatureSection } from '@/features/home/components/feature-section';
 import { HeroSection } from '@/features/home/components/hero-section';
 import type { Metadata } from 'next';
 
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
+      <FeatureSection />
     </div>
   );
 }

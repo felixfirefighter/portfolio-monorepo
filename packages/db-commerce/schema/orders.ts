@@ -1,4 +1,5 @@
 import { users } from '@/schema/users';
+import { sql } from 'drizzle-orm';
 import {
   numeric,
   pgTable,
@@ -16,5 +17,7 @@ export const orders = pgTable('orders', {
     .notNull(),
   totalAmount: numeric('total_amount').notNull(),
   status: text('status').default('pending'), // pending, completed, cancelled
-  createdAt: timestamp('created_at').defaultNow(),
+  createdAt: timestamp('created_at', { mode: 'string' })
+    .notNull()
+    .default(sql`now()`),
 });

@@ -1,5 +1,5 @@
 import { products } from '@/schema/products';
-import { integer, numeric, pgTable, serial, text } from 'drizzle-orm/pg-core';
+import { integer, pgTable, serial, text } from 'drizzle-orm/pg-core';
 
 // Product Variants Table
 export const productVariants = pgTable('product_variants', {
@@ -7,7 +7,6 @@ export const productVariants = pgTable('product_variants', {
   productId: integer('product_id')
     .references(() => products.id)
     .notNull(),
-  variantName: text('variant_name').notNull(), // e.g., "Red / Large"
-  price: numeric('price').notNull(),
-  stock: integer('stock').notNull(),
+  sku: text('sku').notNull().unique(), // Unique identifier for each variant
+  variantName: text('variant_name').notNull(),
 });

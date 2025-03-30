@@ -1,4 +1,5 @@
 import { sql } from 'drizzle-orm';
+import type { InferSelectModel } from 'drizzle-orm';
 import { pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 
 // Collections Table
@@ -11,3 +12,5 @@ export const collections = pgTable('collections', {
     .notNull()
     .default(sql`now()`),
 });
+
+export type Collection = InferSelectModel<typeof collections>; // Read type (select)

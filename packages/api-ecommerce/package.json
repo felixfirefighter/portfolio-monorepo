@@ -6,6 +6,7 @@
   "author": "Felix Lee",
   "license": "ISC",
   "devDependencies": {
+    "@repo/db-ecommerce": "workspace:*",
     "@repo/typescript-config": "workspace:*"
   },
   "dependencies": {

@@ -13,6 +13,7 @@ const cspHeader = `
     form-action 'self';
     frame-ancestors 'none';
     upgrade-insecure-requests;
+    connect-src 'self' https://vaqybtnqyonvlwtskzmv.supabase.co;
 `;
 
 const nextConfig: NextConfig = {
@@ -32,6 +33,17 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'vaqybtnqyonvlwtskzmv.supabase.co',
+        port: '',
+        pathname: '/storage/**',
+        search: '',
+      },
+    ],
   },
 };
 

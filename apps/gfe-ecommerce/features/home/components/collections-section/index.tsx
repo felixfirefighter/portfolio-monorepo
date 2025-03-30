@@ -21,14 +21,14 @@ export const CollectionsSection = () => {
             className="relative overflow-hidden rounded-xl shadow-md"
           >
             <Image
-              src={collection.image}
-              alt={collection.title}
+              src={collection.image_url}
+              alt={collection.name}
               width={300}
               height={400}
               className="h-64 w-full object-cover"
             />
             <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
-              <p className="font-semibold text-sm">{collection.title}</p>
+              <p className="font-semibold text-sm">{collection.name}</p>
               <p className="text-xs">{collection.description}</p>
             </div>
           </div>

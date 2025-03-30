@@ -1,4 +1,4 @@
-import { products } from '@/schema/products';
+import { products } from '@repo/db-ecommerce/schema/products';
 import { integer, pgTable, serial, text } from 'drizzle-orm/pg-core';
 
 // Product Variants Table

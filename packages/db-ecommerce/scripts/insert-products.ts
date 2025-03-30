@@ -1,5 +1,5 @@
-import { db } from '@repo/db-commerce'; // Your Drizzle instance
-import { products } from '@repo/db-commerce/schema/products';
+import { db } from '@/index'; // Your Drizzle instance
+import { products } from '@/schema/products';
 import productsData from '@repo/db-commerce/seed/products.json';
 
 // Insert JSON data

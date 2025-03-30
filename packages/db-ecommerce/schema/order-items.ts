@@ -1,5 +1,5 @@
-import { orders } from '@/schema/orders';
-import { productVariants } from '@/schema/product-variants';
+import { orders } from '@repo/db-ecommerce/schema/orders';
+import { productVariants } from '@repo/db-ecommerce/schema/product-variants';
 import { integer, numeric, pgTable, serial } from 'drizzle-orm/pg-core';
 
 // Order Items Table

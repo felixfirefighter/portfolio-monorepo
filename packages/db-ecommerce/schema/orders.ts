@@ -1,4 +1,4 @@
-import { users } from '@/schema/users';
+import { users } from '@repo/db-ecommerce/schema/users';
 import { sql } from 'drizzle-orm';
 import {
   numeric,

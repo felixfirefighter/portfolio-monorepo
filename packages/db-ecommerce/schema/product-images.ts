@@ -1,5 +1,5 @@
-import { productVariants } from '@/schema/product-variants';
-import { products } from '@/schema/products';
+import { productVariants } from '@repo/db-ecommerce/schema/product-variants';
+import { products } from '@repo/db-ecommerce/schema/products';
 import { pgTable, serial, text } from 'drizzle-orm/pg-core';
 
 export const productImages = pgTable('product_images', {

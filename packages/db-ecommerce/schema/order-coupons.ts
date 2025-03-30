@@ -1,5 +1,5 @@
-import { coupons } from '@/schema/coupons';
-import { orders } from '@/schema/orders';
+import { coupons } from '@repo/db-ecommerce/schema/coupons';
+import { orders } from '@repo/db-ecommerce/schema/orders';
 import { integer, pgTable, primaryKey } from 'drizzle-orm/pg-core';
 
 // Order Coupons Table (Many-to-Many)

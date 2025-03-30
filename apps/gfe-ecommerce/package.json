@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.6.0",
     "@remixicon/react": "^4.6.0",
+    "@repo/api-ecommerce": "workspace:*",
+    "@repo/db-ecommerce": "workspace:*",
     "@repo/design-system": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "next": "15.0.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

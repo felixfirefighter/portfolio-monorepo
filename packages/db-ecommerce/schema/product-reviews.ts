@@ -1,4 +1,4 @@
-import { products } from '@/schema/products';
+import { products } from '@repo/db-ecommerce/schema/products';
 import { sql } from 'drizzle-orm';
 import { integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 

@@ -1,5 +1,5 @@
-import { categories } from '@/schema/categories';
-import { collections } from '@/schema/collections';
+import { categories } from '@repo/db-ecommerce/schema/categories';
+import { collections } from '@repo/db-ecommerce/schema/collections';
 import { sql } from 'drizzle-orm';
 import { integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 

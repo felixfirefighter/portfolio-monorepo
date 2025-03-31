@@ -14,8 +14,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
   return (
-    <nav className="container fixed flex items-center justify-between bg-white p-4">
-      {/* Placeholder for Logo */}
+    <nav className="container fixed z-10 flex items-center justify-between bg-white p-4">
       <div className="flex items-center">
         <Link href="/" className="flex items-center" aria-label="Go to home">
           <Image width={105} height={32} src="/app/logo.png" alt="StyleNest" />

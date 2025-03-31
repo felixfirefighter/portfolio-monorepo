@@ -1,6 +1,7 @@
 import { CollectionsSection } from '@/features/home/components/collections-section';
 import { FeatureSection } from '@/features/home/components/feature-section';
 import { HeroSection } from '@/features/home/components/hero-section';
+import { ProductsSection } from '@/features/home/components/products-section';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <div>
       <HeroSection />
+      <ProductsSection />
       <CollectionsSection />
       <FeatureSection />
     </div>

@@ -1,6 +1,7 @@
+import type { ProductImage } from '@/schema/product-images';
 import { categories } from '@repo/db-ecommerce/schema/categories';
 import { collections } from '@repo/db-ecommerce/schema/collections';
-import { sql } from 'drizzle-orm';
+import { type InferSelectModel, sql } from 'drizzle-orm';
 import { integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 
 // Products Table
@@ -15,3 +16,9 @@ export const products = pgTable('products', {
     .notNull()
     .default(sql`now()`),
 });
+
+export type Product = InferSelectModel<typeof products>; // Read type (select)
+
+export type ProductWithImages = Product & {
+  images: ProductImage[];
+};

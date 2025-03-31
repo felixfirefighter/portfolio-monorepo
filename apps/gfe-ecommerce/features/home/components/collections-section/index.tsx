@@ -9,6 +9,7 @@ import { cn } from '@repo/design-system/lib/utils';
 export const CollectionsSection = () => {
   const { data: collections, isLoading } = useGetCollectionsQuery();
 
+  console.log('collections', collections);
   if (isLoading || !collections) {
     return (
       <section className="container grid grid-cols-1 gap-6">
@@ -29,7 +30,7 @@ export const CollectionsSection = () => {
             className="relative overflow-hidden rounded-lg shadow-md"
           >
             <Image
-              src={collection.image_url}
+              src={collection.imageUrl}
               alt={collection.name}
               width={320}
               height={580}

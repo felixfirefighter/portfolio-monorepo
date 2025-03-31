@@ -1,6 +1,6 @@
 import { db } from '@/index'; // Your Drizzle instance
-import { collections } from '@/schema/collections';
-import collectionsData from '@repo/db-commerce/seed/collections.json';
+import { collections } from '@repo/db-ecommerce/schema/collections';
+import collectionsData from '@repo/db-ecommerce/seed/collections.json';
 
 // Insert JSON data
 async function insert() {

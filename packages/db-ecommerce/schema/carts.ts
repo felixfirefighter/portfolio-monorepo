@@ -1,5 +1,5 @@
-import { productVariants } from '@/schema/product-variants';
-import { users } from '@/schema/users';
+import { productVariants } from '@repo/db-ecommerce/schema/product-variants';
+import { users } from '@repo/db-ecommerce/schema/users';
 import { integer, pgTable, serial, uuid } from 'drizzle-orm/pg-core';
 
 // Cart Table

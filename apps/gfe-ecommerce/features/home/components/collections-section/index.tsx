@@ -9,10 +9,9 @@ import { cn } from '@repo/design-system/lib/utils';
 export const CollectionsSection = () => {
   const { data: collections, isLoading } = useGetCollectionsQuery();
 
-  console.log('collections', collections);
   if (isLoading || !collections) {
     return (
-      <section className="container grid grid-cols-1 gap-6">
+      <section className="container grid grid-cols-1 gap-6 py-20">
         <Skeleton className="col-span-1 row-span-2 h-[580px] w-full rounded-lg" />
         <Skeleton className="h-[360px] w-full rounded-lg" />
         <Skeleton className="h-[360px] w-full rounded-lg" />
@@ -21,8 +20,8 @@ export const CollectionsSection = () => {
   }
 
   return (
-    <section className="container">
-      <h2 className="mb-8 font-semibold text-3xl">Our Collections</h2>
+    <section className="container py-20">
+      <h2 className="mb-8 font-semibold text-2xl">Our Collections</h2>
       <div className="grid grid-cols-1 gap-6">
         {collections.map((collection, index) => (
           <div

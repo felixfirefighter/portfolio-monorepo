@@ -35,7 +35,7 @@ const collectionLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="border-t py-10 lg:py-24">
+    <footer className="py-10 lg:py-24">
       <div className="container grid gap-8 lg:grid-cols-2 lg:gap-16">
         <div>
           <h3 className="mb-2 font-semibold text-xl">Join our newsletter</h3>

@@ -4,7 +4,7 @@ import {
   type ProductWithImages,
   products,
 } from '@repo/db-ecommerce/schema/products';
-import { type AnyColumn, asc, desc, eq } from 'drizzle-orm';
+import { type AnyColumn, asc, desc, eq, inArray } from 'drizzle-orm';
 
 export type GetProductsProps = {
   orderBy?: keyof typeof products; // Column to order by
@@ -22,13 +22,23 @@ export const getProducts = async (props: GetProductsProps) => {
   } = props;
   const column = products[orderBy] as AnyColumn;
 
+  const productIds = await db
+    .select({ productId: products.productId })
+    .from(products)
+    .orderBy(orderDirection === 'asc' ? asc(column) : desc(column))
+    .limit(limit)
+    .offset(offset);
+
   const productsWithImagesRaw = await db
     .select()
     .from(products)
     .leftJoin(productImages, eq(products.productId, productImages.productId))
-    .orderBy(orderDirection === 'asc' ? asc(column) : desc(column))
-    .limit(limit)
-    .offset(offset);
+    .where(
+      inArray(
+        products.productId,
+        productIds.map((p) => p.productId)
+      )
+    );
 
   const productsWithImages: ProductWithImages[] = productsWithImagesRaw.reduce(
     (acc, item) => {

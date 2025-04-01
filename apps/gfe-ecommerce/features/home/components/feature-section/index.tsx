@@ -28,7 +28,7 @@ const features = [
 
 export const FeatureSection = () => {
   return (
-    <section className="container py-10 lg:py-20" id="feature-section">
+    <section className="container py-20">
       <SectionHeader
         header="Elevate Your Experience"
         title="Our Commitment to Exceptional Service"

@@ -1,6 +1,6 @@
-import type { ProductImage } from '@/schema/product-images';
 import { categories } from '@repo/db-ecommerce/schema/categories';
 import { collections } from '@repo/db-ecommerce/schema/collections';
+import type { ProductImage } from '@repo/db-ecommerce/schema/product-images';
 import { type InferSelectModel, sql } from 'drizzle-orm';
 import { integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 

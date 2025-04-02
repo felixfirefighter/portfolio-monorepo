@@ -1,6 +1,6 @@
 {
-  "id": "2eb9b05e-d21e-4f63-887a-e3babc8d663e",
-  "prevId": "4e92347e-cdea-4fda-b813-db9e8b3dee88",
+  "id": "b90402d0-6020-4e97-9628-eb37f552208f",
+  "prevId": "110f3f66-c2a6-4f22-b38e-90aa225e83b3",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -215,8 +215,8 @@
           "primaryKey": true,
           "notNull": true
         },
-        "variant_sku": {
-          "name": "variant_sku",
+        "sku": {
+          "name": "sku",
           "type": "text",
           "primaryKey": false,
           "notNull": true
@@ -242,37 +242,54 @@
           "notNull": true,
           "default": 0
         },
-        "last_restocked_at": {
-          "name": "last_restocked_at",
-          "type": "timestamp",
+        "sale_price": {
+          "name": "sale_price",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true,
-          "default": "now()"
+          "default": 0
+        },
+        "discount": {
+          "name": "discount",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "list_price": {
+          "name": "list_price",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "discount_percentage": {
+          "name": "discount_percentage",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "size": {
+          "name": "size",
+          "type": "varchar(20)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "color": {
+          "name": "color",
+          "type": "varchar(50)",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
-      "foreignKeys": {
-        "inventory_variant_sku_product_variants_sku_fk": {
-          "name": "inventory_variant_sku_product_variants_sku_fk",
-          "tableFrom": "inventory",
-          "tableTo": "product_variants",
-          "columnsFrom": [
-            "variant_sku"
-          ],
-          "columnsTo": [
-            "sku"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        }
-      },
+      "foreignKeys": {},
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "inventory_variant_sku_unique": {
-          "name": "inventory_variant_sku_unique",
+        "inventory_sku_unique": {
+          "name": "inventory_sku_unique",
           "nullsNotDistinct": false,
           "columns": [
-            "variant_sku"
+            "sku"
           ]
         }
       },

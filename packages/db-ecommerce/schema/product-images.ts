@@ -7,7 +7,6 @@ export const productImages = pgTable('product_images', {
   productId: text('product_id')
     .references(() => products.productId)
     .notNull(),
-  // variantSku: text('variant_sku').references(() => productVariants.sku), // Nullable for general product images
   imageUrl: text('image_url').notNull(),
   color: varchar('color', { length: 50 }),
 });

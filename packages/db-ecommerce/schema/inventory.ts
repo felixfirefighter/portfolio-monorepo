@@ -1,8 +1,12 @@
+import { products } from '@repo/db-ecommerce/schema/products';
 import { integer, pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
 
 export const inventory = pgTable('inventory', {
   id: serial('id').primaryKey(),
   sku: text('sku').notNull().unique(),
+  productId: text('product_id')
+    .references(() => products.productId)
+    .notNull(),
   stock: integer('stock').notNull().default(0), // Available stock
   sold: integer('sold').notNull().default(0), // Units sold
   reserved: integer('reserved').notNull().default(0), // Items in active carts (optional)

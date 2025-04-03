@@ -9,6 +9,8 @@ import Link from 'next/link';
 export const ProductsSection = () => {
   const { data: products, isFetching } = useGetProductsQuery({});
 
+  console.log('products', products);
+
   if (isFetching || !products) {
     return null;
   }
@@ -35,7 +37,7 @@ export const ProductsSection = () => {
             >
               <CardContent className="p-0">
                 <Image
-                  src={productImage.imageUrl}
+                  src={productImage}
                   alt={product.name}
                   width={240}
                   height={240}
@@ -43,7 +45,7 @@ export const ProductsSection = () => {
                 />
                 <div className="pt-4">
                   <p className="text-neutral-600 text-xs capitalize">
-                    {productImage.color}
+                    {/* {productImage.color} */}
                   </p>
                   <h3 className="font-medium text-lg text-neutral-900">
                     {product.name}

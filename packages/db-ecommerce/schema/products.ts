@@ -1,6 +1,5 @@
 import { categories } from '@repo/db-ecommerce/schema/categories';
 import { collections } from '@repo/db-ecommerce/schema/collections';
-import type { ProductImage } from '@repo/db-ecommerce/schema/product-images';
 import { type InferSelectModel, sql } from 'drizzle-orm';
 import { integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 
@@ -19,6 +18,11 @@ export const products = pgTable('products', {
 
 export type Product = InferSelectModel<typeof products>; // Read type (select)
 
-export type ProductWithImages = Product & {
-  images: ProductImage[];
+export type ProductWithDetails = Product & {
+  listPrice: number | null;
+  salePrice: number | null;
+  discount: number | null;
+  discountPercentage: number | null;
+  stock: number | null;
+  images: string[]; // Since we are using array_agg, images should be an array
 };

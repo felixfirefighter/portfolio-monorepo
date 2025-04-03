@@ -1,0 +1,2 @@
+ALTER TABLE "inventory" ADD COLUMN "product_id" text NOT NULL;--> statement-breakpoint
+ALTER TABLE "inventory" ADD CONSTRAINT "inventory_product_id_products_product_id_fk" FOREIGN KEY ("product_id") REFERENCES "public"."products"("product_id") ON DELETE no action ON UPDATE no action;

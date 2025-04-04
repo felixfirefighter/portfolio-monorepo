@@ -7,11 +7,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const ProductsSection = () => {
-  const { data: products, isFetching } = useGetProductsQuery({});
+  const { data, isFetching } = useGetProductsQuery({});
 
-  console.log('products', products);
+  console.log('products', data);
 
-  if (isFetching || !products) {
+  if (isFetching || !data) {
     return null;
   }
 
@@ -28,25 +28,23 @@ export const ProductsSection = () => {
       </div>
 
       <div className="space-y-4">
-        {products.map((product) => {
-          const productImage = product.images[0];
+        {data.products.map((product) => {
           return (
             <Card
-              key={product.id}
+              key={product.productId}
               className="overflow-hidden border-none shadow-none"
             >
               <CardContent className="p-0">
-                <Image
-                  src={productImage}
-                  alt={product.name}
-                  width={240}
-                  height={240}
-                  className="aspect-square h-auto w-full rounded-md object-cover"
-                />
+                {product.imageUrl && (
+                  <Image
+                    src={product.imageUrl}
+                    alt={product.name}
+                    width={240}
+                    height={240}
+                    className="aspect-square h-auto w-full rounded-md object-cover"
+                  />
+                )}
                 <div className="pt-4">
-                  <p className="text-neutral-600 text-xs capitalize">
-                    {/* {productImage.color} */}
-                  </p>
                   <h3 className="font-medium text-lg text-neutral-900">
                     {product.name}
                   </h3>

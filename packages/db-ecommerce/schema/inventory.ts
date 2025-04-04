@@ -1,4 +1,5 @@
 import { products } from '@repo/db-ecommerce/schema/products';
+import { relations } from 'drizzle-orm';
 import { integer, pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
 
 export const inventory = pgTable('inventory', {
@@ -17,3 +18,7 @@ export const inventory = pgTable('inventory', {
   size: varchar('size', { length: 20 }),
   color: varchar('color', { length: 50 }),
 });
+
+export const inventoryRelations = relations(inventory, ({ one }) => ({
+  product: one(products),
+}));

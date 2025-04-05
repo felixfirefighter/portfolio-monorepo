@@ -21,8 +21,10 @@ export const CollectionsSection = () => {
 
   return (
     <section className="container py-20">
-      <h2 className="mb-8 font-semibold text-2xl">Our Collections</h2>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:grid-rows-2 lg:h-[600px]">
+      <h2 className="mb-8 font-semibold text-2xl xl:text-3xl">
+        Our Collections
+      </h2>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:grid-rows-2 lg:h-[800px]">
         {collections.map((collection, index) => (
           <div
             key={index}

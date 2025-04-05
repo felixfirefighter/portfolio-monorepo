@@ -35,7 +35,7 @@ export default function Navbar() {
           <RiShoppingBag2Line />
         </Button>
         <Sheet>
-          <SheetTrigger asChild className="lg:hidden">
+          <SheetTrigger asChild className="xl:hidden">
             <Button size={'icon'} variant="ghost">
               <RiMenuLine />
             </Button>

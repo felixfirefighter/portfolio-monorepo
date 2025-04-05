@@ -44,11 +44,30 @@ export const ProductsSection = () => {
                     className="aspect-square h-auto w-full rounded-md object-cover"
                   />
                 )}
-                <div className="pt-4">
-                  <h3 className="font-medium text-lg text-neutral-900">
+                <div className="py-4">
+                  <h3 className="mb-2 font-medium text-lg text-neutral-900">
                     {product.name}
                   </h3>
-                  <p className="text-lg text-neutral-500">{}</p>
+                  <div className="mb-4 flex items-center gap-2">
+                    <span className="text-neutral-500">
+                      ${product.salePrice || product.listPrice}
+                    </span>
+                    {product.salePrice !== product.listPrice && (
+                      <span className="text-neutral-500 text-xs line-through">
+                        ${product.listPrice}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex gap-2">
+                    {product.colors.map((color) => (
+                      <span
+                        key={color}
+                        className="h-4 w-4 rounded-full border border-neutral-300"
+                        style={{ backgroundColor: color }}
+                      />
+                    ))}
+                  </div>
                 </div>
               </CardContent>
             </Card>

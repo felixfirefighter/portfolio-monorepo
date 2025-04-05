@@ -1,8 +1,10 @@
 'use client';
 
+import { formatCentsToDollars } from '@/features/store/utils/format';
 import { useGetProductsQuery } from '@repo/api-ecommerce';
 import { Button } from '@repo/design-system/components/ui/button';
 import { Card, CardContent } from '@repo/design-system/components/ui/card';
+import { Skeleton } from '@repo/design-system/components/ui/skeleton';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -12,7 +14,22 @@ export const ProductsSection = () => {
   console.log('products', data);
 
   if (isFetching || !data) {
-    return null;
+    return (
+      <div className="container grid grid-cols-1 gap-8 py-6 md:grid-cols-2">
+        {Array.from({ length: 6 }).map((_, index) => (
+          <Card key={index} className="border-none shadow-none">
+            <CardContent className="p-0">
+              <Skeleton className="aspect-square w-full rounded-md" />
+              <Skeleton className="my-4" />
+              <Skeleton className="my-2 h-6 rounded-md" />
+
+              <Skeleton className="my-2 h-6 w-16 rounded-md" />
+              <Skeleton className="my-2 h-6 w-32 rounded-md" />
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    );
   }
 
   return (
@@ -27,13 +44,10 @@ export const ProductsSection = () => {
         </Link>
       </div>
 
-      <div className="space-y-4">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {data.products.map((product) => {
           return (
-            <Card
-              key={product.productId}
-              className="overflow-hidden border-none shadow-none"
-            >
+            <Card key={product.productId} className="border-none shadow-none">
               <CardContent className="p-0">
                 {product.imageUrl && (
                   <Image
@@ -45,16 +59,18 @@ export const ProductsSection = () => {
                   />
                 )}
                 <div className="py-4">
-                  <h3 className="mb-2 font-medium text-lg text-neutral-900">
+                  <h3 className="mb-2 font-medium text-lg text-neutral-900 md:text-2xl">
                     {product.name}
                   </h3>
-                  <div className="mb-4 flex items-center gap-2">
-                    <span className="text-neutral-500">
-                      ${product.salePrice || product.listPrice}
+                  <div className="mb-4 flex items-center gap-2 ">
+                    <span className="text-neutral-500 md:text-xl">
+                      {formatCentsToDollars(
+                        product.salePrice || product.listPrice || 0
+                      )}
                     </span>
                     {product.salePrice !== product.listPrice && (
-                      <span className="text-neutral-500 text-xs line-through">
-                        ${product.listPrice}
+                      <span className="text-neutral-500 text-xs line-through md:text-lg">
+                        {formatCentsToDollars(product.listPrice || 0)}
                       </span>
                     )}
                   </div>
@@ -63,7 +79,7 @@ export const ProductsSection = () => {
                     {product.colors.map((color) => (
                       <span
                         key={color}
-                        className="h-4 w-4 rounded-full border border-neutral-300"
+                        className="h-4 w-4 rounded-full border border-neutral-300 md:h-5 md:w-5"
                         style={{ backgroundColor: color }}
                       />
                     ))}

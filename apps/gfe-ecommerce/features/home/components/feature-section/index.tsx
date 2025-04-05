@@ -35,11 +35,11 @@ export const FeatureSection = () => {
         description="We pride ourselves on a foundation of exceptional customer service, where every interaction is a testament to our dedication to excellence."
       />
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:pt-8">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
         {features.map((feature) => (
           <div
             key={feature.title}
-            className="flex flex-col items-center rounded-lg bg-white text-center"
+            className="flex flex-col items-center rounded-lg text-center"
           >
             <div className="rounded-full p-3 text-primary shadow">
               {feature.icon}

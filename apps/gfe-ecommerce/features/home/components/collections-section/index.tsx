@@ -11,8 +11,8 @@ export const CollectionsSection = () => {
 
   if (isLoading || !collections) {
     return (
-      <section className="container grid grid-cols-1 gap-6 py-20">
-        <Skeleton className="col-span-1 row-span-2 h-[580px] w-full rounded-lg" />
+      <section className="container grid grid-cols-1 gap-6 py-20 md:grid-cols-2">
+        <Skeleton className="height-full col-span-1 row-span-2 w-full rounded-lg" />
         <Skeleton className="h-[360px] w-full rounded-lg" />
         <Skeleton className="h-[360px] w-full rounded-lg" />
       </section>
@@ -22,23 +22,26 @@ export const CollectionsSection = () => {
   return (
     <section className="container py-20">
       <h2 className="mb-8 font-semibold text-2xl">Our Collections</h2>
-      <div className="grid grid-cols-1 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {collections.map((collection, index) => (
           <div
             key={index}
-            className="relative overflow-hidden rounded-lg shadow-md"
+            className={cn('relative rounded-lg shadow-md md:h-full', {
+              'col-span-1 row-span-2 h-[580px]': index === 0,
+              'col-span-1 row-span-1 h-[360px]': index > 0,
+            })}
           >
             <Image
               src={collection.imageUrl}
               alt={collection.name}
               width={320}
               height={580}
-              className={cn('w-full object-cover', {
-                'h-[580px]': index === 0,
-                'h-[360px]': index > 0,
+              className={cn('h-full w-full rounded-lg object-cover', {
+                'col-span-1 row-span-2': index === 0,
+                'col-span-1 row-span-1 h-[360px]': index > 0,
               })}
             />
-            <div className="absolute top-0 bottom-0 left-0 flex w-full items-end bg-black/20 p-4 text-white">
+            <div className="absolute top-0 bottom-0 left-0 flex w-full items-end rounded-lg bg-black/20 p-4 text-white">
               <div>
                 <p className="text-sm">{collection.name}</p>
                 <p className="font-medium text-lg">{collection.description}</p>

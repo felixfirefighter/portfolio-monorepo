@@ -31,7 +31,7 @@ export const getProducts = async (
   const {
     orderBy = 'createdAt',
     orderDirection = 'desc',
-    limit = 10,
+    limit = 8,
     offset = 0,
   } = request;
 

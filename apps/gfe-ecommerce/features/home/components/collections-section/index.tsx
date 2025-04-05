@@ -22,13 +22,13 @@ export const CollectionsSection = () => {
   return (
     <section className="container py-20">
       <h2 className="mb-8 font-semibold text-2xl">Our Collections</h2>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:grid-rows-2 lg:h-[600px]">
         {collections.map((collection, index) => (
           <div
             key={index}
-            className={cn('relative rounded-lg shadow-md md:h-full', {
-              'col-span-1 row-span-2 h-[580px]': index === 0,
-              'col-span-1 row-span-1 h-[360px]': index > 0,
+            className={cn('relative overflow-hidden rounded-lg shadow-md', {
+              'md:row-span-2': index === 0,
+              'md:row-span-1': index > 0,
             })}
           >
             <Image
@@ -36,19 +36,16 @@ export const CollectionsSection = () => {
               alt={collection.name}
               width={320}
               height={580}
-              className={cn('h-full w-full rounded-lg object-cover', {
-                'col-span-1 row-span-2': index === 0,
-                'col-span-1 row-span-1 h-[360px]': index > 0,
-              })}
+              className="h-full w-full object-cover"
             />
-            <div className="absolute top-0 bottom-0 left-0 flex w-full items-end rounded-lg bg-black/20 p-4 text-white">
+            <div className="absolute inset-0 flex items-end rounded-lg bg-black/20 p-4 text-white">
               <div>
                 <p className="text-sm">{collection.name}</p>
                 <p className="font-medium text-lg">{collection.description}</p>
               </div>
             </div>
           </div>
-        ))}{' '}
+        ))}
       </div>
     </section>
   );

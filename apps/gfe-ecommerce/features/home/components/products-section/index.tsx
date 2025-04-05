@@ -11,12 +11,10 @@ import Link from 'next/link';
 export const ProductsSection = () => {
   const { data, isFetching } = useGetProductsQuery({});
 
-  console.log('products', data);
-
   if (isFetching || !data) {
     return (
-      <div className="container grid grid-cols-1 gap-8 py-6 md:grid-cols-2">
-        {Array.from({ length: 6 }).map((_, index) => (
+      <div className="container grid grid-cols-1 gap-8 py-10 md:grid-cols-2 lg:py-20 xl:grid-cols-4">
+        {Array.from({ length: 8 }).map((_, index) => (
           <Card key={index} className="border-none shadow-none">
             <CardContent className="p-0">
               <Skeleton className="aspect-square w-full rounded-md" />
@@ -33,9 +31,9 @@ export const ProductsSection = () => {
   }
 
   return (
-    <section className="container py-6">
-      <div className="mb-4 flex items-center justify-between">
-        <h2 className="font-semibold text-2xl">Latest Arrivals</h2>
+    <section className="container py-10 lg:py-20">
+      <div className="mb-6 flex items-center justify-between lg:mb-8">
+        <h2 className="font-semibold text-2xl xl:text-3xl">Latest Arrivals</h2>
         <Link
           href="/all-products"
           className="text-gray-600 text-sm hover:underline"
@@ -44,7 +42,7 @@ export const ProductsSection = () => {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
         {data.products.map((product) => {
           return (
             <Card key={product.productId} className="border-none shadow-none">

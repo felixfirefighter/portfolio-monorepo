@@ -8,9 +8,9 @@ export const productReviews = pgTable('product_reviews', {
   productId: text('product_id')
     .references(() => products.productId)
     .notNull(),
-  userId: serial('user_id')
+  userId: text('user_id')
     .notNull()
-    .references(() => users.id, {
+    .references(() => users.userId, {
       onDelete: 'cascade', // If the user profile is deleted, delete their reviews
       onUpdate: 'cascade',
     }),

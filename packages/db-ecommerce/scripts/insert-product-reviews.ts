@@ -6,7 +6,7 @@ import data from '@repo/db-ecommerce/seed/product-reviews.json';
 async function insert() {
   console.log('Inserting product reviews...');
   await db.insert(productReviews).values(data);
-  console.log('Inventory inserted successfully.');
+  console.log('Product reviews inserted successfully.');
 }
 
 insert();

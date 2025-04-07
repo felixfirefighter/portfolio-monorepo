@@ -6,10 +6,11 @@ import { pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 export const users = pgTable('users', {
   // This ID MUST match the Supabase Auth user's ID.
   id: uuid('id').primaryKey(),
+  userId: text('user_id').notNull().unique(),
 
   // Application-specific user details
-  firstName: text('first_name'),
-  lastName: text('last_name'),
+  name: text('name'),
+  avatarUrl: text('avatar_url'),
 
   // Foreign keys to other potential tables (optional examples)
   // billingAddressId: uuid('billing_address_id').references(() => addresses.id),

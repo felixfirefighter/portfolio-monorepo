@@ -1,6 +1,6 @@
 import { products } from '@repo/db-ecommerce/schema/products';
 import { users } from '@repo/db-ecommerce/schema/users';
-import { relations, sql } from 'drizzle-orm';
+import { sql } from 'drizzle-orm';
 import { integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 
 export const productReviews = pgTable('product_reviews', {
@@ -20,17 +20,3 @@ export const productReviews = pgTable('product_reviews', {
     .notNull()
     .default(sql`now()`),
 });
-
-// --- Define Relationships for the Product Reviews Table ---
-export const productReviewsRelations = relations(productReviews, ({ one }) => ({
-  // Each review belongs to one user
-  user: one(users, {
-    fields: [productReviews.userId],
-    references: [users.id],
-  }),
-  // Each review could belong to one product
-  product: one(products, {
-    fields: [productReviews.productId],
-    references: [products.productId],
-  }),
-}));

@@ -1,5 +1,3 @@
-import { productReviews } from '@repo/db-ecommerce/schema/product-reviews';
-import { relations } from 'drizzle-orm';
 import { pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
 
 // --- Your Public User Profile Table ---
@@ -23,11 +21,3 @@ export const users = pgTable('users', {
     .defaultNow()
     .notNull(),
 });
-
-export const usersRelations = relations(users, ({ many }) => ({
-  // A user can have many product reviews
-  productReviews: many(productReviews),
-  // A user might have many orders, addresses etc. (example)
-  // orders: many(orders),
-  // addresses: many(addresses),
-}));

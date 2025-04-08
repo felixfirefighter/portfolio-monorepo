@@ -1,2 +1,2 @@
 export * from './get-products';
-export * from './get-product';
+export * from '../product-info/get-product-info';

@@ -1,6 +1,6 @@
 [
   {
-    "product_id": "autumnal-knitwear",
+    "productId": "autumnal-knitwear",
     "title": "Features",
     "description": [
       "Made from 100% organic wool, offering superior warmth and breathability.",
@@ -11,7 +11,7 @@
     ]
   },
   {
-    "product_id": "autumnal-knitwear",
+    "productId": "autumnal-knitwear",
     "title": "Fabric & Care",
     "description": [
       "Hand wash in lukewarm water with a wool-safe detergent.",
@@ -21,7 +21,7 @@
     ]
   },
   {
-    "product_id": "autumnal-knitwear",
+    "productId": "autumnal-knitwear",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -30,7 +30,7 @@
     ]
   },
   {
-    "product_id": "azure-attitude-shades",
+    "productId": "azure-attitude-shades",
     "title": "Features",
     "description": [
       "UV400 protection to shield eyes from harmful rays.",
@@ -41,7 +41,7 @@
     ]
   },
   {
-    "product_id": "azure-attitude-shades",
+    "productId": "azure-attitude-shades",
     "title": "Fabric & Care",
     "description": [
       "Clean lenses with a soft, lint-free cloth and mild lens cleaner.",
@@ -50,7 +50,7 @@
     ]
   },
   {
-    "product_id": "azure-attitude-shades",
+    "productId": "azure-attitude-shades",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -59,7 +59,7 @@
     ]
   },
   {
-    "product_id": "canis-philosophus-linen-tee",
+    "productId": "canis-philosophus-linen-tee",
     "title": "Features",
     "description": [
       "Lightweight and breathable linen fabric, perfect for hot climates.",
@@ -70,7 +70,7 @@
     ]
   },
   {
-    "product_id": "canis-philosophus-linen-tee",
+    "productId": "canis-philosophus-linen-tee",
     "title": "Fabric & Care",
     "description": [
       "Machine wash on gentle cycle with like colors.",
@@ -80,7 +80,7 @@
     ]
   },
   {
-    "product_id": "canis-philosophus-linen-tee",
+    "productId": "canis-philosophus-linen-tee",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -89,7 +89,7 @@
     ]
   },
   {
-    "product_id": "city-quilted-jacket",
+    "productId": "city-quilted-jacket",
     "title": "Features",
     "description": [
       "Water-resistant exterior with eco-friendly coating.",
@@ -100,7 +100,7 @@
     ]
   },
   {
-    "product_id": "city-quilted-jacket",
+    "productId": "city-quilted-jacket",
     "title": "Fabric & Care",
     "description": [
       "Machine wash cold on a gentle cycle.",
@@ -110,7 +110,7 @@
     ]
   },
   {
-    "product_id": "city-quilted-jacket",
+    "productId": "city-quilted-jacket",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -119,7 +119,7 @@
     ]
   },
   {
-    "product_id": "classic-canvas-tee",
+    "productId": "classic-canvas-tee",
     "title": "Features",
     "description": [
       "Made from 100% organic cotton for softness and sustainability.",
@@ -130,7 +130,7 @@
     ]
   },
   {
-    "product_id": "classic-canvas-tee",
+    "productId": "classic-canvas-tee",
     "title": "Fabric & Care",
     "description": [
       "Machine wash on gentle cycle with like colors.",
@@ -140,7 +140,7 @@
     ]
   },
   {
-    "product_id": "classic-canvas-tee",
+    "productId": "classic-canvas-tee",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -149,7 +149,7 @@
     ]
   },
   {
-    "product_id": "color-ease-tee",
+    "productId": "color-ease-tee",
     "title": "Features",
     "description": [
       "Crafted with a soft blend of sustainable fibers for comfort and minimal environmental impact.",
@@ -160,7 +160,7 @@
     ]
   },
   {
-    "product_id": "color-ease-tee",
+    "productId": "color-ease-tee",
     "title": "Fabric & Care",
     "description": [
       "Machine wash on gentle cycle with similar colors.",
@@ -170,7 +170,7 @@
     ]
   },
   {
-    "product_id": "color-ease-tee",
+    "productId": "color-ease-tee",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -179,7 +179,7 @@
     ]
   },
   {
-    "product_id": "cool-neo-retro-shoes",
+    "productId": "cool-neo-retro-shoes",
     "title": "Features",
     "description": [
       "Combines retro design with modern technology for ultimate comfort and style.",
@@ -190,7 +190,7 @@
     ]
   },
   {
-    "product_id": "cool-neo-retro-shoes",
+    "productId": "cool-neo-retro-shoes",
     "title": "Fabric & Care",
     "description": [
       "Clean with mild soap and water, using a soft cloth.",
@@ -200,7 +200,7 @@
     ]
   },
   {
-    "product_id": "cool-neo-retro-shoes",
+    "productId": "cool-neo-retro-shoes",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -209,7 +209,7 @@
     ]
   },
   {
-    "product_id": "cute-banana-socks",
+    "productId": "cute-banana-socks",
     "title": "Features",
     "description": [
       "Made with organic cotton and a hint of stretch for comfort.",
@@ -220,7 +220,7 @@
     ]
   },
   {
-    "product_id": "cute-banana-socks",
+    "productId": "cute-banana-socks",
     "title": "Fabric & Care",
     "description": [
       "Machine wash warm with like colors.",
@@ -230,7 +230,7 @@
     ]
   },
   {
-    "product_id": "cute-banana-socks",
+    "productId": "cute-banana-socks",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -239,7 +239,7 @@
     ]
   },
   {
-    "product_id": "elemental-sneakers",
+    "productId": "elemental-sneakers",
     "title": "Features",
     "description": [
       "Eco-friendly materials throughout, supporting sustainable manufacturing practices.",
@@ -250,7 +250,7 @@
     ]
   },
   {
-    "product_id": "elemental-sneakers",
+    "productId": "elemental-sneakers",
     "title": "Fabric & Care",
     "description": [
       "Spot clean with a damp cloth and mild detergent.",
@@ -260,7 +260,7 @@
     ]
   },
   {
-    "product_id": "elemental-sneakers",
+    "productId": "elemental-sneakers",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -269,7 +269,7 @@
     ]
   },
   {
-    "product_id": "harvest-cozy-turtleneck",
+    "productId": "harvest-cozy-turtleneck",
     "title": "Features",
     "description": [
       "Luxuriously soft cashmere blend provides warmth without bulk.",
@@ -280,7 +280,7 @@
     ]
   },
   {
-    "product_id": "harvest-cozy-turtleneck",
+    "productId": "harvest-cozy-turtleneck",
     "title": "Fabric & Care",
     "description": [
       "Hand wash in cold water with cashmere-safe detergent.",
@@ -290,7 +290,7 @@
     ]
   },
   {
-    "product_id": "harvest-cozy-turtleneck",
+    "productId": "harvest-cozy-turtleneck",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -299,7 +299,7 @@
     ]
   },
   {
-    "product_id": "la-baseball-hat",
+    "productId": "la-baseball-hat",
     "title": "Features",
     "description": [
       "Constructed with lightweight, breathable fabric.",
@@ -310,7 +310,7 @@
     ]
   },
   {
-    "product_id": "la-baseball-hat",
+    "productId": "la-baseball-hat",
     "title": "Fabric & Care",
     "description": [
       "Spot clean with a damp cloth.",
@@ -320,7 +320,7 @@
     ]
   },
   {
-    "product_id": "la-baseball-hat",
+    "productId": "la-baseball-hat",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -329,7 +329,7 @@
     ]
   },
   {
-    "product_id": "metro-hoodie",
+    "productId": "metro-hoodie",
     "title": "Features",
     "description": [
       "Made from a soft, sustainable fabric blend.",
@@ -340,7 +340,7 @@
     ]
   },
   {
-    "product_id": "metro-hoodie",
+    "productId": "metro-hoodie",
     "title": "Fabric & Care",
     "description": [
       "Machine wash cold with similar colors.",
@@ -350,7 +350,7 @@
     ]
   },
   {
-    "product_id": "metro-hoodie",
+    "productId": "metro-hoodie",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -359,7 +359,7 @@
     ]
   },
   {
-    "product_id": "neutral-charm-blazer",
+    "productId": "neutral-charm-blazer",
     "title": "Features",
     "description": [
       "Tailored for a flattering, professional fit.",
@@ -370,7 +370,7 @@
     ]
   },
   {
-    "product_id": "neutral-charm-blazer",
+    "productId": "neutral-charm-blazer",
     "title": "Fabric & Care",
     "description": [
       "Dry clean recommended to preserve fabric integrity.",
@@ -379,7 +379,7 @@
     ]
   },
   {
-    "product_id": "neutral-charm-blazer",
+    "productId": "neutral-charm-blazer",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -388,7 +388,7 @@
     ]
   },
   {
-    "product_id": "stepsoft-socks",
+    "productId": "stepsoft-socks",
     "title": "Features",
     "description": [
       "Ultra-soft fabric provides all-day comfort.",
@@ -399,7 +399,7 @@
     ]
   },
   {
-    "product_id": "stepsoft-socks",
+    "productId": "stepsoft-socks",
     "title": "Fabric & Care",
     "description": [
       "Machine wash warm with like colors.",
@@ -409,7 +409,7 @@
     ]
   },
   {
-    "product_id": "stepsoft-socks",
+    "productId": "stepsoft-socks",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -418,7 +418,7 @@
     ]
   },
   {
-    "product_id": "sunbeam-mules",
+    "productId": "sunbeam-mules",
     "title": "Features",
     "description": [
       "Slip-on style offers convenience and comfort.",
@@ -429,7 +429,7 @@
     ]
   },
   {
-    "product_id": "sunbeam-mules",
+    "productId": "sunbeam-mules",
     "title": "Fabric & Care",
     "description": [
       "Wipe clean with a damp cloth.",
@@ -438,7 +438,7 @@
     ]
   },
   {
-    "product_id": "sunbeam-mules",
+    "productId": "sunbeam-mules",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -447,7 +447,7 @@
     ]
   },
   {
-    "product_id": "tangerine-mini-tote",
+    "productId": "tangerine-mini-tote",
     "title": "Features",
     "description": [
       "Compact design is perfect for daily essentials.",
@@ -458,7 +458,7 @@
     ]
   },
   {
-    "product_id": "tangerine-mini-tote",
+    "productId": "tangerine-mini-tote",
     "title": "Fabric & Care",
     "description": [
       "Clean with a soft cloth and mild soap solution.",
@@ -467,7 +467,7 @@
     ]
   },
   {
-    "product_id": "tangerine-mini-tote",
+    "productId": "tangerine-mini-tote",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -476,7 +476,7 @@
     ]
   },
   {
-    "product_id": "urban-bomber-jacket",
+    "productId": "urban-bomber-jacket",
     "title": "Features",
     "description": [
       "Modern silhouette with a zip front closure.",
@@ -487,7 +487,7 @@
     ]
   },
   {
-    "product_id": "urban-bomber-jacket",
+    "productId": "urban-bomber-jacket",
     "title": "Fabric & Care",
     "description": [
       "Machine washable at low temperatures.",
@@ -497,7 +497,7 @@
     ]
   },
   {
-    "product_id": "urban-bomber-jacket",
+    "productId": "urban-bomber-jacket",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -506,7 +506,7 @@
     ]
   },
   {
-    "product_id": "urban-drift-bucket-hat",
+    "productId": "urban-drift-bucket-hat",
     "title": "Features",
     "description": [
       "Made from durable, lightweight fabric.",
@@ -517,7 +517,7 @@
     ]
   },
   {
-    "product_id": "urban-drift-bucket-hat",
+    "productId": "urban-drift-bucket-hat",
     "title": "Fabric & Care",
     "description": [
       "Hand wash with mild detergent.",
@@ -527,7 +527,7 @@
     ]
   },
   {
-    "product_id": "urban-drift-bucket-hat",
+    "productId": "urban-drift-bucket-hat",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",
@@ -536,7 +536,7 @@
     ]
   },
   {
-    "product_id": "voyager-hoodie",
+    "productId": "voyager-hoodie",
     "title": "Features",
     "description": [
       "Designed for comfort and durability.",
@@ -547,7 +547,7 @@
     ]
   },
   {
-    "product_id": "voyager-hoodie",
+    "productId": "voyager-hoodie",
     "title": "Fabric & Care",
     "description": [
       "Machine wash cold on a gentle cycle.",
@@ -557,7 +557,7 @@
     ]
   },
   {
-    "product_id": "voyager-hoodie",
+    "productId": "voyager-hoodie",
     "title": "Shipping",
     "description": [
       "Free standard shipping on all orders - no minimum spend required.",

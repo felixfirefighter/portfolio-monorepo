@@ -37,8 +37,8 @@ export const ProductsSectionList = () => {
               <Image
                 src={product.imageUrl}
                 alt={product.name}
-                width={240}
-                height={240}
+                width={540}
+                height={540}
                 className="aspect-square h-auto w-full rounded-md object-cover"
               />
             )}
@@ -46,7 +46,7 @@ export const ProductsSectionList = () => {
               <h3 className="mb-2 font-medium text-lg text-neutral-900 md:text-2xl">
                 {product.name}
               </h3>
-              <div className="mb-4 flex items-center gap-2 ">
+              <div className="mb-4 flex items-center gap-2">
                 <span className="text-neutral-500 md:text-xl">
                   {formatCentsToDollars(
                     product.salePrice || product.listPrice || 0

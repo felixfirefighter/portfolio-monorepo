@@ -1,7 +1,7 @@
 import { categories } from '@repo/db-ecommerce/schema/categories';
 import { collections } from '@repo/db-ecommerce/schema/collections';
 import { type InferSelectModel, sql } from 'drizzle-orm';
-import { integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
 
 // Products Table
 export const products = pgTable('products', {
@@ -9,8 +9,10 @@ export const products = pgTable('products', {
   productId: text('product_id').unique().notNull(), // Unique product identifier
   name: text('name').notNull(),
   description: text('description').notNull(),
-  categoryId: integer('category_id').references(() => categories.id),
-  collectionId: integer('collection_id').references(() => collections.id),
+  categoryId: text('category_id').references(() => categories.categoryId),
+  collectionId: text('collection_id').references(
+    () => collections.collectionId
+  ),
   createdAt: timestamp('created_at', { mode: 'string' })
     .notNull()
     .default(sql`now()`),

@@ -1,20 +1,20 @@
 [
   {
-    "collection_id": "cozy",
+    "collectionId": "cozy",
     "name": "Cozy Comfort",
     "description": "Plush fabrics and soothing designs",
     "imageUrl": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/collections/cozy-comfort.jpg",
     "createdAt": "2024-01-01"
   },
   {
-    "collection_id": "urban",
+    "collectionId": "urban",
     "name": "Urban Oasis",
     "description": "For the city dwellers",
     "imageUrl": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/collections/urban-oasis.jpg",
     "createdAt": "2024-01-01"
   },
   {
-    "collection_id": "fresh",
+    "collectionId": "fresh",
     "name": "Fresh Fusion",
     "description": "Contemporary styles and patterns",
     "imageUrl": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/collections/fresh-fusion.jpg",

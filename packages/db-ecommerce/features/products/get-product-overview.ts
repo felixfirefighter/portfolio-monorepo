@@ -8,7 +8,33 @@ export type GetProductOverviewRequest = {
   productId: string;
 };
 
-export type GetProductOverviewResponse = {};
+export type ProductOverview = {
+  productId: string;
+  name: string;
+  productInfo: {
+    title: string;
+    description: string[];
+  };
+  inventory: {
+    color: string | null;
+    size: string | null;
+    quantity: number;
+  }[];
+  images: {
+    imageUrl: string;
+    color: string | null;
+  }[];
+  reviews: {
+    averageRating: number;
+    count: number;
+  };
+  availableColors: string[];
+  availableSizes: string[];
+};
+
+export type GetProductOverviewResponse = {
+  result: ProductOverview;
+};
 
 export const getProductOverview = async (
   request: GetProductOverviewRequest
@@ -26,7 +52,7 @@ export const getProductOverview = async (
         getProductReviewSummary({ productId }),
       ]);
 
-    return {
+    const result = {
       productId: coreDetails.result.productId,
       name: coreDetails.result.name,
       productInfo: productInfo.results,
@@ -42,6 +68,10 @@ export const getProductOverview = async (
       availableSizes: [
         ...new Set(inventory.results.map((item) => item.size).filter(Boolean)),
       ],
+    };
+
+    return {
+      result,
     };
   } catch (error) {
     console.error('Failed to fetch product details:', error);

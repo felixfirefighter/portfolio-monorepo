@@ -1,8 +1,23 @@
+import type { ProductRouteParam } from '@/features/shell/types/routes';
+import { useGetProductOverviewQuery } from '@repo/api-ecommerce';
 import { Button } from '@repo/design-system/components/ui/button';
 import Image from 'next/image';
+import { useParams } from 'next/navigation';
 import { useState } from 'react';
 
 export const ProductOverviewSection = () => {
+  const { id } = useParams<ProductRouteParam>();
+
+  const { data, isFetching, error } = useGetProductOverviewQuery({
+    productId: id,
+  });
+
+  console.log('product overview', data);
+
+  if (isFetching || !data) {
+    return null;
+  }
+
   const images = [
     '/placeholder1.jpg',
     '/placeholder2.jpg',

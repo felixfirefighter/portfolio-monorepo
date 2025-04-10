@@ -1,5 +1,5 @@
-import { db } from '@/index';
-import { productReviews } from '@/schema/product-reviews';
+import { db } from '@repo/db-ecommerce/index';
+import { productReviews } from '@repo/db-ecommerce/schema/product-reviews';
 import { avg, count, eq } from 'drizzle-orm';
 
 export type GetProductReviewSummaryRequest = {

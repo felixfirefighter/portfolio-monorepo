@@ -1,4 +1,4 @@
-import { products } from '@/schema/products';
+import { products } from '@repo/db-ecommerce/schema/products';
 import { jsonb, pgTable, serial, text } from 'drizzle-orm/pg-core';
 
 export const productInfo = pgTable('product_info', {

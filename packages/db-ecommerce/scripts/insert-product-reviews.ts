@@ -1,5 +1,5 @@
-import { db } from '@/index'; // Your Drizzle instance
-import { productReviews } from '@/schema/product-reviews';
+import { db } from '@repo/db-ecommerce/index';
+import { productReviews } from '@repo/db-ecommerce/schema/product-reviews';
 import data from '@repo/db-ecommerce/seed/product-reviews.json';
 
 // Insert JSON data

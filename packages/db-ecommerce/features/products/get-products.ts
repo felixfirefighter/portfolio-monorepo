@@ -1,4 +1,4 @@
-import { db } from '@repo/db-ecommerce';
+import { db } from '@repo/db-ecommerce/index';
 import { inventory } from '@repo/db-ecommerce/schema/inventory';
 import { productImages } from '@repo/db-ecommerce/schema/product-images';
 import { products } from '@repo/db-ecommerce/schema/products';

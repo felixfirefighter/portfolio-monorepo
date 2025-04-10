@@ -1,5 +1,5 @@
-import { db } from '@/index';
-import { products } from '@/schema/products';
+import { db } from '@repo/db-ecommerce/index';
+import { products } from '@repo/db-ecommerce/schema/products';
 import { eq } from 'drizzle-orm';
 
 export type GetProductRequest = {

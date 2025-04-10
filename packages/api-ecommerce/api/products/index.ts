@@ -5,6 +5,7 @@ import type {
   GetProductOverviewResponse,
   GetProductsRequest,
   GetProductsResponse,
+  ProductOverview,
 } from '@repo/db-ecommerce/features/products';
 
 export const productsApi = createApi({
@@ -15,10 +16,13 @@ export const productsApi = createApi({
       query: (props) => 'products',
     }),
     getProductOverview: builder.query<
-      GetProductOverviewResponse,
+      ProductOverview,
       GetProductOverviewRequest
     >({
       query: (props) => `product-overview?id=${props.productId}`,
+      transformResponse: (response: GetProductOverviewResponse) => {
+        return response.result;
+      },
     }),
   }),
 });

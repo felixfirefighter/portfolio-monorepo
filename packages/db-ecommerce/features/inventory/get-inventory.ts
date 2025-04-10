@@ -1,5 +1,5 @@
-import { db } from '@/index';
-import { inventory } from '@/schema/inventory';
+import { db } from '@repo/db-ecommerce/index';
+import { inventory } from '@repo/db-ecommerce/schema/inventory';
 import { eq } from 'drizzle-orm';
 
 export type GetInventoryRequest = {

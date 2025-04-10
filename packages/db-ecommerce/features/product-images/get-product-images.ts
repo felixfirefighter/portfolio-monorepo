@@ -1,5 +1,5 @@
-import { db } from '@/index';
-import { productImages } from '@/schema/product-images';
+import { db } from '@repo/db-ecommerce/index';
+import { productImages } from '@repo/db-ecommerce/schema/product-images';
 import { eq } from 'drizzle-orm';
 
 export type GetProductImagesRequest = {

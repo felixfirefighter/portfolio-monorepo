@@ -1,4 +1,4 @@
-import { db } from '@/index'; // Your Drizzle instance
+import { db } from '@repo/db-ecommerce/index';
 import { inventory } from '@repo/db-ecommerce/schema/inventory';
 import inventoryData from '@repo/db-ecommerce/seed/inventory.json';
 

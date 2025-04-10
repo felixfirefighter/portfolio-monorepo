@@ -1,5 +1,5 @@
-import { db } from '@/index';
-import { productInfo } from '@/schema/product-info';
+import { db } from '@repo/db-ecommerce/index';
+import { productInfo } from '@repo/db-ecommerce/schema/product-info';
 import data from '@repo/db-ecommerce/seed/product-info.json';
 
 // Insert JSON data

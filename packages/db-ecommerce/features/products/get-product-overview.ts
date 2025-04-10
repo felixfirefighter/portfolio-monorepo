@@ -1,8 +1,8 @@
-import { getInventory } from '@/features/inventory/get-inventory';
-import { getProductImages } from '@/features/product-images/get-product-images';
-import { getProductInfo } from '@/features/product-info/get-product-info';
-import { getProductReviewSummary } from '@/features/product-reviews/get-product-review-summary';
-import { getProduct } from '@/features/products/get-product';
+import { getInventory } from '@repo/db-ecommerce/features/inventory/get-inventory';
+import { getProductImages } from '@repo/db-ecommerce/features/product-images/get-product-images';
+import { getProductInfo } from '@repo/db-ecommerce/features/product-info/get-product-info';
+import { getProductReviewSummary } from '@repo/db-ecommerce/features/product-reviews/get-product-review-summary';
+import { getProduct } from '@repo/db-ecommerce/features/products/get-product';
 
 export type GetProductOverviewRequest = {
   productId: string;

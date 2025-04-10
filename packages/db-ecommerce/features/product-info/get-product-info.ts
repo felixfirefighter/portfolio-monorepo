@@ -1,6 +1,5 @@
-import { db } from '@/index';
-import { productInfo } from '@/schema/product-info';
-import { products } from '@/schema/products';
+import { db } from '@repo/db-ecommerce/index';
+import { productInfo } from '@repo/db-ecommerce/schema/product-info';
 import { eq } from 'drizzle-orm';
 
 export type GetProductInfoRequest = {
@@ -28,7 +27,7 @@ export const getProductInfo = async (
       description: productInfo.description,
     })
     .from(productInfo)
-    .where(eq(products.productId, productId));
+    .where(eq(productInfo.productId, productId));
 
   return {
     results,

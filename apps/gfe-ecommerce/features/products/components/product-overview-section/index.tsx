@@ -8,16 +8,6 @@ import { useState } from 'react';
 export const ProductOverviewSection = () => {
   const { id } = useParams<ProductRouteParam>();
 
-  const { data, isFetching, error } = useGetProductOverviewQuery({
-    productId: id,
-  });
-
-  console.log('product overview', data);
-
-  if (isFetching || !data) {
-    return null;
-  }
-
   const images = [
     '/placeholder1.jpg',
     '/placeholder2.jpg',
@@ -29,11 +19,21 @@ export const ProductOverviewSection = () => {
     { name: 'Green', value: '#00b894' },
     { name: 'Brown', value: '#b28b5c' },
   ];
+  const { data, isFetching, error } = useGetProductOverviewQuery({
+    productId: id,
+  });
 
-  const sizes = ['XS', 'S', 'M', 'L', 'XL'];
   const [selectedColor, setSelectedColor] = useState(colors[0].value);
   const [selectedSize, setSelectedSize] = useState('XS');
   const [quantity, setQuantity] = useState(1);
+
+  console.log('product overview', data);
+
+  if (isFetching || !data) {
+    return null;
+  }
+
+  const sizes = ['XS', 'S', 'M', 'L', 'XL'];
   return (
     <div className="container py-10">
       <div>

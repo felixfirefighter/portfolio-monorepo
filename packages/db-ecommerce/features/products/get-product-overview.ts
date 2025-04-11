@@ -1,7 +1,19 @@
-import { getInventory } from '@repo/db-ecommerce/features/inventory/get-inventory';
-import { getProductImages } from '@repo/db-ecommerce/features/product-images/get-product-images';
-import { getProductInfo } from '@repo/db-ecommerce/features/product-info/get-product-info';
-import { getProductReviewSummary } from '@repo/db-ecommerce/features/product-reviews/get-product-review-summary';
+import {
+  type InventoryItem,
+  getInventory,
+} from '@repo/db-ecommerce/features/inventory/get-inventory';
+import {
+  type ProductImageItem,
+  getProductImages,
+} from '@repo/db-ecommerce/features/product-images/get-product-images';
+import {
+  type GetProductInfo,
+  getProductInfo,
+} from '@repo/db-ecommerce/features/product-info/get-product-info';
+import {
+  type ProductReviewSummary,
+  getProductReviewSummary,
+} from '@repo/db-ecommerce/features/product-reviews/get-product-review-summary';
 import { getProduct } from '@repo/db-ecommerce/features/products/get-product';
 
 export type GetProductOverviewRequest = {
@@ -11,23 +23,10 @@ export type GetProductOverviewRequest = {
 export type ProductOverview = {
   productId: string;
   name: string;
-  productInfo: {
-    title: string;
-    description: string[];
-  };
-  inventory: {
-    color: string | null;
-    size: string | null;
-    quantity: number;
-  }[];
-  images: {
-    imageUrl: string;
-    color: string | null;
-  }[];
-  reviews: {
-    averageRating: number;
-    count: number;
-  };
+  productInfo: GetProductInfo[];
+  inventory: InventoryItem[];
+  images: ProductImageItem[];
+  reviews: ProductReviewSummary;
   availableColors: string[];
   availableSizes: string[];
 };

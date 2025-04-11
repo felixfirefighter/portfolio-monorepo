@@ -6,10 +6,12 @@ export type GetProductReviewSummaryRequest = {
   productId: string;
 };
 
-export type GetProductReviewSummaryResponse = {
+export type ProductReviewSummary = {
   averageRating: number;
   reviewCount: number;
 };
+
+export type GetProductReviewSummaryResponse = ProductReviewSummary;
 
 export const getProductReviewSummary = async (
   request: GetProductReviewSummaryRequest

@@ -7,7 +7,6 @@ export type GetProductInfoRequest = {
 };
 
 export type GetProductInfo = {
-  productId: string;
   title: string;
   description: string[];
 };
@@ -22,7 +21,6 @@ export const getProductInfo = async (
   const { productId } = request;
   const results = await db
     .select({
-      productId: productInfo.productId,
       title: productInfo.title,
       description: productInfo.description,
     })

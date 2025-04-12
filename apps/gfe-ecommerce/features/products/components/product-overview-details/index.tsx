@@ -1,8 +1,11 @@
 import {
   formatCentsToDollars,
+  formatPercentage,
   formatRating,
 } from '@/features/store/utils/format';
+import { RiCheckLine } from '@remixicon/react';
 import type { ProductOverview } from '@repo/db-ecommerce';
+import { Badge } from '@repo/design-system/components/ui/badge';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
   Carousel,
@@ -11,6 +14,7 @@ import {
   CarouselItem,
 } from '@repo/design-system/components/ui/carousel';
 import { Rating } from '@repo/design-system/components/ui/rating';
+
 import {
   ScrollArea,
   ScrollBar,
@@ -29,7 +33,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
 
   const [api, setApi] = useState<CarouselApi>();
   const [selectedColor, setSelectedColor] = useState(availableSizes[0]);
-  const [selectedSize, setSelectedSize] = useState('XS');
+  const [selectedSize, setSelectedSize] = useState(availableSizes[0]);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const [selectedInventory, setSelectedInventory] = useState(inventory[0]);
@@ -111,51 +115,74 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
               {formatCentsToDollars(selectedInventory.salePrice)}
             </span>
             {selectedInventory.discountPercentage && (
-              <span className="text-muted-foreground text-sm line-through">
+              <span className="font-medium text-lg text-muted-foreground line-through">
                 {formatCentsToDollars(details.inventory[0].listPrice)}
               </span>
             )}
           </div>
+          {selectedInventory.discountPercentage && (
+            <div className="mb-3">
+              <Badge
+                variant={'outline'}
+                className="rounded-full border-amber-200 bg-amber-50 p-2.5 py-1 font-normal text-amber-700 text-sm"
+              >
+                {formatPercentage(selectedInventory.discountPercentage)} OFF
+              </Badge>
+            </div>
+          )}
           <div className="mt-1 flex items-center gap-2">
             <span className="text-xl">
               {formatRating(details.reviews.averageRating)}
             </span>
             <Rating rating={details.reviews.averageRating} />
-            <Link href="#" className="font-medium text-primary text-sm">
-              See all 62 reviews
-            </Link>
+            {details.reviews.reviewCount && (
+              <Link href="#" className="font-medium text-primary text-sm">
+                See all {details.reviews.reviewCount} reviews
+              </Link>
+            )}
           </div>
         </div>
       </div>
 
-      <p className="text-muted-foreground text-sm">
-        The Voyager Hoodie is for the explorer at heart. Its durable fabric and
-        roomy pockets are perfect for those who are always searching for the
-        next adventure.
-      </p>
+      <p className="py-8 text-neutral-600">{details.description}</p>
 
-      <div>
-        <h4 className="mb-1 font-medium text-sm">Available Colors</h4>
-        <div className="flex gap-2">
-          {availableColors.map((color) => (
-            <Button
-              key={color}
-              className={`h-6 w-6 rounded-full border-2 ${selectedColor === color ? 'border-black' : 'border-muted'}`}
-              style={{ backgroundColor: color }}
-              onClick={() => setSelectedColor(color)}
-            />
-          ))}
+      {availableColors.length > 0 && (
+        <div className="mb-8">
+          <h4 className="mb-4 font-medium text-sm">Available Colors</h4>
+          <div className="flex gap-4">
+            {availableColors.map((color) => (
+              <Button
+                key={color}
+                variant="ghost"
+                className={cn('h-10 w-10 rounded-full border-2 p-0.5', {
+                  'border-primary': selectedColor === color,
+                  'border-neutral-100': selectedColor !== color,
+                })}
+                onClick={() => setSelectedColor(color)}
+              >
+                <div
+                  className="flex h-full w-full items-center justify-center rounded-full"
+                  style={{ backgroundColor: color }}
+                >
+                  {selectedColor === color && <RiCheckLine color="white" />}
+                </div>
+              </Button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {availableSizes.length > 0 && (
         <div>
-          <h4 className="mb-1 font-medium text-sm">Available Sizes</h4>
+          <h4 className="text-neutral-500 text-sm">Available Sizes</h4>
           <div className="flex gap-2">
             {availableSizes.map((size) => (
               <Button
                 key={size}
-                className={`rounded border px-2 py-1 text-sm ${selectedSize === size ? 'border-black bg-muted' : 'border-muted-foreground'}`}
+                className={cn('rounded border px-2 py-1 text-sm', {
+                  'border-black bg-muted': selectedSize === size,
+                  'border-muted-foreground': selectedSize !== size,
+                })}
                 onClick={() => setSelectedSize(size)}
               >
                 {size}

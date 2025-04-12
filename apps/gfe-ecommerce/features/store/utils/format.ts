@@ -11,3 +11,10 @@ export const formatRating = (rating: number) => {
     maximumFractionDigits: 1,
   }).format(rating);
 };
+
+export const formatPercentage = (percentage: number) => {
+  return Number(percentage / 100 / 100).toLocaleString(undefined, {
+    style: 'percent',
+    minimumFractionDigits: 0,
+  });
+};

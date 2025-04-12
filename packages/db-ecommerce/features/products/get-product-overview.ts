@@ -23,6 +23,7 @@ export type GetProductOverviewRequest = {
 export type ProductOverview = {
   productId: string;
   name: string;
+  description: string;
   productInfo: GetProductInfo[];
   inventory: InventoryItem[];
   images: ProductImageItem[];
@@ -37,7 +38,7 @@ export type GetProductOverviewResponse = {
 
 export const getProductOverview = async (
   request: GetProductOverviewRequest
-) => {
+): Promise<GetProductOverviewResponse> => {
   const { productId } = request;
 
   try {
@@ -54,18 +55,27 @@ export const getProductOverview = async (
     const result = {
       productId: coreDetails.result.productId,
       name: coreDetails.result.name,
+      description: coreDetails.result.description,
       productInfo: productInfo.results,
       inventory: inventory.results,
       images: images.results,
       reviews: {
         averageRating: reviewSummary.averageRating,
-        count: reviewSummary.reviewCount,
+        reviewCount: reviewSummary.reviewCount,
       },
       availableColors: [
-        ...new Set(inventory.results.map((item) => item.color).filter(Boolean)),
+        ...new Set(
+          inventory.results
+            .map((item) => item.color)
+            .filter((item) => item !== null)
+        ),
       ],
       availableSizes: [
-        ...new Set(inventory.results.map((item) => item.size).filter(Boolean)),
+        ...new Set(
+          inventory.results
+            .map((item) => item.size)
+            .filter((item) => item !== null)
+        ),
       ],
     };
 

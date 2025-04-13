@@ -14,5 +14,9 @@ export const ProductOverviewSection = () => {
     return null;
   }
 
-  return <ProductOverviewDetails details={data} />;
+  return (
+    <>
+      <ProductOverviewDetails details={data} />
+    </>
+  );
 };

@@ -7,6 +7,8 @@ import { RiCheckLine } from '@remixicon/react';
 import type { ProductOverview } from '@repo/db-ecommerce';
 import { Badge } from '@repo/design-system/components/ui/badge';
 import { Button } from '@repo/design-system/components/ui/button';
+import { NumberInput } from '@repo/design-system/components/ui/number-input';
+
 import {
   Carousel,
   type CarouselApi,
@@ -148,7 +150,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
 
       {availableColors.length > 0 && (
         <div className="mb-8">
-          <h4 className="mb-4 font-medium text-sm">Available Colors</h4>
+          <h4 className="mb-4 text-neutral-500 text-sm">Available Colors</h4>
           <div className="flex gap-4">
             {availableColors.map((color) => (
               <Button
@@ -173,16 +175,19 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
       )}
 
       {availableSizes.length > 0 && (
-        <div>
-          <h4 className="text-neutral-500 text-sm">Available Sizes</h4>
-          <div className="flex gap-2">
+        <div className="mb-8">
+          <h4 className="mb-4 text-neutral-500 text-sm">Available Sizes</h4>
+          <div className="flex flex-wrap gap-2">
             {availableSizes.map((size) => (
               <Button
                 key={size}
-                className={cn('rounded border px-2 py-1 text-sm', {
-                  'border-black bg-muted': selectedSize === size,
-                  'border-muted-foreground': selectedSize !== size,
-                })}
+                variant={'outline'}
+                className={cn(
+                  'h-12 w-16 rounded font-medium text-base hover:bg-white',
+                  {
+                    'border-primary': selectedSize === size,
+                  }
+                )}
                 onClick={() => setSelectedSize(size)}
               >
                 {size}
@@ -192,22 +197,11 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
         </div>
       )}
 
-      <div className="flex items-center gap-2">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={() => setQuantity(Math.max(1, quantity - 1))}
-        >
-          -
-        </Button>
-        <span>{quantity}</span>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={() => setQuantity(quantity + 1)}
-        >
-          +
-        </Button>
+      <div className="mb-8">
+        <h4 className="mb-4 text-neutral-500 text-sm">Quantity</h4>
+        <div className="flex items-center gap-2">
+          <NumberInput value={quantity} onChange={setQuantity} min={1} />
+        </div>
       </div>
 
       <Button className="w-full">Add to Cart</Button>

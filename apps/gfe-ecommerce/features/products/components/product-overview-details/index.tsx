@@ -34,7 +34,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
   const { images, availableColors, availableSizes, inventory } = details;
 
   const [api, setApi] = useState<CarouselApi>();
-  const [selectedColor, setSelectedColor] = useState(availableSizes[0]);
+  const [selectedColor, setSelectedColor] = useState(availableColors[0]);
   const [selectedSize, setSelectedSize] = useState(availableSizes[0]);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(images[0]);

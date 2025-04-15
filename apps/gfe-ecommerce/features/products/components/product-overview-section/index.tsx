@@ -1,5 +1,6 @@
 import { ProductInfoSection } from '@/features/products/components/product-info-section';
 import { ProductOverviewDetails } from '@/features/products/components/product-overview-details';
+import { ProductSpecSection } from '@/features/products/components/product-spec-section';
 import type { ProductRouteParam } from '@/features/shell/types/routes';
 import { useGetProductOverviewQuery } from '@repo/api-ecommerce';
 import { useParams } from 'next/navigation';
@@ -19,6 +20,7 @@ export const ProductOverviewSection = () => {
     <>
       <ProductOverviewDetails details={data} />
       <ProductInfoSection infoList={data.productInfo} />
+      <ProductSpecSection />
     </>
   );
 };

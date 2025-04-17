@@ -1,6 +1,10 @@
 import { TABS } from '@/features/products/components/product-spec-section/data';
 import {} from '@remixicon/react';
 import {
+  ScrollArea,
+  ScrollBar,
+} from '@repo/design-system/components/ui/scroll-area';
+import {
   Tabs,
   TabsContent,
   TabsList,
@@ -25,22 +29,24 @@ export const ProductSpecSection = () => {
         for those with an eye for excellence and a heart for the environment.
       </p>
       <Tabs value={selectedTab}>
-        <TabsList className="bg-transparent">
-          {TABS.map((tab) => (
-            <TabsTrigger
-              key={tab.value}
-              value={tab.value}
-              className={
-                'rounded-none border-b py-3 text-base data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none'
-              }
-              onClick={() => setSelectedTab(tab.value)}
-            >
-              {tab.title}
-            </TabsTrigger>
-          ))}
-        </TabsList>
+        <ScrollArea>
+          <TabsList className="h-auto bg-transparent">
+            {TABS.map((tab) => (
+              <TabsTrigger
+                key={tab.value}
+                value={tab.value}
+                className={
+                  'rounded-none border-b py-2 text-base data-[state=active]:border-primary data-[state=active]:text-primary data-[state=active]:shadow-none'
+                }
+                onClick={() => setSelectedTab(tab.value)}
+              >
+                {tab.title}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
 
-        {/* Tab Content */}
         {TABS.map((tab) => (
           <TabsContent key={tab.value} value={tab.value} className="mt-4">
             <div className="py-8">

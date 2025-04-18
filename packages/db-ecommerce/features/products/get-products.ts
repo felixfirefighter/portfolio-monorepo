@@ -2,9 +2,20 @@ import { db } from '@repo/db-ecommerce/index';
 import { inventory } from '@repo/db-ecommerce/schema/inventory';
 import { productImages } from '@repo/db-ecommerce/schema/product-images';
 import { products } from '@repo/db-ecommerce/schema/products';
-import { type AnyColumn, type SQL, asc, desc, eq, sql } from 'drizzle-orm';
+import {
+  type AnyColumn,
+  type SQL,
+  and,
+  asc,
+  desc,
+  eq,
+  not,
+  sql,
+} from 'drizzle-orm';
 
 export type GetProductsRequest = {
+  productIdToExclude?: string;
+  collectionId?: string;
   orderBy?: keyof typeof products | keyof typeof inventory; // Column to order by
   orderDirection?: 'asc' | 'desc'; // Sorting direction
   limit?: number;
@@ -29,6 +40,8 @@ export const getProducts = async (
   request: GetProductsRequest
 ): Promise<GetProductsResponse> => {
   const {
+    collectionId,
+    productIdToExclude,
     orderBy = 'createdAt',
     orderDirection = 'desc',
     limit = 8,
@@ -104,17 +117,26 @@ export const getProducts = async (
 
     const direction = orderDirection === 'asc' ? asc : desc;
 
+    const whereCondition =
+      collectionId !== undefined && productIdToExclude !== undefined
+        ? and(
+            eq(products.collectionId, collectionId),
+            not(eq(products.productId, productIdToExclude)) // Exclude the current product
+          )
+        : undefined;
+
     // Final Query: Select from the CTE and apply final ordering and pagination
-    const products = await db
-      .with(allProductColors, rankedProducts) // Make CTEs available
-      .select() // Select all columns defined in the rankedProducts CTE
+    const results = await db
+      .with(allProductColors, rankedProducts)
+      .select()
       .from(rankedProducts)
       .orderBy(direction(orderByColumn))
       .limit(limit)
+      .where(whereCondition)
       .offset(offset);
 
     return {
-      products,
+      products: results,
     };
   } catch (err) {
     console.error('ERROR', err);

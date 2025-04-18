@@ -10,6 +10,7 @@ export type GetProduct = {
   productId: string;
   name: string;
   description: string;
+  collectionId: string | null;
 };
 
 export type GetProductResponse = {
@@ -25,6 +26,7 @@ export const getProduct = async (
       productId: products.productId,
       name: products.name,
       description: products.description,
+      collectionId: products.collectionId,
     })
     .from(products)
     .where(eq(products.productId, productId))

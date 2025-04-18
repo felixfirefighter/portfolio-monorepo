@@ -30,6 +30,7 @@ export type ProductOverview = {
   reviews: ProductReviewSummary;
   availableColors: string[];
   availableSizes: string[];
+  collectionId: string | null;
 };
 
 export type GetProductOverviewResponse = {
@@ -54,6 +55,7 @@ export const getProductOverview = async (
 
     const result = {
       productId: coreDetails.result.productId,
+      collectionId: coreDetails.result.collectionId,
       name: coreDetails.result.name,
       description: coreDetails.result.description,
       productInfo: productInfo.results,

@@ -13,7 +13,16 @@ export const productsApi = createApi({
   baseQuery, // Calls Next.js API routes
   endpoints: (builder) => ({
     getProducts: builder.query<GetProductsResponse, GetProductsRequest>({
-      query: (props) => 'products',
+      query: (props) => {
+        const params = new URLSearchParams();
+        for (const key of Object.keys(props)) {
+          const value = props[key as keyof typeof props];
+          if (value !== undefined && value !== null) {
+            params.append(key, String(value));
+          }
+        }
+        return `products?${params.toString()}`;
+      },
     }),
     getProductOverview: builder.query<
       ProductOverview,

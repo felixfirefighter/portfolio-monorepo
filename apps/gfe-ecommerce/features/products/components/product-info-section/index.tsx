@@ -13,7 +13,7 @@ type Props = {
 export const ProductInfoSection: React.FC<Props> = (props) => {
   const { infoList } = props;
   return (
-    <section className="container">
+    <section className="container pb-20">
       <Accordion type="multiple">
         {infoList.map((info) => (
           <AccordionItem key={info.title} value={`info-${info.title}`}>

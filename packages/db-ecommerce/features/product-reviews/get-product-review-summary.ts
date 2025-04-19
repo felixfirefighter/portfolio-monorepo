@@ -28,6 +28,13 @@ export const getProductReviewSummary = async (
     .limit(1);
 
   const summary = result[0];
+  if (!summary) {
+    return {
+      averageRating: 0,
+      reviewCount: 0,
+    };
+  }
+
   return {
     averageRating: summary.averageRating
       ? Number.parseFloat(summary.averageRating)

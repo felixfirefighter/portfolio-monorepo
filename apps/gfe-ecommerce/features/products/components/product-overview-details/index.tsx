@@ -137,7 +137,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
               {formatRating(details.reviews.averageRating)}
             </span>
             <Rating rating={details.reviews.averageRating} />
-            {details.reviews.reviewCount && (
+            {details.reviews.reviewCount !== 0 && (
               <Link href="#" className="font-medium text-primary text-sm">
                 See all {details.reviews.reviewCount} reviews
               </Link>
@@ -156,7 +156,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
               <Button
                 key={color}
                 variant="ghost"
-                className={cn('h-10 w-10 rounded-full border-2 p-0.5', {
+                className={cn('h-10 w-10 rounded-full border-2 p-0.5 ', {
                   'border-primary': selectedColor === color,
                   'border-neutral-100': selectedColor !== color,
                 })}
@@ -183,7 +183,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
                 key={size}
                 variant={'outline'}
                 className={cn(
-                  'h-12 w-16 rounded font-medium text-base hover:bg-white',
+                  'h-12 w-16 rounded font-medium text-base uppercase hover:bg-white',
                   {
                     'border-primary': selectedSize === size,
                   }

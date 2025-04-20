@@ -11,8 +11,13 @@ export const RelatedProductsSection: React.FC<Props> = (props) => {
   const { data, isFetching } = useGetProductsQuery({
     productIdToExclude: productId,
     collectionId,
+    limit: 4,
   });
 
-  console.log('data', data);
-  return <ProductList data={data} isFetching={isFetching} />;
+  return (
+    <section className="container py-10">
+      <h2 className="mb-8 font-semibold text-2xl">In this collection</h2>
+      <ProductList data={data} isFetching={isFetching} />
+    </section>
+  );
 };

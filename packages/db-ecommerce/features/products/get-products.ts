@@ -65,6 +65,22 @@ export const getProducts = async (
       .groupBy(inventory.productId)
   );
 
+  const conditions: (SQL | undefined)[] = [];
+
+  if (collectionId !== undefined) {
+    // Add collection filter if provided
+    conditions.push(eq(products.collectionId, collectionId));
+  }
+
+  if (productIdToExclude !== undefined) {
+    // Add exclusion filter if provided
+    conditions.push(not(eq(products.productId, productIdToExclude)));
+  }
+
+  // Combine all dynamic conditions (if any)
+  const dynamicWhereCondition =
+    conditions.length > 0 ? and(...conditions.filter(Boolean)) : undefined;
+
   // IMPORTANT: We select all necessary fields here, including the ones needed for the FINAL sorting (like createdAt)
   const rankedProducts = db.$with('ranked_products').as(
     db
@@ -89,7 +105,7 @@ export const getProducts = async (
         allProductColors,
         eq(products.productId, allProductColors.productId)
       )
-      .where(sql`${inventory.id} is not null`)
+      .where(and(sql`${inventory.id} is not null`, dynamicWhereCondition))
       // *** INNER ORDER BY for DISTINCT ON logic (DO NOT CHANGE LIGHTLY) ***
       .orderBy(
         asc(products.productId),
@@ -116,15 +132,6 @@ export const getProducts = async (
     }
 
     const direction = orderDirection === 'asc' ? asc : desc;
-
-    const whereCondition =
-      collectionId !== undefined && productIdToExclude !== undefined
-        ? and(
-            eq(products.collectionId, collectionId),
-            not(eq(products.productId, productIdToExclude)) // Exclude the current product
-          )
-        : undefined;
-
     // Final Query: Select from the CTE and apply final ordering and pagination
     const results = await db
       .with(allProductColors, rankedProducts)
@@ -132,7 +139,6 @@ export const getProducts = async (
       .from(rankedProducts)
       .orderBy(direction(orderByColumn))
       .limit(limit)
-      .where(whereCondition)
       .offset(offset);
 
     return {

@@ -62,17 +62,10 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
 
   return (
     <div className="container py-10">
-      <div className="lg:flex lg:gap-8">
+      <div className="lg:gap-8 xl:flex">
         <div>
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
-              <Image
-                src={selectedImage.imageUrl}
-                alt={details.name}
-                width={400}
-                height={400}
-                className="rounded-md object-cover"
-              />
               {images.map((img, index) => (
                 <CarouselItem key={index}>
                   <Image
@@ -81,7 +74,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
                     alt={`Preview ${index + 1}`}
                     width={400}
                     height={400}
-                    className="h-[400px] w-full rounded-md object-cover"
+                    className="h-[400px] w-full rounded-md object-cover lg:aspect-square lg:h-auto"
                   />
                 </CarouselItem>
               ))}
@@ -97,7 +90,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
                   width={120}
                   height={120}
                   className={cn(
-                    'h-32 w-20 cursor-pointer rounded-lg border-2 border-transparent object-cover',
+                    'h-32 w-20 cursor-pointer rounded-lg border-2 border-transparent object-cover lg:h-48 lg:w-48',
                     {
                       'border-primary': selectedImage.imageUrl === img.imageUrl,
                     }
@@ -111,7 +104,9 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
         </div>
 
         <div>
-          <h1 className="mb-5 font-semibold text-3xl">{details.name}</h1>
+          <h1 className="mb-5 font-semibold text-3xl lg:mt-8 lg:text-5xl">
+            {details.name}
+          </h1>
           <div className="mb-2 flex items-center gap-2">
             <span className="font-medium text-3xl">
               {formatCentsToDollars(selectedInventory.salePrice)}
@@ -146,7 +141,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
         </div>
       </div>
 
-      <p className="py-8 text-neutral-600">{details.description}</p>
+      <p className="py-8 text-base text-neutral-600">{details.description}</p>
 
       {availableColors.length > 0 && (
         <div className="mb-8">
@@ -204,7 +199,9 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
         </div>
       </div>
 
-      <Button className="w-full">Add to Cart</Button>
+      <Button className="w-full" size={'lg'}>
+        Add to Cart
+      </Button>
     </div>
   );
 };

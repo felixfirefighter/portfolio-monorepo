@@ -36,7 +36,7 @@ export const ProductSpecSection = () => {
                 key={tab.value}
                 value={tab.value}
                 className={
-                  'rounded-none py-2 text-base data-[state=active]:border-primary data-[state=active]:border-b data-[state=active]:text-primary data-[state=active]:shadow-none'
+                  'rounded-none py-2 text-base data-[state=active]:border-primary data-[state=active]:border-b data-[state=active]:text-primary data-[state=active]:shadow-none lg:px-4'
                 }
                 onClick={() => setSelectedTab(tab.value)}
               >
@@ -49,13 +49,13 @@ export const ProductSpecSection = () => {
 
         {TABS.map((tab) => (
           <TabsContent key={tab.value} value={tab.value}>
-            <div className="flex flex-col items-center gap-8 py-2 lg:flex-row">
+            <div className="flex flex-col items-center gap-8 py-2 xl:flex-row">
               <Image
                 src={tab.imageSrc}
                 alt={tab.imageAlt}
                 width={704}
                 height={384}
-                className="aspect-video h-full w-full shrink-0 rounded-xl bg-neutral-50 object-cover lg:w-[500px]"
+                className="aspect-video h-full w-full shrink-0 rounded-xl bg-neutral-50 object-cover"
               />
               <div className="flex-2">
                 <h3 className="mb-2 font-semibold text-2xl text-neutral-900">

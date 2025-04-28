@@ -16,7 +16,9 @@ export const RelatedProductsSection: React.FC<Props> = (props) => {
 
   return (
     <section className="container py-10">
-      <h2 className="mb-8 font-semibold text-2xl">In this collection</h2>
+      <h2 className="mb-8 font-semibold text-2xl md:text-3xl">
+        In this collection
+      </h2>
       <ProductList data={data} isFetching={isFetching} />
     </section>
   );

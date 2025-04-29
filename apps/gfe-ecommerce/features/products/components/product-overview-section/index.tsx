@@ -1,4 +1,3 @@
-import { ProductInfoSection } from '@/features/products/components/product-info-section';
 import { ProductOverviewDetails } from '@/features/products/components/product-overview-details';
 import { ProductSpecSection } from '@/features/products/components/product-spec-section';
 import { RelatedProductsSection } from '@/features/products/components/related-products-section';
@@ -20,7 +19,6 @@ export const ProductOverviewSection = () => {
   return (
     <>
       <ProductOverviewDetails details={data} />
-      <ProductInfoSection infoList={data.productInfo} />
       <ProductSpecSection />
       {data.collectionId && (
         <RelatedProductsSection

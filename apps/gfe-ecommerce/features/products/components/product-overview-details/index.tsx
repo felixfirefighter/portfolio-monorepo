@@ -17,6 +17,7 @@ import {
 } from '@repo/design-system/components/ui/carousel';
 import { Rating } from '@repo/design-system/components/ui/rating';
 
+import { ProductInfoSection } from '@/features/products/components/product-info-section';
 import {
   ScrollArea,
   ScrollBar,
@@ -63,7 +64,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
   return (
     <div className="container py-10">
       <div className="lg:gap-8 xl:flex">
-        <div>
+        <div className="xl:flex-1">
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
               {images.map((img, index) => (
@@ -72,8 +73,8 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
                     key={img.imageUrl}
                     src={img.imageUrl}
                     alt={`Preview ${index + 1}`}
-                    width={400}
-                    height={400}
+                    width={800}
+                    height={800}
                     className="h-[400px] w-full rounded-md object-cover lg:aspect-square lg:h-auto"
                   />
                 </CarouselItem>
@@ -87,10 +88,10 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
                   key={index}
                   src={img.imageUrl}
                   alt={`Preview ${index + 1}`}
-                  width={120}
-                  height={120}
+                  width={240}
+                  height={240}
                   className={cn(
-                    'h-32 w-20 cursor-pointer rounded-lg border-2 border-transparent object-cover lg:h-48 lg:w-48',
+                    'h-32 w-20 cursor-pointer rounded-lg border-2 border-transparent object-cover lg:h-48 lg:w-48 xl:w-40',
                     {
                       'border-primary': selectedImage.imageUrl === img.imageUrl,
                     }
@@ -103,7 +104,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
           </ScrollArea>
         </div>
 
-        <div>
+        <div className="xl:flex-1">
           <h1 className="mb-5 font-semibold text-3xl lg:mt-8 lg:text-5xl">
             {details.name}
           </h1>
@@ -138,70 +139,76 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
               </Link>
             )}
           </div>
+
+          <p className="py-8 text-base text-neutral-600">
+            {details.description}
+          </p>
+
+          {availableColors.length > 0 && (
+            <div className="mb-8">
+              <h4 className="mb-4 text-neutral-500 text-sm">
+                Available Colors
+              </h4>
+              <div className="flex gap-4">
+                {availableColors.map((color) => (
+                  <Button
+                    key={color}
+                    variant="ghost"
+                    className={cn('h-10 w-10 rounded-full border-2 p-0.5 ', {
+                      'border-primary': selectedColor === color,
+                      'border-neutral-100': selectedColor !== color,
+                    })}
+                    onClick={() => setSelectedColor(color)}
+                  >
+                    <div
+                      className="flex h-full w-full items-center justify-center rounded-full"
+                      style={{ backgroundColor: color }}
+                    >
+                      {selectedColor === color && <RiCheckLine color="white" />}
+                    </div>
+                  </Button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {availableSizes.length > 0 && (
+            <div className="mb-8">
+              <h4 className="mb-4 text-neutral-500 text-sm">Available Sizes</h4>
+              <div className="flex flex-wrap gap-2">
+                {availableSizes.map((size) => (
+                  <Button
+                    key={size}
+                    variant={'outline'}
+                    className={cn(
+                      'h-12 w-16 rounded font-medium text-base uppercase hover:bg-white',
+                      {
+                        'border-primary': selectedSize === size,
+                      }
+                    )}
+                    onClick={() => setSelectedSize(size)}
+                  >
+                    {size}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="mb-8">
+            <h4 className="mb-4 text-neutral-500 text-sm">Quantity</h4>
+            <div className="flex items-center gap-2">
+              <NumberInput value={quantity} onChange={setQuantity} min={1} />
+            </div>
+          </div>
+
+          <Button className="w-full" size={'lg'}>
+            Add to Cart
+          </Button>
+
+          <ProductInfoSection infoList={details.productInfo} />
         </div>
       </div>
-
-      <p className="py-8 text-base text-neutral-600">{details.description}</p>
-
-      {availableColors.length > 0 && (
-        <div className="mb-8">
-          <h4 className="mb-4 text-neutral-500 text-sm">Available Colors</h4>
-          <div className="flex gap-4">
-            {availableColors.map((color) => (
-              <Button
-                key={color}
-                variant="ghost"
-                className={cn('h-10 w-10 rounded-full border-2 p-0.5 ', {
-                  'border-primary': selectedColor === color,
-                  'border-neutral-100': selectedColor !== color,
-                })}
-                onClick={() => setSelectedColor(color)}
-              >
-                <div
-                  className="flex h-full w-full items-center justify-center rounded-full"
-                  style={{ backgroundColor: color }}
-                >
-                  {selectedColor === color && <RiCheckLine color="white" />}
-                </div>
-              </Button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {availableSizes.length > 0 && (
-        <div className="mb-8">
-          <h4 className="mb-4 text-neutral-500 text-sm">Available Sizes</h4>
-          <div className="flex flex-wrap gap-2">
-            {availableSizes.map((size) => (
-              <Button
-                key={size}
-                variant={'outline'}
-                className={cn(
-                  'h-12 w-16 rounded font-medium text-base uppercase hover:bg-white',
-                  {
-                    'border-primary': selectedSize === size,
-                  }
-                )}
-                onClick={() => setSelectedSize(size)}
-              >
-                {size}
-              </Button>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <div className="mb-8">
-        <h4 className="mb-4 text-neutral-500 text-sm">Quantity</h4>
-        <div className="flex items-center gap-2">
-          <NumberInput value={quantity} onChange={setQuantity} min={1} />
-        </div>
-      </div>
-
-      <Button className="w-full" size={'lg'}>
-        Add to Cart
-      </Button>
     </div>
   );
 };

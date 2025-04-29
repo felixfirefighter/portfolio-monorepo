@@ -55,7 +55,7 @@ export const ProductSpecSection = () => {
                 alt={tab.imageAlt}
                 width={704}
                 height={384}
-                className="aspect-video h-full w-full shrink-0 rounded-xl bg-neutral-50 object-cover"
+                className="aspect-video h-full w-full shrink-0 rounded-xl bg-neutral-50 object-cover xl:aspect-auto xl:w-[400px]"
               />
               <div className="flex-2">
                 <h3 className="mb-2 font-semibold text-2xl text-neutral-900">

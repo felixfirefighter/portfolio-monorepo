@@ -22,10 +22,11 @@ import {
   ScrollArea,
   ScrollBar,
 } from '@repo/design-system/components/ui/scroll-area';
+import {} from '@repo/design-system/components/ui/tooltip';
 import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 type Props = {
   details: ProductOverview;
 };
@@ -39,9 +40,19 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
   const [selectedSize, setSelectedSize] = useState(availableSizes[0]);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(images[0]);
-  const [selectedInventory, setSelectedInventory] = useState(inventory[0]);
 
-  console.log('details', details);
+  const selectedInventory = useMemo(() => {
+    return inventory.find((item) => {
+      return item.color === selectedColor && item.size === selectedSize;
+    });
+  }, [selectedSize, selectedColor, inventory]);
+
+  const maxQuantity = useMemo(() => {
+    if (!selectedInventory) {
+      return 0;
+    }
+    return selectedInventory.stock;
+  }, [selectedInventory]);
 
   useEffect(() => {
     if (!api) {
@@ -109,16 +120,18 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
             {details.name}
           </h1>
           <div className="mb-2 flex items-center gap-2">
-            <span className="font-medium text-3xl">
-              {formatCentsToDollars(selectedInventory.salePrice)}
-            </span>
-            {selectedInventory.discountPercentage && (
+            {selectedInventory && (
+              <span className="font-medium text-3xl">
+                {formatCentsToDollars(selectedInventory.salePrice)}
+              </span>
+            )}
+            {selectedInventory?.discountPercentage && (
               <span className="font-medium text-lg text-muted-foreground line-through">
-                {formatCentsToDollars(details.inventory[0].listPrice)}
+                {formatCentsToDollars(selectedInventory.listPrice)}
               </span>
             )}
           </div>
-          {selectedInventory.discountPercentage && (
+          {selectedInventory?.discountPercentage && (
             <div className="mb-3">
               <Badge
                 variant={'outline'}
@@ -198,7 +211,12 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
           <div className="mb-8">
             <h4 className="mb-4 text-neutral-500 text-sm">Quantity</h4>
             <div className="flex items-center gap-2">
-              <NumberInput value={quantity} onChange={setQuantity} min={1} />
+              <NumberInput
+                value={quantity}
+                onChange={setQuantity}
+                min={1}
+                max={maxQuantity}
+              />
             </div>
           </div>
 

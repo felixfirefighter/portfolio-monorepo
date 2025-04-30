@@ -66,8 +66,9 @@ const NumberInput: React.FC<NumberInputProps> = ({
                 variant="ghost"
                 size="icon"
                 onClick={handleDecrement}
-                className="p-2 hover:bg-transparent border-transparent"
+                className={"p-2 hover:bg-transparent border-transparent"}
                 aria-label="Decrease quantity"
+                disabled={value <= min}
             >
                 <span className="text-xl">−</span>
             </Button>
@@ -88,6 +89,7 @@ const NumberInput: React.FC<NumberInputProps> = ({
                 onClick={handleIncrement}
                 className="p-2 hover:bg-transparent border-transparent"
                 aria-label="Increase quantity"
+                disabled={max !== undefined && value >= max}
             >
                 <span className="text-xl">+</span>
             </Button>

@@ -79,14 +79,13 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
               {images.map((img, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={img.imageUrl}>
                   <Image
-                    key={img.imageUrl}
                     src={img.imageUrl}
                     alt={`Preview ${index + 1}`}
                     width={800}
                     height={800}
-                    className="h-[400px] w-full rounded-md object-cover lg:aspect-square lg:h-auto"
+                    className="h-[400px] w-full rounded-md object-cover md:h-[1000px]"
                   />
                 </CarouselItem>
               ))}
@@ -116,7 +115,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
         </div>
 
         <div className="xl:flex-1">
-          <h1 className="mb-5 font-semibold text-3xl lg:mt-8 lg:text-5xl">
+          <h1 className="mb-5 font-semibold text-3xl lg:mt-8 lg:text-5xl xl:mt-0">
             {details.name}
           </h1>
           <div className="mb-2 flex items-center gap-2">
@@ -163,24 +162,32 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
                 Available Colors
               </h4>
               <div className="flex gap-4">
-                {availableColors.map((color) => (
-                  <Button
-                    key={color}
-                    variant="ghost"
-                    className={cn('h-10 w-10 rounded-full border-2 p-0.5 ', {
-                      'border-primary': selectedColor === color,
-                      'border-neutral-100': selectedColor !== color,
-                    })}
-                    onClick={() => setSelectedColor(color)}
-                  >
-                    <div
-                      className="flex h-full w-full items-center justify-center rounded-full"
-                      style={{ backgroundColor: color }}
+                {availableColors.map((color) => {
+                  const inventoryItem = inventory.find((item) => {
+                    return item.color === color && item.size === selectedSize;
+                  });
+                  return (
+                    <Button
+                      key={color}
+                      variant="ghost"
+                      className={cn('h-10 w-10 rounded-full border-2 p-0.5 ', {
+                        'border-primary': selectedColor === color,
+                        'border-neutral-100': selectedColor !== color,
+                      })}
+                      disabled={inventoryItem?.stock === 0}
+                      onClick={() => setSelectedColor(color)}
                     >
-                      {selectedColor === color && <RiCheckLine color="white" />}
-                    </div>
-                  </Button>
-                ))}
+                      <div
+                        className="flex h-full w-full items-center justify-center rounded-full"
+                        style={{ backgroundColor: color }}
+                      >
+                        {selectedColor === color && (
+                          <RiCheckLine color="white" />
+                        )}
+                      </div>
+                    </Button>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -189,21 +196,27 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
             <div className="mb-8">
               <h4 className="mb-4 text-neutral-500 text-sm">Available Sizes</h4>
               <div className="flex flex-wrap gap-2">
-                {availableSizes.map((size) => (
-                  <Button
-                    key={size}
-                    variant={'outline'}
-                    className={cn(
-                      'h-12 w-16 rounded font-medium text-base uppercase hover:bg-white',
-                      {
-                        'border-primary': selectedSize === size,
-                      }
-                    )}
-                    onClick={() => setSelectedSize(size)}
-                  >
-                    {size}
-                  </Button>
-                ))}
+                {availableSizes.map((size) => {
+                  const inventoryItem = inventory.find((item) => {
+                    return item.size === size && item.color === selectedColor;
+                  });
+                  return (
+                    <Button
+                      key={size}
+                      variant={'outline'}
+                      className={cn(
+                        'h-12 w-16 rounded font-medium text-base uppercase hover:bg-white',
+                        {
+                          'border-primary': selectedSize === size,
+                        }
+                      )}
+                      disabled={inventoryItem?.stock === 0}
+                      onClick={() => setSelectedSize(size)}
+                    >
+                      {size}
+                    </Button>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -220,7 +233,11 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
             </div>
           </div>
 
-          <Button className="w-full" size={'lg'}>
+          <Button
+            className="w-full"
+            size={'lg'}
+            disabled={selectedInventory?.stock === 0}
+          >
             Add to Cart
           </Button>
 

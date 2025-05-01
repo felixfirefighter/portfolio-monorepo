@@ -1,4 +1,5 @@
 import { ProductOverviewDetails } from '@/features/products/components/product-overview-details';
+import { ProductOverviewSectionSkeleton } from '@/features/products/components/product-overview-section/skeleton';
 import { ProductSpecSection } from '@/features/products/components/product-spec-section';
 import { RelatedProductsSection } from '@/features/products/components/related-products-section';
 import type { ProductRouteParam } from '@/features/shell/types/routes';
@@ -13,7 +14,7 @@ export const ProductOverviewSection = () => {
   });
 
   if (isFetching || !data) {
-    return null;
+    return <ProductOverviewSectionSkeleton />;
   }
 
   return (

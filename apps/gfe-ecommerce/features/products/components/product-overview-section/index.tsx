@@ -9,7 +9,7 @@ import { useParams } from 'next/navigation';
 export const ProductOverviewSection = () => {
   const { id } = useParams<ProductRouteParam>();
 
-  const { data, isFetching, error } = useGetProductOverviewQuery({
+  const { data, isFetching } = useGetProductOverviewQuery({
     productId: id,
   });
 

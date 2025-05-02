@@ -35,7 +35,7 @@ export const FeatureSection = () => {
         description="We pride ourselves on a foundation of exceptional customer service, where every interaction is a testament to our dedication to excellence."
       />
 
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-8 pt-10 lg:grid-cols-3">
         {features.map((feature) => (
           <div
             key={feature.title}

@@ -85,7 +85,7 @@ export const ProductOverviewDetails: React.FC<Props> = (props) => {
                     alt={`Preview ${index + 1}`}
                     width={800}
                     height={800}
-                    className="h-[400px] w-full rounded-md object-cover md:h-[1000px]"
+                    className="h-[400px] w-full rounded-md object-cover md:aspect-square md:h-auto"
                   />
                 </CarouselItem>
               ))}

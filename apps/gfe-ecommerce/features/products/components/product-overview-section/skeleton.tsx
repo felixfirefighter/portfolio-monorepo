@@ -4,7 +4,7 @@ export const ProductOverviewSectionSkeleton = () => {
   return (
     <div className="container grid grid-cols-1 gap-8 px-4 py-8 md:grid-cols-2">
       <div className="flex flex-col gap-2">
-        <Skeleton className="h-[400px] w-full rounded-md md:h-[500px] xl:h-[800px]" />
+        <Skeleton className="h-[400px] w-full rounded-md object-cover md:aspect-square md:h-auto" />
         <div className="flex gap-4">
           <Skeleton className="h-32 w-20 lg:h-48 lg:w-48 xl:w-40" />
           <Skeleton className="h-32 w-20 lg:h-48 lg:w-48 xl:w-40" />
